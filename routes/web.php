@@ -18,6 +18,10 @@ Route::get('/home', function(){
 	return view('home');
 });
 
+Route::get('/inscripcion', function(){
+	return view('inscripcion');
+});
+
 Auth::routes();
 Route::get('/admin', 'HomeController@index')->name('home')->middleware('auth');
 
