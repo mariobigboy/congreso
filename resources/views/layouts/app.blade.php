@@ -24,7 +24,7 @@
         @auth()
             <div class="wrapper">
                     @include('layouts.navbars.sidebar')
-                <div class="main-panel">
+                <div class="main-panel" data="green">
                     @include('layouts.navbars.navbar')
 
                     <div class="content">
@@ -40,7 +40,7 @@
         @else
             @include('layouts.navbars.navbar')
             <div class="wrapper wrapper-full-page">
-                <div class="full-page {{ $contentClass ?? '' }}">
+                <div class="full-page {{ $contentClass ?? '' }}" data="green">
                     <div class="content">
                         <div class="container">
                             @yield('content')
@@ -50,7 +50,7 @@
                 </div>
             </div>
         @endauth
-        <div class="fixed-plugin">
+        {{-- <div class="fixed-plugin">
             <div class="dropdown show-dropdown">
                 <a href="#" data-toggle="dropdown">
                 <i class="fa fa-cog fa-2x"> </i>
@@ -86,7 +86,7 @@
                 </li>
                 </ul>
             </div>
-        </div>
+        </div> --}}
         <script src="{{ asset('black') }}/js/core/jquery.min.js"></script>
         <script src="{{ asset('black') }}/js/core/popper.min.js"></script>
         <script src="{{ asset('black') }}/js/core/bootstrap.min.js"></script>
@@ -120,6 +120,13 @@
                     window_width = $(window).width();
 
                     fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
+
+                    var new_color = 'green'; //['blue', 'green', 'primary']
+                    $sidebar.attr('data', new_color);
+                    $main_panel.attr('data', new_color);
+                    $full_page.attr('filter-color', new_color);
+                    $sidebar_responsive.attr('data', new_color);
+
 
                     $('.fixed-plugin a').click(function(event) {
                         if ($(this).hasClass('switch-trigger')) {

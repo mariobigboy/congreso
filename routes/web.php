@@ -12,11 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
+});
+Route::get('/home', function(){
+	return view('home');
 });
 
 Auth::routes();
-
 Route::get('/admin', 'HomeController@index')->name('home')->middleware('auth');
 
 Route::group(['middleware' => 'auth'], function () {
@@ -27,6 +29,21 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::get('tables', ['as' => 'pages.tables', 'uses' => 'PageController@tables']);
 		Route::get('typography', ['as' => 'pages.typography', 'uses' => 'PageController@typography']);
 		Route::get('upgrade', ['as' => 'pages.upgrade', 'uses' => 'PageController@upgrade']);
+
+		Route::get('disertantes', ['as' => 'pages.disertantes', 'uses' => 'PageController@disertantes']);
+		Route::get('programas', ['as' => 'pages.programas', 'uses' => 'PageController@programas']);
+		Route::get('cursos', ['as' => 'pages.cursos', 'uses' => 'PageController@cursos']);
+		Route::get('galerias', ['as' => 'pages.galerias', 'uses' => 'PageController@galerias']);
+});
+
+Route::group(['middleware' => 'auth'], function(){
+	Route::get('asistentes', ['as' => 'asistentes.index', 'uses' => 'AsistentesController@index']);
+	Route::get('asistentes/create', ['as' => 'asistentes.create', 'uses' => 'AsistentesController@create']);
+});
+
+Route::group(['middleware' => 'auth'], function(){
+	Route::get('noticias', ['as' => 'noticias.index', 'uses' => 'NoticiasController@index']);
+	Route::get('noticias/create', ['as' => 'noticias.create', 'uses' => 'NoticiasController@create']);
 });
 
 Route::group(['middleware' => 'auth'], function () {
@@ -35,4 +52,6 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
 });
+
+
 

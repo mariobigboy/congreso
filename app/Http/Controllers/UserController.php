@@ -51,9 +51,9 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        if ($user->id == 1) {
+        /*if ($user->id == 1) {
             return redirect()->route('user.index');
-        }
+        }*/
 
         return view('users.edit', compact('user'));
     }
