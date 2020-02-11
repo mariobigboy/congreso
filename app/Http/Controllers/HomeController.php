@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
+
 class HomeController extends Controller
 {
     /**
@@ -21,6 +23,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        $users_cant = DB::table('users')->get()->count();
+        return view('dashboard')->with('users_cant', $users_cant);
     }
+
+
 }

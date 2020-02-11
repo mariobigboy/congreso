@@ -7,10 +7,10 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-8">
-                            <h4 class="card-title">{{ __('Disertantes') }}</h4>
+                            <h4 class="card-title"><strong>{{ __('Disertantes') }}</strong></h4>
                         </div>
                         <div class="col-4 text-right">
-                            <!--<a href="{{ route('user.create') }}" class="btn btn-sm btn-primary">{{ __('Add user') }}</a>-->
+                            <a href="{{ route('disertantes.create') }}" class="btn btn-sm btn-primary">{{ __('Nuevo Disertante') }}</a>
                         </div>
                     </div>
                 </div>

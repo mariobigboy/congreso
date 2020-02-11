@@ -17,13 +17,13 @@
 
                 <li @if ($pageSlug ?? '' == 'asistentes') class="active " @endif>
                     <a href="{{ route('asistentes.index') }}">
-                        <i class="tim-icons icon-badge"></i>
+                        <i class="tim-icons icon-single-02"></i>
                         <p>{{ __('Asistentes') }}</p>
                     </a>
                 </li>
 
                 <li @if ($pageSlug ?? '' == 'disertantes') class="active " @endif>
-                    <a href="{{ route('pages.disertantes') }}">
+                    <a href="{{ route('disertantes.index') }}">
                         <i class="tim-icons icon-badge"></i>
                         <p>{{ __('Disertantes') }}</p>
                     </a>
@@ -57,12 +57,7 @@
                     </a>
                 </li>
 
-                <!--<li @if ($pageSlug ?? '' == 'disertantes') class="active " @endif>
-                    <a href="{{ route('pages.disertantes') }}">
-                        <i class="tim-icons icon-satisfied"></i>
-                        <p>{{ __('Disertantes') }}</p>
-                    </a>
-                </li>-->
+                
                 <li>
                     <a data-toggle="collapse" href="#laravel-examples" aria-expanded="false">
                         <i class="fab fa-laravel" ></i>

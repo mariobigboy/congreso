@@ -46,6 +46,11 @@ Route::group(['middleware' => 'auth'], function(){
 });
 
 Route::group(['middleware' => 'auth'], function(){
+	Route::get('disertantes', ['as' => 'disertantes.index', 'uses' => 'DisertantesController@index']);
+	Route::get('disertantes/create', ['as' => 'disertantes.create', 'uses' => 'DisertantesController@create']);
+});
+
+Route::group(['middleware' => 'auth'], function(){
 	Route::get('noticias', ['as' => 'noticias.index', 'uses' => 'NoticiasController@index']);
 	Route::get('noticias/create', ['as' => 'noticias.create', 'uses' => 'NoticiasController@create']);
 });

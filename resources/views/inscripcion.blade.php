@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
@@ -8,28 +8,39 @@
 <body>
 	<div class="container">
 		<h2>Inscripción AOA - 2.020</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos aliquam vitae ea, fugit, odio alias dolores, corrupti vel eius facere inventore magni! Iste natus dolores eius minima, laboriosam sint sit.</p>
+		<p>Inscripción de asistentes.</p>
 	</div>
 	<div class="container">
 		<form id="formFormulario">
 		  <div class="form-row">
 		  	<div class="form-group col-md-6">
-		      <label for="inputEmail4">Nombres</label>
-		      <input type="text" class="form-control" id="inpNombres">
+		      <label for="inpNombres" class="col-md-5">Nombres</label>
+		      <div class="col-md-12">
+		      	<input type="text" class="form-control" id="inpNombres" name="nombres" placeholder="Nombres">
+		      </div>
 		    </div>
 		    <div class="form-group col-md-6">
-		      <label for="inputEmail4">Apellidos</label>
-		      <input type="text" class="form-control" id="inpApellidos">
+		      <label for="inpApellidos" class="col-md-5">Apellidos</label>
+		      <div class="col-md-12">
+		      	<input type="text" class="form-control" id="inpApellidos" name="apellidos" placeholder="Apellidos">
+		      </div>
 		    </div>
 		    <div class="form-group col-md-6">
-		      <label for="inputEmail4">Email</label>
-		      <input type="email" class="form-control" id="inpEmail">
+		      <label for="inpEmail" class="col-md-5">Email</label>
+		      <div class="col-md-12">
+		      	<input type="email" class="form-control" id="inpEmail" name="email" placeholder="email@ejemplo.com">
+		      </div>
 		    </div>
 		    <div class="form-group col-md-6">
-		      <label for="inputPassword4">Contraseña</label>
-		      <input type="password" class="form-control" id="inpPass">
+		      <label for="inpPass" class="col-md-5">Contraseña</label>
+		      <div class="col-md-12">
+		      	<input type="password" class="form-control" id="inpPass" name="password" placeholder="Contraseña">
+		      </div>
 		    </div>
 		  </div>
+		  	<button type="submit" class="btn btn-primary">Registrar!</button>
+
+		  
 		  
 		 {{--  <div class="form-group">
 		    <div class="form-check">
@@ -39,7 +50,6 @@
 		      </label>
 		    </div>
 		  </div> --}}
-		  <button type="submit" class="btn btn-primary">Registrar!</button>
 		</form>
 	</div>
 </body>
