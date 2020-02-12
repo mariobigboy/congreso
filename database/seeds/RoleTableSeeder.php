@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Schema;
 use App\Role;
 
 class RoleTableSeeder extends Seeder
@@ -12,7 +13,10 @@ class RoleTableSeeder extends Seeder
      */
     public function run()
     {
+
+        Schema::disableForeignKeyConstraints();
         Role::truncate();
+        Schema::enableForeignKeyConstraints();
         $role = new Role();
         $role->nombre = 'superadmin';
         $role->descripcion = 'Super Administrador';
@@ -24,8 +28,13 @@ class RoleTableSeeder extends Seeder
         $role->save();
 
         $role = new Role();
-        $role->nombre = 'user';
-        $role->descripcion = 'Usuario';
+        $role->nombre = 'asistente';
+        $role->descripcion = 'Asistente';
+        $role->save();
+
+        $role = new Role();
+        $role->nombre = 'disertante';
+        $role->descripcion = 'Disertante';
         $role->save();
     }
 }

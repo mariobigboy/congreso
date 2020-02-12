@@ -16,6 +16,7 @@
                 </div>
                 <div class="card-body">
                     <div class="">
+                        @if(count($asistentes ) > 0)
                         <table class="table tablesorter " id="">
                             <thead class=" text-primary">
                                 <th scope="col">{{ __('Name') }}</th>
@@ -24,18 +25,21 @@
                                 {{-- <th scope="col"></th> --}}
                             </thead>
                             <tbody>
-                                @foreach ($users as $user)
-                                    <tr>
-                                        <td>{{ $user->name }}</td>
-                                        <td>
-                                            <a href="mailto:{{ $user->email }}">{{ $user->email }}</a>
-                                        </td>
-                                        <td>{{ ($user->created_at) }}</td>
-                                        
-                                    </tr>
-                                @endforeach
+                                    @foreach ($asistentes as $asistente)
+                                        <tr>
+                                            <td>{{ $asistente->name }}</td>
+                                            <td>
+                                                <a href="mailto:{{ $asistente->email }}">{{ $asistente->email }}</a>
+                                            </td>
+                                            <td>{{ ($asistente->created_at) }}</td>
+                                            
+                                        </tr>
+                                    @endforeach
                             </tbody>
                         </table>
+                        @else
+                            <p class="text-center">Aún no hay asistentes</p>
+                        @endif
                     </div>
                 </div>
                 <div class="card-footer py-4">
