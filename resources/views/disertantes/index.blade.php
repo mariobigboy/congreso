@@ -15,7 +15,41 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    
+                    <div class="">
+                        @if(count($disertantes ) > 0)
+                        <table class="table tablesorter " id="">
+                            <thead class=" text-primary">
+                                <th scope="col"></th>
+                                <th scope="col">{{ __('Name') }}</th>
+                                <th scope="col">{{ __('Email') }}</th>
+                                <th scope="col">{{ __('Creation Date') }}</th>
+                                {{-- <th scope="col"></th> --}}
+                            </thead>
+                            <tbody>
+                                    @php
+                                        $i = 0;
+                                    @endphp
+
+                                    @foreach ($disertantes as $disertante)
+                                        @php
+                                            $i++;
+                                        @endphp
+                                        <tr>
+                                            <td>{{ $i }}</td>
+                                            <td>{{ $disertante->name }}</td>
+                                            <td>
+                                                <a href="mailto:{{ $disertante->email }}">{{ $disertante->email }}</a>
+                                            </td>
+                                            <td>{{ ($disertante->created_at) }}</td>
+                                            
+                                        </tr>
+                                    @endforeach
+                            </tbody>
+                        </table>
+                        @else
+                            <p class="text-center">Aún no hay Disertantes</p>
+                        @endif
+                    </div>
                 </div>
                 <div class="card-footer py-4">
                     <nav class="d-flex justify-content-end" aria-label="...">

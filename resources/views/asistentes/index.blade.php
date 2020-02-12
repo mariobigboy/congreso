@@ -7,10 +7,10 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-8">
-                            <h4 class="card-title"><strong>{{ __('Asistentes') }}</strong></h4>
+                            <h4 class="card-title"><strong>{{ __('Asistentes Registrados') }}</strong></h4>
                         </div>
                         <div class="col-4 text-right">
-                            <a href="{{ route('asistentes.create') }}" class="btn btn-sm btn-primary">{{ __('Nuevo Asistente') }}</a>
+                            <!--<a href="{{ route('asistentes.create') }}" class="btn btn-sm btn-primary">{{ __('Nuevo Asistente') }}</a>-->
                         </div>
                     </div>
                 </div>
@@ -19,19 +19,34 @@
                         @if(count($asistentes ) > 0)
                         <table class="table tablesorter " id="">
                             <thead class=" text-primary">
-                                <th scope="col">{{ __('Name') }}</th>
+                                <th scope="col"> </th>
+                                <th scope="col">{{ __('Nombre y Apellido') }}</th>
                                 <th scope="col">{{ __('Email') }}</th>
-                                <th scope="col">{{ __('Creation Date') }}</th>
+                                <th scope="col">{{ __('Dni') }}</th>
+                                <th scope="col">{{ __('telefono') }}</th>
+                                <th scope="col">{{ __('Registrado') }}</th>
+                                <th scope="col">{{ __('Matricula') }}</th>
                                 {{-- <th scope="col"></th> --}}
                             </thead>
                             <tbody>
+                                    @php
+                                        $i = 0;
+                                    @endphp
+
                                     @foreach ($asistentes as $asistente)
+                                        @php
+                                            $i++;
+                                        @endphp
                                         <tr>
-                                            <td>{{ $asistente->name }}</td>
+                                            <td>{{ $i }}</td>
+                                            <td>{{ $asistente->nombre }} {{ $asistente->apellido }}</td>
                                             <td>
                                                 <a href="mailto:{{ $asistente->email }}">{{ $asistente->email }}</a>
                                             </td>
+                                            <td>{{ $asistente->dni }}</td>
+                                            <td>{{ $asistente->telefono }}</td>
                                             <td>{{ ($asistente->created_at) }}</td>
+                                            <td>{{ $asistente->matricula_id == NULL? 'No pagada' : 'Pagada' }}</td>
                                             
                                         </tr>
                                     @endforeach

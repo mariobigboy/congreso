@@ -15,7 +15,7 @@ class CreateAsistenteTable extends Migration
     {
         Schema::create('asistente', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('matricula_id');
+            $table->unsignedBigInteger('matricula_id')->nullable();
             $table->unsignedBigInteger('persona_id');
             $table->timestamps();
         });

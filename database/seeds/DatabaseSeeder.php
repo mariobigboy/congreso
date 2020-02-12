@@ -11,7 +11,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        //$this->call([UsersTableSeeder::class]);
 
         //Creacion de roles:
         $this->call([RoleTableSeeder::class]);
@@ -19,5 +18,13 @@ class DatabaseSeeder extends Seeder
         //usuarios necesitaran los roles previamente generados:
         $this->call([UserTableSeeder::class]);
 
+        //seeders para personas:
+        $this->call([PersonasSeeder::class]);
+
+        //seeders para disertantes:
+        $this->call([DisertanteSeeder::class]);
+
+        //seeders para asistente:
+        $this->call([AsistenteSeeder::class]);
     }
 }

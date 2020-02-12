@@ -17,6 +17,12 @@ class RoleTableSeeder extends Seeder
         Schema::disableForeignKeyConstraints();
         Role::truncate();
         Schema::enableForeignKeyConstraints();
+
+        $role = new Role();
+        $role->nombre = 'developer';
+        $role->descripcion = 'Desarrollador'; //tendrá acceso a todo
+        $role->save(); 
+
         $role = new Role();
         $role->nombre = 'superadmin';
         $role->descripcion = 'Super Administrador';
@@ -28,13 +34,13 @@ class RoleTableSeeder extends Seeder
         $role->save();
 
         $role = new Role();
-        $role->nombre = 'asistente';
-        $role->descripcion = 'Asistente';
+        $role->nombre = 'user';
+        $role->descripcion = 'Empleado';
         $role->save();
 
-        $role = new Role();
+        /*$role = new Role();
         $role->nombre = 'disertante';
         $role->descripcion = 'Disertante';
-        $role->save();
+        $role->save();*/
     }
 }
