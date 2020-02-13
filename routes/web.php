@@ -47,6 +47,7 @@ Route::group(['middleware' => 'auth'], function(){
 
 Route::group(['middleware' => 'auth'], function(){
 	Route::get('disertantes', ['as' => 'disertantes.index', 'uses' => 'DisertantesController@index']);
+	Route::post('disertantes', ['as' => 'disertantes.store', 'uses' => 'DisertantesController@store']);
 	Route::get('disertantes/create', ['as' => 'disertantes.create', 'uses' => 'DisertantesController@create']);
 });
 

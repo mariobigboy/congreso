@@ -8,6 +8,10 @@ class Disertante extends Model
 {
     protected $table = 'disertante';
 
+     protected $fillable = [
+        '_token'
+    ];
+
     public function persona(){
    		return $this->hasOne('\App\Persona', 'id', 'persona_id');
    	}

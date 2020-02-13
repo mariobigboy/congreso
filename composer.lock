@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "060c88f23e4156cc393ae3a962f18405",
+    "content-hash": "c4a6576d5f8f3c71f1a1a747a32f1c98",
     "packages": [
         {
             "name": "components/font-awesome",
@@ -1599,6 +1599,41 @@
                 "uuid"
             ],
             "time": "2019-12-17T08:18:51+00:00"
+        },
+        {
+            "name": "rohnstock/pickadate",
+            "version": "v3.5.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rohnstock/pickadate.js.git",
+                "reference": "b5586a8373dd06db58fc9dbbf0ee87b4201865be"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rohnstock/pickadate.js/zipball/b5586a8373dd06db58fc9dbbf0ee87b4201865be",
+                "reference": "b5586a8373dd06db58fc9dbbf0ee87b4201865be",
+                "shasum": ""
+            },
+            "type": "component",
+            "extra": {
+                "component": {
+                    "files": [
+                        "css/*.css",
+                        "js/*.js",
+                        "translations/*.js"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "The mobile-friendly, responsive, and lightweight jQuery date & time input picker.",
+            "homepage": "https://github.com/amsul/pickadate.js",
+            "keywords": [
+                "charts"
+            ],
+            "time": "2016-04-05T07:49:50+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
