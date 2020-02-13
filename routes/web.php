@@ -46,10 +46,13 @@ Route::group(['middleware' => 'auth'], function(){
 });
 
 Route::group(['middleware' => 'auth'], function(){
+	Route::get('disertantes/edit/{id}', ['as' => 'disertantes.edit', 'uses' => 'DisertantesController@edit']);	
 	Route::get('disertantes', ['as' => 'disertantes.index', 'uses' => 'DisertantesController@index']);
 	Route::post('disertantes', ['as' => 'disertantes.store', 'uses' => 'DisertantesController@store']);
 	Route::get('disertantes/create', ['as' => 'disertantes.create', 'uses' => 'DisertantesController@create']);
 });
+
+
 
 Route::group(['middleware' => 'auth'], function(){
 	Route::get('noticias', ['as' => 'noticias.index', 'uses' => 'NoticiasController@index']);

@@ -33,11 +33,21 @@ class DisertantesController extends Controller
         $persona->save();
 
         $persona_id = $persona->id;
-        dd($persona_id);
+
+        $disertante = new Disertante();
+        $disertante->persona_id = $persona_id;
+        $disertante->fecha_congreso = now();//$request->fecha_congreso;
+        $disertante->save();
+        
 
         //me quede aquí
         //$model->create($request->all());
 
-        //return redirect()->route('disertantes.index')->withStatus(__('User successfully created.'));
+        return redirect()->route('disertantes.index')->with('status', '¡Disertante añadido correctamente!');
+    }
+
+    public function edit($id){
+        //return 'edit : '.$;
+        return view('disertantes.edit');
     }
 }

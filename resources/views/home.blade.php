@@ -54,7 +54,7 @@
 
 	</head>
 	<body>
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias nostrum illo et, libero, amet odio minima similique iste ad esse delectus, atque dolore rerum voluptas dolores assumenda, facere recusandae consequuntur!
+		Este sería el index de Landing Page <br>
 		<a href="{{ route('home') }}">Ir al panel de administración</a>
 	</body>
 </html>

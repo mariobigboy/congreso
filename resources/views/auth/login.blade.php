@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="col-md-10 text-center ml-auto mr-auto">
-        <h3 class="mb-5">Log in to see how you can speed up your web development with out of the box CRUD for #User Management and more.</h3>
+        <h3 class="mb-5">Bienvenid@</h3>
     </div>
     <div class="col-lg-4 col-md-6 ml-auto mr-auto">
         <form class="form" method="post" action="{{ route('login') }}">
@@ -14,7 +14,7 @@
                     <h1 class="card-title">{{ __('Log in') }}</h1>
                 </div>
                 <div class="card-body">
-                    <p class="text-dark mb-2">Sign in with <strong>admin@black.com</strong> and the password <strong>secret</strong></p>
+                    <p class="text-dark mb-2">Ingrese con su <strong>Email</strong> y su <strong>contraseña</strong></p>
                     <div class="input-group{{ $errors->has('email') ? ' has-danger' : '' }}">
                         <div class="input-group-prepend">
                             <div class="input-group-text">
@@ -30,20 +30,20 @@
                                 <i class="tim-icons icon-lock-circle"></i>
                             </div>
                         </div>
-                        <input type="password" placeholder="{{ __('Password') }}" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}">
+                        <input type="password" placeholder="{{ __('Contraseña') }}" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}">
                         @include('alerts.feedback', ['field' => 'password'])
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button type="submit" href="" class="btn btn-primary btn-lg btn-block mb-3">{{ __('Get Started') }}</button>
+                    <button type="submit" href="" class="btn btn-primary btn-lg btn-block mb-3">{{ __('Ingresar') }}</button>
                     <div class="pull-left">
                         <h6>
-                            <a href="{{ route('register') }}" class="link footer-link">{{ __('Create Account') }}</a>
+                            <a href="{{ route('register') }}" class="link footer-link">{{ __('Registro') }}</a>
                         </h6>
                     </div>
                     <div class="pull-right">
                         <h6>
-                            <a href="{{ route('password.request') }}" class="link footer-link">{{ __('Forgot password?') }}</a>
+                            <a href="{{ route('password.request') }}" class="link footer-link">{{ __('¿Olvidó su contraseña?') }}</a>
                         </h6>
                     </div>
                 </div>

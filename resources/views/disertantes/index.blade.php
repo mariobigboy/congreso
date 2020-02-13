@@ -15,9 +15,20 @@
                     </div>
                 </div>
                 <div class="card-body">
+                    @if(session('status'))
+                        <div class="alert alert-success">
+                          <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
+                            <i class="tim-icons icon-simple-remove"></i>
+                          </button>
+                          <span>
+                            <b> {{ session('status') }}</span>
+                        </div>
+                    @endif
+
                     <div class="">
+
                         @if(count($disertantes ) > 0)
-                        <table class="table tablesorter " id="">
+                        <table class="table tablesorter table-hover table-click" id="">
                             <thead class=" text-primary">
                                 <th scope="col"></th>
                                 <th scope="col">{{ __('Name') }}</th>
@@ -34,9 +45,9 @@
                                         @php
                                             $i++;
                                         @endphp
-                                        <tr>
+                                        <tr onclick="location.href='{{ route('disertantes.edit', $disertante->id)}}';">
                                             <td>{{ $i }}</td>
-                                            <td>{{ $disertante->name }}</td>
+                                            <td>{{ Str::title($disertante->nombre) }} {{ Str::title($disertante->apellido) }}</td>
                                             <td>
                                                 <a href="mailto:{{ $disertante->email }}">{{ $disertante->email }}</a>
                                             </td>

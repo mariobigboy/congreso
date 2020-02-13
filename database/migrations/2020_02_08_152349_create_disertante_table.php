@@ -18,7 +18,6 @@ class CreateDisertanteTable extends Migration
             $table->unsignedBigInteger('persona_id');
             $table->timestamp('fecha_congreso');
             $table->unsignedBigInteger('curso_id')->nullable();
-            $table->string('_token');
             $table->timestamps();
         });
     }
