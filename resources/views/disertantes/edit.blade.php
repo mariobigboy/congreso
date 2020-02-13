@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
     <div class="row">
         <div class="col-md-12">
             <div class="card ">
@@ -23,44 +24,44 @@
                             <!-- nombre -->
                             <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                                 <label class="form-control-label" for="input-nombre">{{ __('Nombre') }}</label>
-                                <input type="text" name="nombre" id="input-nombre" class="form-control form-control-alternative{{ $errors->has('nombre') ? ' is-invalid' : '' }}" placeholder="{{ __('Nombre') }}" value="{{ old('nombre') }}" required autofocus>
+                                <input type="text" name="nombre" id="input-nombre" class="form-control form-control-alternative{{ $errors->has('nombre') ? ' is-invalid' : '' }}" placeholder="{{ __('Nombre') }}" value="{{ $persona->get('nombre') }}" required autofocus>
                                 @include('alerts.feedback', ['field' => 'nombre'])
                             </div>
                             <!-- apellido -->
                             <div class="form-group{{ $errors->has('apellido') ? ' has-danger' : '' }}">
                                 <label class="form-control-label" for="input-apellido">{{ __('Apellido') }}</label>
-                                <input type="text" name="apellido" id="input-apellido" class="form-control form-control-alternative{{ $errors->has('apellido') ? ' is-invalid' : '' }}" placeholder="{{ __('Apellidos') }}" value="{{ old('apellido') }}" required autofocus>
+                                <input type="text" name="apellido" id="input-apellido" class="form-control form-control-alternative{{ $errors->has('apellido') ? ' is-invalid' : '' }}" placeholder="{{ __('Apellidos') }}" value="{{ $persona->get('apellido') }}" required autofocus>
                                 @include('alerts.feedback', ['field' => 'apellido'])
                             </div>
                             <!-- dni -->
                             <div class="form-group{{ $errors->has('dni') ? ' has-danger' : '' }}">
                                 <label class="form-control-label" for="input-dni">{{ __('DNI') }}</label>
-                                <input type="text" name="dni" id="input-dni" class="form-control form-control-alternative{{ $errors->has('dni') ? ' is-invalid' : '' }}" placeholder="{{ __('Documento') }}" value="{{ old('dni') }}" required autofocus>
+                                <input type="text" name="dni" id="input-dni" class="form-control form-control-alternative{{ $errors->has('dni') ? ' is-invalid' : '' }}" placeholder="{{ __('Documento') }}" value="{{ $persona->get('dni') }}" required autofocus>
                                 @include('alerts.feedback', ['field' => 'dni'])
                             </div>
 
                             <!-- email -->
                             <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
                                 <label class="form-control-label" for="input-email">{{ __('Email') }}</label>
-                                <input type="email" name="email" id="input-email" class="form-control form-control-alternative{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Email') }}" value="{{ old('email') }}" required>
+                                <input type="email" name="email" id="input-email" class="form-control form-control-alternative{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Email') }}" value="{{ $persona->get('email') }}" required>
                                 @include('alerts.feedback', ['field' => 'email'])
                             </div>
                             <!-- telefono -->
                             <div class="form-group{{ $errors->has('telefono') ? ' has-danger' : '' }}">
                                 <label class="form-control-label" for="input-telefono">{{ __('Teléfono') }}</label>
-                                <input type="text" name="telefono" id="input-telefono" class="form-control form-control-alternative{{ $errors->has('telefono') ? ' is-invalid' : '' }}" placeholder="{{ __('Teléfono') }}" value="{{ old('telefono') }}" required autofocus>
+                                <input type="text" name="telefono" id="input-telefono" class="form-control form-control-alternative{{ $errors->has('telefono') ? ' is-invalid' : '' }}" placeholder="{{ __('Teléfono') }}" value="{{ $persona->get('telefono') }}" required autofocus>
                                 @include('alerts.feedback', ['field' => 'telefono'])
                             </div>
                             <!-- Pais -->
                             <div class="form-group{{ $errors->has('pais') ? ' has-danger' : '' }}">
                                 <label class="form-control-label" for="input-pais">{{ __('País') }}</label>
-                                <input type="text" name="pais" id="input-pais" class="form-control form-control-alternative{{ $errors->has('pais') ? ' is-invalid' : '' }}" placeholder="{{ __('País') }}" value="" required>
+                                <input type="text" name="pais" id="input-pais" class="form-control form-control-alternative{{ $errors->has('pais') ? ' is-invalid' : '' }}" placeholder="{{ __('País') }}" value="{{ $persona->get('pais') }}" required>
                                 @include('alerts.feedback', ['field' => 'pais'])
                             </div>
                             <!-- fecha_congreso -->
                             <div class="form-group">
                                 <label class="form-control-label" for="input-fecha">{{ __('Fecha') }}</label>
-                                <input type="text" name="fecha_congreso" id="input-fecha" class="form-control form-control-alternative" placeholder="{{ __('Fecha Congreso') }}" value="" required>
+                                <input type="text" name="fecha_congreso" id="input-fecha" class="form-control form-control-alternative" placeholder="{{ __('Fecha Congreso') }}" value="{{ $persona->get('fecha_congreso') }}" required>
                             </div>
 
                             <div class="text-left">

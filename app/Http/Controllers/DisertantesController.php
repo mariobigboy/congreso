@@ -46,8 +46,19 @@ class DisertantesController extends Controller
         return redirect()->route('disertantes.index')->with('status', '¡Disertante añadido correctamente!');
     }
 
+    public function update(){
+        
+    }
+
     public function edit($id){
         //return 'edit : '.$;
-        return view('disertantes.edit');
+        $disertante = Disertante::where('persona_id', $id)->first();
+        if(!is_null($disertante)){
+            $persona = $disertante->persona;
+            return view('disertantes.edit')->with('persona', collect($persona->toArray())->merge($disertante->toArray()));
+        }else{
+            //redirige al index de disertantes en caso de no encontrar persona asociada al id
+            return redirect('disertantes'); 
+        }
     }
 }
