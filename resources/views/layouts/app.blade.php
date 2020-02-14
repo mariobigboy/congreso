@@ -19,6 +19,10 @@
         <!-- CSS -->
         <link href="{{ asset('black') }}/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
         <link href="{{ asset('black') }}/css/theme.css" rel="stylesheet" />
+        <link rel="stylesheet" href="{{ asset('pickadate')}}/css/default.date.css">
+        <link rel="stylesheet" href="{{ asset('pickadate')}}/css/default.time.css">
+        <link rel="stylesheet" href="{{ asset('pickadate')}}/css/default.css">
+        {{-- <link rel="stylesheet" href="{{ asset('pickadate')}}/css/default.css"> --}}
     </head>
     <body class="{{ $class ?? '' }}">
         @auth()
@@ -101,6 +105,9 @@
 
         <script src="{{ asset('black') }}/js/black-dashboard.min.js?v=1.0.0"></script>
         <script src="{{ asset('black') }}/js/theme.js"></script>
+        <script src="{{ asset('pickadate') }}/js/picker.js"></script>
+        <script src="{{ asset('pickadate') }}/js/picker.date.js"></script>
+        <script src="{{ asset('pickadate') }}/js/picker.time.js"></script>
 
         @stack('js')
 
@@ -204,6 +211,32 @@
 
                                 white_color = true;
                             }
+                    });
+
+                    $('.datepicker').pickadate({
+                        monthsFull: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                        monthsShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                        weekdaysFull: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+                        weekdaysShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'],
+                        // Buttons
+                        today: 'Hoy',
+                        clear: 'Limpiar',
+                        close: 'Cerrar',
+
+                        // Accessibility labels
+                        labelMonthNext: 'Siguiente Mes',
+                        labelMonthPrev: 'Mes Previo',
+                        labelMonthSelect: 'Seleccione un Mes',
+                        labelYearSelect: 'Seleccione un Año',
+                        format: 'd mmmm, yyyy',
+                        submitFormat:'yyyy-mm-dd',
+                        min: new Date(),
+                    });
+
+                    $('.timepicker').pickatime({
+                        format: 'HH:i',
+                        formatSubmit: 'HH:i',
+                        dateInterval: 30,
                     });
                 });
             });

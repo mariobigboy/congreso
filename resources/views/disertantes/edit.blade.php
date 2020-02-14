@@ -2,6 +2,7 @@
 
 @section('content')
 
+    
     <div class="row">
         <div class="col-md-12">
             <div class="card ">
@@ -60,12 +61,18 @@
                             </div>
                             <!-- fecha_congreso -->
                             <div class="form-group">
-                                <label class="form-control-label" for="input-fecha">{{ __('Fecha') }}</label>
-                                <input type="text" name="fecha_congreso" id="input-fecha" class="form-control form-control-alternative" placeholder="{{ __('Fecha Congreso') }}" value="{{ $persona->get('fecha_congreso') }}" required>
+                                <label class="form-control-label " for="input-fecha">{{ __('Fecha') }}</label>
+                                <input type="text" name="fecha_congreso" id="input-fecha" class="form-control form-control-alternative datepicker" placeholder="{{ __('31/12/2020') }}" value="{{ $persona->get('fecha_congreso') }}" required>
+                            </div>
+                            <!-- horario_congreso -->
+                            <div class="form-group">
+                                <label class="form-control-label " for="input-hora">{{ __('Horario') }}</label>
+                                <input type="text" name="hora_congreso" id="input-hora" class="form-control form-control-alternative timepicker" placeholder="{{ __('00:00') }}" value="{{ $persona->get('hora_congreso') }}" required>
                             </div>
 
                             <div class="text-left">
                                 <button type="submit" class="btn btn-success mt-4">{{ __('Guardar Cambios') }}</button>
+                                <a href="{{ route('disertantes.destroy', $persona->get('id')) }}" type="button" class="btn btn-danger mt-4">{{ __('Eliminar') }}</a>
                             </div>
                         </div>
                     </form>

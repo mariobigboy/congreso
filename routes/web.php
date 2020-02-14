@@ -18,9 +18,9 @@ Route::get('/home', function(){
 	return view('home');
 });
 
-Route::get('/inscripcion', function(){
-	return view('inscripcion');
-});
+Route::post('/inscripcion', ['as' => 'inscripcion.store', 'uses' => 'InscripcionController@store']);
+
+Route::get('/inscripcion', ['as' => 'inscripcion.index', 'uses' => 'InscripcionController@index']);
 
 Auth::routes();
 Route::get('/admin', 'HomeController@index')->name('home')->middleware('auth');
@@ -47,6 +47,7 @@ Route::group(['middleware' => 'auth'], function(){
 
 Route::group(['middleware' => 'auth'], function(){
 	Route::get('disertantes/edit/{id}', ['as' => 'disertantes.edit', 'uses' => 'DisertantesController@edit']);	
+	Route::get('disertantes/delete/{id}', ['as' => 'disertantes.destroy', 'uses' => 'DisertantesController@destroy']);
 	Route::get('disertantes', ['as' => 'disertantes.index', 'uses' => 'DisertantesController@index']);
 	Route::post('disertantes', ['as' => 'disertantes.store', 'uses' => 'DisertantesController@store']);
 	Route::get('disertantes/create', ['as' => 'disertantes.create', 'uses' => 'DisertantesController@create']);

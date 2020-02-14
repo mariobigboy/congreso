@@ -12,7 +12,7 @@ class DisertantesController extends Controller
     	//disertantes:
     	/*$model_disertantes = Role::where('nombre', 'disertante')->first();
     	$disertantes = $model_disertantes->users;*/
-        $disertantes = Disertante::select('disertante.*','persona.*')->join('persona', 'disertante.persona_id', '=', 'persona.id')->get();
+        $disertantes = Disertante::select('disertante.id as disertante_id','persona.*')->join('persona', 'disertante.persona_id', '=', 'persona.id')->get(['disertante.id as disertante_id']);
     	return view('disertantes.index')->with('disertantes', $disertantes);
     }
 
@@ -60,5 +60,17 @@ class DisertantesController extends Controller
             //redirige al index de disertantes en caso de no encontrar persona asociada al id
             return redirect('disertantes'); 
         }
+    }
+
+    public function destroy($id){
+
+        $disertante = Disertante::where('id', $id)->first();
+        if(!is_null($disertante)){
+            $disertante->delete();
+
+            return redirect()->route('disertantes.index')->with('success_delete', 'Disertante eliminado correctamente!');
+        }
+
+        return redirect()->route('disertantes.index')->with('error_delete', 'Error al eliminar el disertante!');
     }
 }

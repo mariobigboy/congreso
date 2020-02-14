@@ -57,10 +57,17 @@
                                 <input type="text" name="pais" id="input-pais" class="form-control form-control-alternative{{ $errors->has('pais') ? ' is-invalid' : '' }}" placeholder="{{ __('País') }}" value="" required>
                                 @include('alerts.feedback', ['field' => 'pais'])
                             </div>
+                            
                             <!-- fecha_congreso -->
                             <div class="form-group">
                                 <label class="form-control-label" for="input-fecha">{{ __('Fecha') }}</label>
-                                <input type="text" name="fecha_congreso" id="input-fecha" class="form-control form-control-alternative" placeholder="{{ __('Fecha Congreso') }}" value="" required>
+                                <input type="text" name="fecha_congreso" id="input-fecha" class="form-control form-control-alternative datepicker" placeholder="{{ __('Fecha Congreso') }}" value="" required>
+                            </div>
+
+                            <!-- hora_congreso -->
+                            <div class="form-group">
+                                <label class="form-control-label" for="input-hora">{{ __('Hora') }}</label>
+                                <input type="text" name="hora_congreso" id="input-hora" class="form-control form-control-alternative timepicker" placeholder="00:00" value="" required>
                             </div>
 
                             <div class="text-left">
