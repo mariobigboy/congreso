@@ -25,7 +25,7 @@ class PersonasSeeder extends Seeder
         $persona->telefono = '3875687362';
         $persona->pais = 'Argentina';
         $persona->email = 'palinejs@gmail.com';
-        $persona->foto_url = 'images/avatar1.jpg';
+        $persona->foto_url = 'avatar_default.png';
         $persona->save();
 
         $persona = new Persona();
@@ -35,7 +35,7 @@ class PersonasSeeder extends Seeder
         $persona->telefono = '3875687363';
         $persona->pais = 'Argentina';
         $persona->email = 'palinejs2@gmail.com';
-        $persona->foto_url = 'images/avatar2.jpg';
+        $persona->foto_url = 'avatar_default.png';
         $persona->save();
     }
 }

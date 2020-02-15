@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\ProfileRequest;
+use Illuminate\Http\Request;
 use App\Http\Requests\PasswordRequest;
+use App\Persona;
 
 class ProfileController extends Controller
 {
@@ -15,7 +17,10 @@ class ProfileController extends Controller
      */
     public function edit()
     {
-        return view('profile.edit');
+        //dd($req);
+        $persona = Persona::where('email', auth()->user()->email)->first();
+
+        return view('profile.edit')->with('persona', $persona);
     }
 
     /**
@@ -29,6 +34,21 @@ class ProfileController extends Controller
         auth()->user()->update($request->all());
 
         return back()->withStatus(__('Profile successfully updated.'));
+    }
+
+    public function updatePicture(Request $request){
+        $request->validate([
+            'foto_url' => 'required|image|mimes:jpeg,png,jpg|max:4096'
+        ]);
+
+
+        $imageName = time().'.'.$request->foto_url->getClientOriginalExtension();
+        $request->foto_url->move(public_path('images/avatar/'), $imageName);
+
+        $persona = Persona::where('email', auth()->user()->email)->first();
+        $persona->foto_url = $imageName;
+        $persona->save();
+        return back()->with('success_upload','success');
     }
 
     /**

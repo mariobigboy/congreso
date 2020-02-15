@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Persona;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Hash;
 
@@ -54,6 +55,7 @@ class UserController extends Controller
         /*if ($user->id == 1) {
             return redirect()->route('user.index');
         }*/
+        
 
         return view('users.edit', compact('user'));
     }

@@ -55,6 +55,13 @@
 	</head>
 	<body>
 		Este sería el index de Landing Page <br>
-		<a href="{{ route('home') }}">Ir al panel de administración</a>
+		<ul class="list-group list-group-flush">
+			<li class="list-group-item">
+				<a href="{{route('inscripcion.index')}}">Inscripción</a><br>
+			</li>
+			<li class="list-group-item">
+				<a href="{{ route('home') }}">Ir al panel de administración</a>
+			</li>
+		</ul>
 	</body>
 </html>

@@ -6,7 +6,7 @@
 	<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
 </head>
 <body>
-	<div class="container">
+	<div class="container text-center mb-5">
 		<h2>Inscripción AOA - 2.020</h2>
 		<p>Inscripción de asistentes.</p>
 	</div>
@@ -17,17 +17,14 @@
 			</div>
 		@endif
 
-		@if(session('error_register'))
-			<div class="alert alert-danger" role="alert">
-				{{ session('error_register') }}	  
-			</div>
-		@endif
 
-		@error('nombres')
-			<div class="alert alert-danger" role="alert">
-				falta el nombre
-			</div>
-		@enderror
+		{{-- @if($errors->any())
+			@foreach($errors->all() as $error)
+				<div class="alert alert-danger" role="alert">
+					{{ $error }}
+				</div>
+			@endforeach
+		@endif --}}
 
 		<form id="formFormulario" action="{{ route('inscripcion.store') }}" method="post">
 			@csrf
@@ -36,21 +33,40 @@
 			  	<div class="form-group col-md-6">
 			      <label for="inpNombres" class="col-md-5">Nombres</label>
 			      <div class="col-md-12">
-			      	<input type="text" class="form-control" id="inpNombres" name="nombres" placeholder="Nombres">
+			      	<input type="text" class="form-control {{ ($errors->has('nombres')? ' border-danger' : '') }}" id="inpNombres" name="nombres" placeholder="Nombres">
+			      	@if($errors->has('nombres'))
+			      		<small class="text-danger">{{$errors->first('nombres')}}</small>
+			      	@endif
 			      </div>
 			    </div>
 
 			    <div class="form-group col-md-6">
 			      <label for="inpApellidos" class="col-md-5">Apellidos</label>
 			      <div class="col-md-12">
-			      	<input type="text" class="form-control" id="inpApellidos" name="apellidos" placeholder="Apellidos">
+			      	<input type="text" class="form-control {{ ($errors->has('apellidos')? ' border-danger' : '') }}" id="inpApellidos" name="apellidos" placeholder="Apellidos">
+			      	@if($errors->has('apellidos'))
+			      		<small class="text-danger">{{$errors->first('apellidos')}}</small>
+			      	@endif
+			      </div>
+			    </div>
+
+			    <div class="form-group col-md-6">
+			      <label for="inpDni" class="col-md-5">DNI</label>
+			      <div class="col-md-12">
+			      	<input type="text" class="form-control {{ ($errors->has('dni')? ' border-danger' : '') }}" id="inpDni" name="dni" placeholder="00000000">
+			      	@if($errors->has('dni'))
+			      		<small class="text-danger">{{$errors->first('dni')}}</small>
+			      	@endif
 			      </div>
 			    </div>
 
 			    <div class="form-group col-md-6">
 			      <label for="inpEmail" class="col-md-5">Email</label>
 			      <div class="col-md-12">
-			      	<input type="email" class="form-control" id="inpEmail" name="email" placeholder="email@ejemplo.com">
+			      	<input type="email" class="form-control {{ ($errors->has('email')? ' border-danger' : '') }}" id="inpEmail" name="email" placeholder="email@ejemplo.com">
+			      	@if($errors->has('email'))
+			      		<small class="text-danger">{{$errors->first('email')}}</small>
+			      	@endif
 			      </div>
 			    </div>
 
@@ -64,7 +80,10 @@
 			    <div class="form-group col-md-6">
 			      <label for="inpPass" class="col-md-5">Contraseña</label>
 			      <div class="col-md-12">
-			      	<input type="password" class="form-control" id="inpPass" name="password" placeholder="Contraseña">
+			      	<input type="password" class="form-control {{ ($errors->has('password')? ' border-danger' : '') }}" id="inpPass" name="password" placeholder="Contraseña">
+			      	@if($errors->has('password'))
+			      		<small class="text-danger">{{$errors->first('password')}}</small>
+			      	@endif
 			      </div>
 			    </div>
 

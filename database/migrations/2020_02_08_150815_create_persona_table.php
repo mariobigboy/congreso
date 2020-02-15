@@ -18,9 +18,9 @@ class CreatePersonaTable extends Migration
             $table->string('nombre', 50);
             $table->string('apellido', 50);
             $table->string('dni', 10)->unique();
-            $table->string('telefono', 20);
-            $table->string('pais', 20);
-            $table->string('email');
+            $table->string('telefono', 20)->nullable();
+            $table->string('pais', 20)->nullable();
+            $table->string('email')->unique();
             $table->string('foto_url');
             $table->timestamps();
         });

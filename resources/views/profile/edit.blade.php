@@ -31,6 +31,39 @@
                     </div>
                 </form>
             </div>
+            
+            <!-- editPicture-->
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="title">{{ __('Foto de Perfil') }}</h5>
+                </div>
+                <form method="post" action="{{ route('profile.updatepicture') }}" autocomplete="off" enctype="multipart/form-data">
+                    <div class="card-body">
+                        @csrf
+                        
+
+                        @include('alerts.success', ['key' => 'password_status'])
+
+                       <div class="input-group mb-3">
+                          <div class="custom-file">
+                            <input type="file" class="custom-file-input form-control" id="inpFile" aria-describedby="inputGroupFileAddon01" name="foto_url">
+                            <label class="custom-file-label" for="inpFile">Choose file</label>
+                          </div>
+                        </div>
+                        
+                        <!--<div class="form-group{{ $errors->has('old_password') ? ' has-danger' : '' }}">
+                            <label>{{ __('Current Password') }}</label>
+                            <input type="password" name="old_password" class="form-control{{ $errors->has('old_password') ? ' is-invalid' : '' }}" placeholder="{{ __('Current Password') }}" value="" required>
+                            @include('alerts.feedback', ['field' => 'old_password'])
+                        </div>-->
+
+                        
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-fill btn-primary">{{ __('Change Picture') }}</button>
+                    </div>
+                </form>
+            </div>
 
             <div class="card">
                 <div class="card-header">
@@ -75,11 +108,13 @@
                             <div class="block block-three"></div>
                             <div class="block block-four"></div>
                             <a href="#">
-                                <img class="avatar" src="{{ asset('black') }}/img/emilyz.jpg" alt="">
+
+                                <img class="avatar" src="images/avatar/{{ $persona->foto_url }}" alt="">
                                 <h5 class="title">{{ auth()->user()->name }}</h5>
+                                
                             </a>
                             <p class="description">
-                                {{ __('Ceo/Co-Founder') }}
+                                {{ __('Asistente') }}
                             </p>
                         </div>
                     </p>
