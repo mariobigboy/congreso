@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Hash;
-use App\Http\Requests\ProfileRequest;
-use Illuminate\Http\Request;
-use App\Http\Requests\PasswordRequest;
 use App\Persona;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\ProfileRequest;
+use App\Http\Requests\PasswordRequest;
 
 class ProfileController extends Controller
 {
@@ -37,9 +38,18 @@ class ProfileController extends Controller
     }
 
     public function updatePicture(Request $request){
+        
         $request->validate([
-            'foto_url' => 'required|image|mimes:jpeg,png,jpg|max:4096'
+            'foto_url' => 'required|image|mimes:jpeg,png,jpg|max:4096',
         ]);
+     /*   $validator = Validator::make($request->all(), [
+            'foto_url' => 'required|image|mimes:jpeg,png,jpg|max:4096',
+        ])->validate();
+        dd($validator->fails());*/
+
+        /*if($validator->failed()){
+            return back()->withErrors($validator, 'picture');
+        }*/
 
 
         $imageName = time().'.'.$request->foto_url->getClientOriginalExtension();
