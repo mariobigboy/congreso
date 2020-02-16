@@ -109,7 +109,7 @@
                             <div class="block block-four"></div>
                             <a href="#">
 
-                                <img class="avatar" src="images/avatar/{{ $persona->foto_url }}" alt="">
+                                <img class="avatar" src="images/avatar/{{ $persona->foto_url ?? 'avatar_default.png' }}" alt="">
                                 <h5 class="title">{{ auth()->user()->name }}</h5>
                                 
                             </a>

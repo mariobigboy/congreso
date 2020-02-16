@@ -10,6 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/landing', function(){
+	//return File::get(public_path().'/index.html');
+	return view('landing');
+});
 
 Route::get('/', function () {
     return view('home');

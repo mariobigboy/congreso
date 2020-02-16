@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Disertante;
 use App\Persona;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class DisertantesController extends Controller
 {
@@ -21,6 +22,20 @@ class DisertantesController extends Controller
     }
 
     public function store(Request $request, Disertante $model){
+
+        $messages = [
+            'required' => 'Campo requerido',
+            'unique' => 'Ya existe'
+        ];
+        $rules = [
+            'dni' => 'required|unique:persona',
+            'email' => 'required|unique:persona|unique:users',
+        ];
+        $validator = Validator::make($request->all(), $rules, $messages)->validate();
+
+        if($validator->fails()){
+            return back();
+        }
         
         $persona = new Persona();
         $persona->nombre = $request->nombre;
@@ -29,7 +44,7 @@ class DisertantesController extends Controller
         $persona->telefono = $request->telefono;
         $persona->pais = $request->pais;
         $persona->email = $request->email;
-        $persona->foto_url = 'foto.jpg';
+        $persona->foto_url = 'avatar_default.png';
         $persona->save();
 
         $persona_id = $persona->id;

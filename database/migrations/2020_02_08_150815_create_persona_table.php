@@ -21,7 +21,7 @@ class CreatePersonaTable extends Migration
             $table->string('telefono', 20)->nullable();
             $table->string('pais', 20)->nullable();
             $table->string('email')->unique();
-            $table->string('foto_url');
+            $table->string('foto_url')->default('avatar_default.png');
             $table->timestamps();
         });
     }
