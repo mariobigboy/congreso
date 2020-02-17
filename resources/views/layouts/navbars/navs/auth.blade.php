@@ -49,7 +49,9 @@
                 <li class="dropdown nav-item">
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                         <div class="photo">
-                            <img src="{{ asset('black') }}/img/anime3.png" alt="{{ __('Profile Photo') }}">
+
+                            <img src="{{asset('')}}images/avatar/avatar_default.png{{-- {{ $persona->get('foto_url') }} --}}" alt="{{ __('Profile Photo') }}">
+                            }
                         </div>
                         <b class="caret d-none d-lg-block d-xl-block"></b>
                         <p class="d-lg-none">{{ __('Log out') }}</p>
@@ -84,3 +86,4 @@
         </div>
     </div>
 </div>
+

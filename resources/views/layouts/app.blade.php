@@ -22,6 +22,13 @@
         <link rel="stylesheet" href="{{ asset('pickadate')}}/css/default.date.css">
         <link rel="stylesheet" href="{{ asset('pickadate')}}/css/default.time.css">
         <link rel="stylesheet" href="{{ asset('pickadate')}}/css/default.css">
+        <!-- include summernote css -->
+        <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote-lite.min.css"  rel="stylesheet">
+        <style>
+            .note-editable{
+                background-color: #000 !important;
+            }
+        </style>
         {{-- <link rel="stylesheet" href="{{ asset('pickadate')}}/css/default.css"> --}}
     </head>
     <body class="{{ $class ?? '' }}">
@@ -108,6 +115,8 @@
         <script src="{{ asset('pickadate') }}/js/picker.js"></script>
         <script src="{{ asset('pickadate') }}/js/picker.date.js"></script>
         <script src="{{ asset('pickadate') }}/js/picker.time.js"></script>
+        <!-- include summernote js -->
+        <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote.min.js"></script>
 
         @stack('js')
 
@@ -228,8 +237,8 @@
                         labelMonthPrev: 'Mes Previo',
                         labelMonthSelect: 'Seleccione un Mes',
                         labelYearSelect: 'Seleccione un Año',
-                        format: 'd mmmm, yyyy',
-                        submitFormat:'yyyy-mm-dd',
+                        format: 'dd/mm/yyyy',
+                        formatSubmit:'dd/mm/yyyy',
                         min: new Date(),
                     });
 
@@ -237,6 +246,40 @@
                         format: 'HH:i',
                         formatSubmit: 'HH:i',
                         dateInterval: 30,
+                    });
+
+                    //function URL
+                    function readURL(input) {
+                      if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+                        
+                        reader.onload = function(e) {
+                            var $img = $('#preview_foto');
+                            $img.attr('src', e.target.result);
+                            $img.show();
+                        }
+                        
+                        reader.readAsDataURL(input.files[0]);
+                      }
+                    }
+
+                    $("#input-foto_url").change(function() {
+                      readURL(this);
+                    });
+
+                    $('.summernote').summernote({
+                        placeholder: 'Cuerpo de la noticia',
+                        tabsize: 2,
+                        height: 300,
+                        toolbar: [
+                          ['style', ['style']],
+                          ['font', ['bold', 'underline', 'clear']],
+                          ['color', ['color']],
+                          ['para', ['ul', 'ol', 'paragraph']],
+                          ['table', ['table']],
+                          //['insert', ['link', 'picture', 'video']],
+                          ['view', ['fullscreen', 'codeview']]
+                        ]
                     });
                 });
             });

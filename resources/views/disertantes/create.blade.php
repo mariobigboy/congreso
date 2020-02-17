@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
     <div class="row">
         <div class="col-md-12">
             <div class="card ">
@@ -15,7 +16,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <form method="post" action="{{ route('disertantes.store') }}" autocomplete="off">
+                    <form method="post" action="{{ route('disertantes.store') }}" autocomplete="off" enctype="multipart/form-data">
                         @csrf
 
                         <h6 class="heading-small text-muted mb-4">{{ __('Información del Disertante') }}</h6>
@@ -68,6 +69,22 @@
                             <div class="form-group">
                                 <label class="form-control-label" for="input-hora">{{ __('Hora') }}</label>
                                 <input type="text" name="hora_congreso" id="input-hora" class="form-control form-control-alternative timepicker" placeholder="00:00" value="" required>
+                            </div>
+
+                            <!-- foto -->
+                            <div class="form-group">
+                                <label for="" class="form-control-label">{{__('Foto')}}</label>
+                                <div class="input-group mb-3">
+                                  <div class="custom-file">
+                                    <input type="file" class="custom-file-input form-control" id="input-foto_url" aria-describedby="inputGroupFileAddon01" name="foto_url" required>
+                                    <label class="custom-file-label" for="input-foto_url">Elegir Foto</label>
+                                  </div>
+                                  
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 text-center">
+                                <img style="display:none;" id="preview_foto" width="50%" src="http://placekitten.com/g/300/600" alt="">
                             </div>
 
                             <div class="text-left">

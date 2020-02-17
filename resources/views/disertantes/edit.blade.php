@@ -70,6 +70,16 @@
                                 <input type="text" name="hora_congreso" id="input-hora" class="form-control form-control-alternative timepicker" placeholder="{{ __('00:00') }}" value="{{ $persona->get('hora_congreso') }}" required>
                             </div>
 
+                            <!-- foto -->
+                            <div class="form-group">
+                                <div class="input-group mb-3">
+                                  <div class="custom-file">
+                                    <input type="file" class="custom-file-input form-control" id="inpFile" aria-describedby="inputGroupFileAddon01" name="foto_url">
+                                    <label class="custom-file-label" for="inpFile">Choose file</label>
+                                  </div>
+                                </div>
+                            </div>
+
                             <div class="text-left">
                                 <button type="submit" class="btn btn-success mt-4">{{ __('Guardar Cambios') }}</button>
                                 <a href="{{ route('disertantes.destroy', $persona->get('id')) }}" type="button" class="btn btn-danger mt-4">{{ __('Eliminar') }}</a>

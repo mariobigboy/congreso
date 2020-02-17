@@ -30,7 +30,7 @@
                 </li>
 
                 <li @if ($pageSlug ?? '' == 'programas') class="active " @endif>
-                    <a href="{{ route('pages.programas') }}">
+                    <a href="{{ route('programas.index') }}">
                         <i class="tim-icons icon-notes"></i>
                         <p>{{ __('Programas') }}</p>
                     </a>

@@ -106,7 +106,7 @@
 
                                 <!-- Book Now -->
                                 <div class="book-now-btn ml-3 ml-lg-5">
-                                    <a href="#">Inscripción<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                                    <a href="{{ route('inscripcion.index') }}">Inscripción<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                                 </div>
                             </div>
                             <!-- Nav End -->
@@ -752,8 +752,9 @@
                         <!-- Copywrite Text -->
                         <div class="copywrite-text">
                             <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | design by <a href="https://zeromar.net" target="_blank">zeromar</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | design by <a href="https://zeromar.net" target="_blank">zeromar</a>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            </p>
                         </div>
                     </div>
                     <div class="col-12 col-md-4">

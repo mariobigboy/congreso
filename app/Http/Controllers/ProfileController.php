@@ -39,17 +39,23 @@ class ProfileController extends Controller
 
     public function updatePicture(Request $request){
         
-        $request->validate([
+        $rules = [
             'foto_url' => 'required|image|mimes:jpeg,png,jpg|max:4096',
-        ]);
-     /*   $validator = Validator::make($request->all(), [
-            'foto_url' => 'required|image|mimes:jpeg,png,jpg|max:4096',
-        ])->validate();
-        dd($validator->fails());*/
+        ];
+        $messages = [
+            'required' => 'Debe seleccionar una imagen',
+        ];
+        $validator = Validator::make($request->all(), $rules, $messages);
+        $validator->validate();
 
-        /*if($validator->failed()){
+        /*$request->validate([
+            'foto_url' => 'required|image|mimes:jpeg,png,jpg|max:4096',
+        ]);*/
+        
+
+        if($validator->fails()){
             return back()->withErrors($validator, 'picture');
-        }*/
+        }
 
 
         $imageName = time().'.'.$request->foto_url->getClientOriginalExtension();

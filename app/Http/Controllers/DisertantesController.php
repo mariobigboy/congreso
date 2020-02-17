@@ -23,20 +23,39 @@ class DisertantesController extends Controller
 
     public function store(Request $request, Disertante $model){
 
+        //dd($request->all());
+
         $messages = [
             'required' => 'Campo requerido',
-            'unique' => 'Ya existe'
+            'unique.email' => 'Ya existe el email',
+            'unique.dni' => 'DNI existente',
+
         ];
         $rules = [
             'dni' => 'required|unique:persona',
             'email' => 'required|unique:persona|unique:users',
+            'foto_url' => 'required|image|mimes:jpeg,png,jpg|max:4096',
         ];
-        $validator = Validator::make($request->all(), $rules, $messages)->validate();
+        $validator = Validator::make($request->all(), $rules, $messages);
+        $validator->validate();
 
         if($validator->fails()){
             return back();
         }
-        
+
+        /*
+            "_token" => "745V799wBSOF1eOvank8BbRi0RKZ4QzCvJGN8Db2"
+          "nombre" => "mariel"
+          "apellido" => "barragan"
+          "dni" => "35123123"
+          "email" => "mariel@gmail.com"
+          "telefono" => "3875687312"
+          "pais" => "argentina"
+          "fecha_congreso" => "21/02/2020"
+          "fecha_congreso_submit" => "21/02/2020"
+          "hora_congreso" => "22:00"
+          "hora_congreso_submit" => "22:00"
+        */
         $persona = new Persona();
         $persona->nombre = $request->nombre;
         $persona->apellido = $request->apellido;
@@ -51,7 +70,8 @@ class DisertantesController extends Controller
 
         $disertante = new Disertante();
         $disertante->persona_id = $persona_id;
-        $disertante->fecha_congreso = now();//$request->fecha_congreso;
+        $disertante->fecha_congreso = $request->fecha_congreso;
+        $disertante->hora_congreso = $request->hora_congreso;
         $disertante->save();
         
 

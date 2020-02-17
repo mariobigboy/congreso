@@ -10,14 +10,14 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/landing', function(){
+Route::get('/', function(){
 	//return File::get(public_path().'/index.html');
 	return view('landing');
 });
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('home');
-});
+});*/
 Route::get('/home', function(){
 	return view('home');
 });
@@ -39,7 +39,7 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::get('upgrade', ['as' => 'pages.upgrade', 'uses' => 'PageController@upgrade']);
 
 		Route::get('disertantes', ['as' => 'pages.disertantes', 'uses' => 'PageController@disertantes']);
-		Route::get('programas', ['as' => 'pages.programas', 'uses' => 'PageController@programas']);
+		
 		Route::get('cursos', ['as' => 'pages.cursos', 'uses' => 'PageController@cursos']);
 		Route::get('galerias', ['as' => 'pages.galerias', 'uses' => 'PageController@galerias']);
 });
@@ -62,6 +62,7 @@ Route::group(['middleware' => 'auth'], function(){
 Route::group(['middleware' => 'auth'], function(){
 	Route::get('noticias', ['as' => 'noticias.index', 'uses' => 'NoticiasController@index']);
 	Route::get('noticias/create', ['as' => 'noticias.create', 'uses' => 'NoticiasController@create']);
+	Route::post('noticias', ['as' => 'noticias.store', 'uses' => 'NoticiasController@store']);
 });
 
 Route::group(['middleware' => 'auth'], function () {
@@ -72,5 +73,9 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
 });
 
+Route::group(['middleware' => 'auth'], function(){
+	Route::get('programas', ['as' => 'programas.index', 'uses' => 'ProgramasController@index']);
+	Route::get('programas/create', ['as' => 'programas.create', 'uses' => 'ProgramasController@create']);
+});
 
 

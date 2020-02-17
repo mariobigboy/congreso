@@ -44,7 +44,7 @@
 
                         @include('alerts.success', ['key' => 'password_status'])
 
-                       <div class="input-group mb-3">
+                        <div class="input-group mb-3">
                           <div class="custom-file">
                             <input type="file" class="custom-file-input form-control" id="inpFile" aria-describedby="inputGroupFileAddon01" name="foto_url">
                             <label class="custom-file-label" for="inpFile">Choose file</label>
@@ -57,7 +57,9 @@
                             @include('alerts.feedback', ['field' => 'old_password'])
                         </div>-->
 
-                        
+                            @foreach($errors->all() as $err)
+                                <small class="text-danger">{{$err}}</small>
+                            @endforeach
                     </div>
                     <div class="card-footer">
                         <button type="submit" class="btn btn-fill btn-primary">{{ __('Change Picture') }}</button>
