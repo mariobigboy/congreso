@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
+use App\Persona;
+use App\User;
+use App\Disertante;
+use App\Asistente;
 
 class HomeController extends Controller
 {
@@ -23,8 +27,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $users_cant = DB::table('users')->get()->count();
-        return view('dashboard')->with('users_cant', $users_cant);
+        
+        $estadisticas = [
+            'cant_asistente' => Asistente::all()->count(),
+            'cant_asistente' => Asistente::where('matricula_id','!=', null)->count(),
+            'cant_disertante' => Disertante::all()->count(),
+            'cant_usuario' => User::all()->count(),
+            'cant_persona' => Persona::all()->count(),
+        ];
+        //$users_cant = DB::table('users')->get()->count();
+        return view('dashboard')->with('estadisticas', $estadisticas);
     }
 
 

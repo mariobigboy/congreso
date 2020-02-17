@@ -19,10 +19,10 @@ class DatabaseSeeder extends Seeder
         $this->call([UserTableSeeder::class]);
 
         //seeders para personas:
-        $this->call([PersonasSeeder::class]);
+        //$this->call([PersonasSeeder::class]);
 
         //seeders para disertantes:
-        $this->call([DisertanteSeeder::class]);
+        //$this->call([DisertanteSeeder::class]);
 
         //seeders para asistente:
         $this->call([AsistenteSeeder::class]);

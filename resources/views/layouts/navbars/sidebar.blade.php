@@ -44,7 +44,7 @@
                 </li>
 
                 <li @if ($pageSlug ?? '' == 'cursos') class="active " @endif>
-                    <a href="{{ route('pages.cursos') }}">
+                    <a href="{{ route('cursos.index') }}">
                         <i class="tim-icons icon-trophy"></i>
                         <p>{{ __('Cursos') }}</p>
                     </a>

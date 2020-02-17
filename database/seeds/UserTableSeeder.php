@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\User;
 use App\Role;
+use App\Persona;
 
 class UserTableSeeder extends Seeder
 {
@@ -19,6 +20,18 @@ class UserTableSeeder extends Seeder
         $role_asistente = Role::where('nombre', 'asistente')->first();
         //$role_disertante = Role::where('nombre', 'disertante')->first();
 
+        //persona para superadmin
+        $persona = new Persona();
+        $persona->nombre = 'super';
+        $persona->apellido = 'admin';
+        $persona->dni = '35000000';
+        $persona->telefono = '';
+        $persona->pais = 'Argentina';
+        $persona->email = 'superadmin@gmail.com';
+        $persona->foto_url = 'avatar_default.png';
+        $persona->save();
+
+        //user admin:
         $user = new User();
         $user->name = 'superadmin';
         $user->email = 'superadmin@gmail.com';
@@ -26,13 +39,35 @@ class UserTableSeeder extends Seeder
         $user->save();
         $user->roles()->attach($role_super_admin);
 
+        //persona para admin
+        $persona = new Persona();
+        $persona->nombre = 'admin';
+        $persona->apellido = 'admin';
+        $persona->dni = '35000001';
+        $persona->telefono = '';
+        $persona->pais = 'Argentina';
+        $persona->email = 'admin@gmail.com';
+        $persona->foto_url = 'avatar_default.png';
+        $persona->save();
+        //user para admin
         $user = new User();
         $user->name = 'admin';
         $user->email = 'admin@gmail.com';
         $user->password = bcrypt('admin');
         $user->save();
         $user->roles()->attach($role_admin);
-        
+
+        //persona para usuario
+        $persona = new Persona();
+        $persona->nombre = 'usuario';
+        $persona->apellido = 'usuario';
+        $persona->dni = '35000002';
+        $persona->telefono = '';
+        $persona->pais = 'Argentina';
+        $persona->email = 'usuario@gmail.com';
+        $persona->foto_url = 'avatar_default.png';
+        $persona->save();
+        //user para usuario
         $user = new User();
         $user->name = 'usuario';
         $user->email = 'usuario@gmail.com';
@@ -40,18 +75,5 @@ class UserTableSeeder extends Seeder
         $user->save();
         $user->roles()->attach($role_user);
 
-        /*$user = new User();
-        $user->name = 'Asistente';
-        $user->email = 'asistente@gmail.com';
-        $user->password = bcrypt('asistente');
-        $user->save();
-        $user->roles()->attach($role_asistente);
-
-        $user = new User();
-        $user->name = 'Disertante';
-        $user->email = 'disertante@gmail.com';
-        $user->password = bcrypt('disertante');
-        $user->save();
-        $user->roles()->attach($role_disertante);*/
     }
 }

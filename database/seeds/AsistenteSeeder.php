@@ -18,11 +18,13 @@ class AsistenteSeeder extends Seeder
         Asistente::truncate();
         Schema::enableForeignKeyConstraints();
 
-        $persona = Persona::all()->first();
+        /*
+        $persona = Persona::where('name', '!=', 'admin')->first();
 
         $asistente = new Asistente();
         $asistente->persona_id = $persona->id;
         $asistente->matricula_id = null;
         $asistente->save();
+        */
     }
 }

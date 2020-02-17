@@ -17,10 +17,10 @@ class DisertanteSeeder extends Seeder
         Disertante::truncate();
         Schema::enableForeignKeyConstraints();
 
-        $persona = Persona::find(2)->first();
+       /* $persona = Persona::find(2)->first();
 
         $disertante = new Disertante();
-        $disertante->persona_id = $persona->id;
+        $disertante->persona_id = $persona->id;*/
         //$disertante->timestamps();
     }
 }

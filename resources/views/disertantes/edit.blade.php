@@ -17,9 +17,10 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <form method="post" action="{{ route('disertantes.store') }}" autocomplete="off">
+                    <form method="POST" action="{{ route('disertantes.update') }}" autocomplete="off" enctype="multipart/form-data">
                         @csrf
-
+                        
+                        <input type="hidden" name="id" value="{{ $persona->get('id') }}">
                         <h6 class="heading-small text-muted mb-4">{{ __('Información del Disertante') }}</h6>
                         <div class="pl-lg-4">
                             <!-- nombre -->
@@ -37,14 +38,14 @@
                             <!-- dni -->
                             <div class="form-group{{ $errors->has('dni') ? ' has-danger' : '' }}">
                                 <label class="form-control-label" for="input-dni">{{ __('DNI') }}</label>
-                                <input type="text" name="dni" id="input-dni" class="form-control form-control-alternative{{ $errors->has('dni') ? ' is-invalid' : '' }}" placeholder="{{ __('Documento') }}" value="{{ $persona->get('dni') }}" required autofocus>
+                                <input type="text" name="dni" id="input-dni" class="form-control form-control-alternative{{ $errors->has('dni') ? ' is-invalid' : '' }}" placeholder="{{ __('Documento') }}" value="{{ $persona->get('dni') }}" disabled autofocus>
                                 @include('alerts.feedback', ['field' => 'dni'])
                             </div>
 
                             <!-- email -->
                             <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
                                 <label class="form-control-label" for="input-email">{{ __('Email') }}</label>
-                                <input type="email" name="email" id="input-email" class="form-control form-control-alternative{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Email') }}" value="{{ $persona->get('email') }}" required>
+                                <input type="email" name="email" id="input-email" class="form-control form-control-alternative{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Email') }}" value="{{ $persona->get('email') }}" disabled>
                                 @include('alerts.feedback', ['field' => 'email'])
                             </div>
                             <!-- telefono -->
@@ -72,12 +73,17 @@
 
                             <!-- foto -->
                             <div class="form-group">
+                                <label for="" class="form-control-label">{{__('Foto')}}</label>
                                 <div class="input-group mb-3">
                                   <div class="custom-file">
-                                    <input type="file" class="custom-file-input form-control" id="inpFile" aria-describedby="inputGroupFileAddon01" name="foto_url">
-                                    <label class="custom-file-label" for="inpFile">Choose file</label>
+                                    <input type="file" class="custom-file-input form-control" id="input-foto_url" aria-describedby="inputGroupFileAddon01" name="foto_url" >
+                                    <label class="custom-file-label" for="input-foto_url">Elegir Foto</label>
                                   </div>
                                 </div>
+                            </div>
+
+                            <div class="col-lg-12 text-center">
+                                <img style="" id="preview_foto" width="50%" src="{{asset('')}}images/avatar/{{$persona->get('foto_url')}}" alt="">
                             </div>
 
                             <div class="text-left">

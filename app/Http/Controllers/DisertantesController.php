@@ -6,6 +6,7 @@ use App\Disertante;
 use App\Persona;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Intervention\Image\Facades\Image;
 
 class DisertantesController extends Controller
 {
@@ -43,24 +44,21 @@ class DisertantesController extends Controller
             return back();
         }
 
-        /*
-            "_token" => "745V799wBSOF1eOvank8BbRi0RKZ4QzCvJGN8Db2"
-          "nombre" => "mariel"
-          "apellido" => "barragan"
-          "dni" => "35123123"
-          "email" => "mariel@gmail.com"
-          "telefono" => "3875687312"
-          "pais" => "argentina"
-          "fecha_congreso" => "21/02/2020"
-          "fecha_congreso_submit" => "21/02/2020"
-          "hora_congreso" => "22:00"
-          "hora_congreso_submit" => "22:00"
-        */
+        
+        //Creando el nombre para la imagen y el thumb.
         $time_img = time();
-        $imageName = $time_img.'.'.$request->foto_url->getClientOriginalExtension();
-        $imageName_thumb = $time_img.'_thumb.'.$request->foto_url->getClientOriginalExtension();
-        $request->foto_url->move(public_path('images/avatar/'), $imageName);
+        $img_name = $time_img.'.'.$request->foto_url->getClientOriginalExtension();
+        $img_name_thumb = $time_img.'_thumb.'.$request->foto_url->getClientOriginalExtension();
+        
+        //creando las imagenes:
+        //guardo las imagenes:
+        $img_principal = Image::make($request->foto_url);
+        $img_principal->save(public_path('images/avatar/').$img_name);
 
+        $img_thumb = $img_principal->resize(50,50);
+        $img_thumb->save(public_path('images/avatar/thumbs/').$img_name_thumb);
+
+        //creo Persona y la asocio al disertante:
         $persona = new Persona();
         $persona->nombre = $request->nombre;
         $persona->apellido = $request->apellido;
@@ -69,7 +67,7 @@ class DisertantesController extends Controller
         $persona->pais = $request->pais;
         $persona->email = $request->email;
         //$persona->foto_url = 'avatar_default.png';
-        $persona->foto_url = $imageName;
+        $persona->foto_url = $img_name;
         $persona->save();
 
         $persona_id = $persona->id;
@@ -87,8 +85,54 @@ class DisertantesController extends Controller
         return redirect()->route('disertantes.index')->with('status', '¡Disertante añadido correctamente!');
     }
 
-    public function update(){
-        
+    public function update(Request $request){
+        $messages = [
+            'required' => 'Campo requerido',
+            'unique.email' => 'Ya existe el email',
+            'unique.dni' => 'DNI existente',
+            //'required.foto_url' => 'Foto requerida',
+        ];
+        $rules = [
+            //'dni' => 'sometimes|required|unique:persona',
+            //'email' => 'sometimes|required|unique:persona|unique:users',
+            //'foto_url' => 'required|image|mimes:jpeg,png,jpg|max:4096',
+        ];
+        $validator = Validator::make($request->all(), $rules, $messages);
+        $validator->validate();
+        //dd($validator->errors());
+
+       
+        //$persona->update();
+
+        if($validator->fails()){
+            return back();
+        }
+
+        $request_params = $request->all();
+        if(isset($request->foto_url)){
+            //Creando el nombre para la imagen y el thumb.
+            $time_img = time();
+            $img_name = $time_img.'.'.$request->foto_url->getClientOriginalExtension();
+            $img_name_thumb = $time_img.'_thumb.'.$request->foto_url->getClientOriginalExtension();
+            //dd($img_name);
+            //creando las imagenes:
+            //guardo las imagenes:
+            $img_principal = Image::make($request->foto_url);
+            $img_principal->save(public_path('images/avatar/').$img_name);
+
+            $img_thumb = $img_principal->resize(50,50);
+            $img_thumb->save(public_path('images/avatar/thumbs/').$img_name_thumb);
+            $request_params['foto_url'] = $img_name;
+            //dd($request->foto_url);
+        }
+
+        //dd($request_params);
+        $persona = Disertante::find($request->id)->persona;
+        $persona->fill($request_params);
+        //dd($request->all());
+        $persona->update();
+
+        return back()->with('success', '¡Actualizado correctamente!');
     }
 
     public function edit($id){

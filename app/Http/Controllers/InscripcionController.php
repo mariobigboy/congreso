@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Persona;
 use App\User;
+use App\Asistente;
 
 class InscripcionController extends Controller
 {
@@ -50,6 +51,12 @@ class InscripcionController extends Controller
     	$persona->save();
 
     	$persona_id = $persona->id;
+
+        //creamos asistente y lo asociamos:
+        $asistente = new Asistente();
+        $asistente->persona_id = $persona_id;
+        $asistente->save();
+
 
     	//creamos un usuario para la persona anteriormente creada:
     	$usuario = new User();

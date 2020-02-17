@@ -42,11 +42,11 @@ class AddForeignsKeys extends Migration
         Schema::table('galeria', function(Blueprint $table){
             $table->foreign('curso_id')
             ->references('id')
-            ->on('curso');
+            ->on('cursos');
         });
 
         //claves en tabla curso:
-        Schema::table('curso', function(Blueprint $table){
+        Schema::table('cursos', function(Blueprint $table){
             $table->foreign('disertante_id')
             ->references('id')
             ->on('disertante');
@@ -81,7 +81,7 @@ class AddForeignsKeys extends Migration
             $table->dropForeign(['curso_id']);
         });
 
-        Schema::table('curso', function(Blueprint $table){
+        Schema::table('cursos', function(Blueprint $table){
             $table->dropForeign(['disertante_id']);
             $table->dropForeign(['galeria_id']);
         });

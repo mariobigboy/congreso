@@ -50,7 +50,7 @@
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                         <div class="photo">
 
-                            <img src="{{asset('')}}images/avatar/avatar_default.png{{-- {{ $persona->get('foto_url') }} --}}" alt="{{ __('Profile Photo') }}">
+                            <img src="{{asset('')}}images/avatar/{{auth()->user()->persona->foto_url}}{{-- {{ $persona->get('foto_url') }} --}}" alt="{{ __('Profile Photo') }}">
                             }
                         </div>
                         <b class="caret d-none d-lg-block d-xl-block"></b>
