@@ -12,4 +12,8 @@ class Disertante extends Model
     public function persona(){
    		return $this->hasOne('\App\Persona', 'id', 'persona_id');
    	}
+
+   	public function user(){
+   		return $this->hasOne('\App\User', 'persona_id', 'id');
+   	}
 }

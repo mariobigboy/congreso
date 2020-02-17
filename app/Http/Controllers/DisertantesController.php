@@ -29,7 +29,7 @@ class DisertantesController extends Controller
             'required' => 'Campo requerido',
             'unique.email' => 'Ya existe el email',
             'unique.dni' => 'DNI existente',
-
+            'required.foto_url' => 'Foto requerida',
         ];
         $rules = [
             'dni' => 'required|unique:persona',
@@ -56,6 +56,11 @@ class DisertantesController extends Controller
           "hora_congreso" => "22:00"
           "hora_congreso_submit" => "22:00"
         */
+        $time_img = time();
+        $imageName = $time_img.'.'.$request->foto_url->getClientOriginalExtension();
+        $imageName_thumb = $time_img.'_thumb.'.$request->foto_url->getClientOriginalExtension();
+        $request->foto_url->move(public_path('images/avatar/'), $imageName);
+
         $persona = new Persona();
         $persona->nombre = $request->nombre;
         $persona->apellido = $request->apellido;
@@ -63,7 +68,8 @@ class DisertantesController extends Controller
         $persona->telefono = $request->telefono;
         $persona->pais = $request->pais;
         $persona->email = $request->email;
-        $persona->foto_url = 'avatar_default.png';
+        //$persona->foto_url = 'avatar_default.png';
+        $persona->foto_url = $imageName;
         $persona->save();
 
         $persona_id = $persona->id;

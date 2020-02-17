@@ -71,7 +71,9 @@ class User extends Authenticatable
         return false;
     }
 
-    
+    public function persona(){
+        return $this->hasOne('\App\Persona', 'email', 'email');
+    }
 }
 
 

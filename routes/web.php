@@ -10,6 +10,15 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+/*use Intervention\Image\ImageManager;
+Route::get('/image', function(){
+	$img = Image::make(public_path('images/avatar/').'1581777929.jpg')->resize(50,50);
+	$img->save(public_path('images/avatar/').'1581777929_thumb.jpg');
+    return $img->response('jpg');
+});*/
+
 Route::get('/', function(){
 	//return File::get(public_path().'/index.html');
 	return view('landing');
