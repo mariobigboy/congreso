@@ -17,7 +17,9 @@ class CreateCursosTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('disertante_id');
             $table->string('tema');
-            $table->timestamp('fecha_y_hora');
+            //$table->timestamp('fecha_y_hora');
+            $table->string('fecha_curso');
+            $table->string('hora_curso');
             $table->text('contenido');
             $table->string('lugar');
             $table->unsignedBigInteger('galeria_id')->nullable();

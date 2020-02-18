@@ -74,8 +74,8 @@ class DisertantesController extends Controller
 
         $disertante = new Disertante();
         $disertante->persona_id = $persona_id;
-        $disertante->fecha_congreso = $request->fecha_congreso;
-        $disertante->hora_congreso = $request->hora_congreso;
+       /* $disertante->fecha_congreso = $request->fecha_congreso;
+        $disertante->hora_congreso = $request->hora_congreso;*/
         $disertante->save();
         
 

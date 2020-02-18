@@ -28,6 +28,9 @@
             .note-editable{
                 background-color: #000 !important;
             }
+            select > option{
+                color: #000 !important;
+            }
         </style>
         {{-- <link rel="stylesheet" href="{{ asset('pickadate')}}/css/default.css"> --}}
     </head>

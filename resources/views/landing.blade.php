@@ -416,27 +416,38 @@
     <!-- Our Room Area Start -->
     <section class="roberto-rooms-area">
         <div class="rooms-slides owl-carousel">
-            <!-- Single Room Slide -->
-            <div class="single-room-slide d-flex align-items-center">
-                <!-- Thumbnail -->
-                <div class="room-thumbnail h-100 bg-img" style="background-image: url(img/bg-img/16.jpg);"></div>
+            @if($disertantes->count()>0)
+                @foreach($disertantes as $disertante)
+                    @foreach($disertante->cursos as $curso)
+                        <!-- Single Room Slide -->
+                        <div class="single-room-slide d-flex align-items-center">
+                            <!-- Thumbnail -->
+                            <div class="room-thumbnail h-100 bg-img" style="background-image: url({{asset('')}}images/avatar/{{$disertante->persona->foto_url}});"></div>
 
-                <!-- Content -->
-                <div class="room-content">
-                    <h2 data-animation="fadeInUp" data-delay="100ms">Curso Precongreso</h2>
-                    <h3 data-animation="fadeInUp" data-delay="300ms">Jueves 26 de Agosto 14 a 18.30 </h3>
-                    <ul class="room-feature" data-animation="fadeInUp" data-delay="500ms">
-                        <li>“Desinfección de los conductos radiculares: Nuevas soluciones para un problema conocido”</li>
-                        <li>Dr. Luis Chávez de Paz- Suecia</li>
-                        <li>Salón Buenos Aires A-B-C</li>
-                        
-                    </ul>
-                    <a href="#" class="btn roberto-btn mt-30" data-animation="fadeInUp" data-delay="700ms">Leer Mas</a>
+                            <!-- Content -->
+                            <div class="room-content">
+                                <h2 data-animation="fadeInUp" data-delay="100ms">{{$curso->tema}}</h2>
+                                <h3 data-animation="fadeInUp" data-delay="300ms">Jueves 26 de Agosto 14 a 18.30 </h3>
+                                <ul class="room-feature" data-animation="fadeInUp" data-delay="500ms">
+                                    <li>“Desinfección de los conductos radiculares: Nuevas soluciones para un problema conocido”</li>
+                                    <li>{{ $disertante->persona->nombre }} {{ $disertante->persona->apellido}}</li>
+                                    <li>{{$curso->lugar}}</li>
+                                    
+                                </ul>
+                                <a href="#" class="btn roberto-btn mt-30" data-animation="fadeInUp" data-delay="700ms">Leer Mas</a>
+                            </div>
+                        </div>
+                    @endforeach
+                @endforeach
+            @else
+                <div class="text-center">
+                    <h3>Sin disertantes</h3>
                 </div>
-            </div>
+            @endif
+            
 
 
-        <div class="rooms-slides owl-carousel">
+        {{-- <div class="rooms-slides owl-carousel">
             <!-- Single Room Slide -->
             <div class="single-room-slide d-flex align-items-center">
                 <!-- Thumbnail -->
@@ -473,7 +484,7 @@
         
                     </ul>
                     <a href="#" class="btn roberto-btn mt-30" data-animation="fadeInUp" data-delay="700ms">Leer Mas</a>
-                </div>
+                </div> --}}
             </div>
     </section>
     <!-- Our Room Area End -->

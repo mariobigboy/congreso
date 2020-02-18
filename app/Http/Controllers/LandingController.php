@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Curso;
+use App\Disertante;
 
 class LandingController extends Controller
 {
@@ -11,8 +11,9 @@ class LandingController extends Controller
 
     public function index(){
 
-    	$cursos = Curso::all();
+    	
+    	$disertantes = Disertante::all();
 
-    	return view('landing')->with('cursos', $cursos);
+    	return view('landing')->with(['disertantes' => $disertantes]);
     }
 }

@@ -81,4 +81,7 @@ Route::group(['middleware' => 'auth'], function(){
 Route::group(['middleware' => 'auth'], function(){
 	Route::get('/cursos', ['as' => 'cursos.index', 'uses' => 'CursosController@index']);
 	Route::get('/cursos/create', ['as' => 'cursos.create', 'uses' => 'CursosController@create']);
+	Route::post('/cursos/create', ['as' => 'cursos.store', 'uses' => 'CursosController@store']);
+	Route::get('/cursos/delete/{id}', ['as' => 'cursos.destroy', 'uses' => 'CursosController@destroy']);
+	Route::get('/cursos/edit/{id}', ['as' => 'cursos.edit', 'uses' => 'CursosController@edit']);
 });

@@ -6,4 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Curso extends Model{
     
+    protected $fillable = ['disertante_id', 'tema', 'fecha_curso', 'hora_curso', 'contenido', 'lugar'];
+
+
+    public function disertante(){
+    	return $this->hasOne('App\Disertante', 'id', 'disertante_id');
+    }
 }

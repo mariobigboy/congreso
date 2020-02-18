@@ -60,16 +60,16 @@
                             </div>
                             
                             <!-- fecha_congreso -->
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label class="form-control-label" for="input-fecha">{{ __('Fecha') }}</label>
                                 <input type="text" name="fecha_congreso" id="input-fecha" class="form-control form-control-alternative datepicker" placeholder="{{ __('Fecha Congreso') }}" value="" required>
-                            </div>
+                            </div> --}}
 
                             <!-- hora_congreso -->
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label class="form-control-label" for="input-hora">{{ __('Hora') }}</label>
                                 <input type="text" name="hora_congreso" id="input-hora" class="form-control form-control-alternative timepicker" placeholder="00:00" value="" required>
-                            </div>
+                            </div> --}}
 
                             <!-- foto -->
                             <div class="form-group">

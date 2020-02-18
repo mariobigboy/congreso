@@ -15,7 +15,61 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    aqui los cursos
+                    <div class="">
+
+                        @if(count($cursos) > 0)
+                        <table class="table tablesorter table-hover table-click" id="">
+                            <thead class=" text-primary">
+                                <th scope="col"></th>
+                                <th scope="col">{{ __('Tema') }}</th>
+                                <th scope="col">{{ __('Disertante') }}</th>
+                                <th scope="col">{{ __('Fecha y hora') }}</th>
+                                <th scope="col"></th>
+                                {{-- <th scope="col"></th> --}}
+                            </thead>
+                            <tbody>
+                                    @php
+                                        $i = 0;
+                                    @endphp
+
+                                    @foreach ($cursos as $curso)
+
+                                        @php
+                                            $i++;
+                                        @endphp
+                                        <tr {{-- onclick="location.href='{{ route('disertantes.edit', $disertante->id)}}';" --}}>
+                                            <td>{{ $i }}</td>
+                                            <td>{{ Str::title($curso->tema) }}</td>
+                                            <td>{{ $curso->disertante->persona->nombre }}</td>
+                                            <td>{{ $curso->fecha_curso }} {{ $curso->hora_curso }}</td>
+                                            <td class="text-right">
+                                                <div class="dropdown">
+                                                    <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <i class="fas fa-ellipsis-v"></i>
+                                                    </a>
+                                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                                            <form action="{{ route('cursos.destroy', $curso->disertante_id)}}" method="get">
+                                                                @csrf
+                                                                
+
+                
+                                                                <a class="dropdown-item" href="{{ route('cursos.edit', $curso->id)}}">{{ __('Editar') }}</a>
+                                                                <button type="button" class="dropdown-item" onclick="confirm('{{ __("¿Está seguro de eliminar este curso?") }}') ? this.parentElement.submit() : ''">
+                                                                            {{ __('Eliminar') }}
+                                                                </button>
+                                                            </form>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            
+                                        </tr>
+                                    @endforeach
+                            </tbody>
+                        </table>
+                        @else
+                            <p class="text-center">Aún no hay Cursos</p>
+                        @endif
+                    </div>
                 </div>
                 <div class="card-footer py-4">
                     <nav class="d-flex justify-content-end" aria-label="...">

@@ -62,8 +62,8 @@
         <div class="col-lg-4">
             <div class="card card-chart">
                 <div class="card-header">
-                    <h5 class="card-category">Total Usuarios</h5>
-                    <h3 class="card-title"><i class="tim-icons icon-delivery-fast text-info"></i> {{ $estadisticas['cant_usuario'] }}</h3>
+                    <h5 class="card-category">Total Disertantes</h5>
+                    <h3 class="card-title"><i class="tim-icons icon-delivery-fast text-info"></i> {{ $estadisticas['cant_disertante'] }}</h3>
                 </div>
                 {{-- <div class="card-body">
                     <div class="chart-area">

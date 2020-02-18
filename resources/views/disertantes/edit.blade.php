@@ -61,15 +61,15 @@
                                 @include('alerts.feedback', ['field' => 'pais'])
                             </div>
                             <!-- fecha_congreso -->
-                            <div class="form-group">
+                            <!--<div class="form-group">
                                 <label class="form-control-label " for="input-fecha">{{ __('Fecha') }}</label>
                                 <input type="text" name="fecha_congreso" id="input-fecha" class="form-control form-control-alternative datepicker" placeholder="{{ __('31/12/2020') }}" value="{{ $persona->get('fecha_congreso') }}" required>
-                            </div>
+                            </div>-->
                             <!-- horario_congreso -->
-                            <div class="form-group">
+                            <!--<div class="form-group">
                                 <label class="form-control-label " for="input-hora">{{ __('Horario') }}</label>
                                 <input type="text" name="hora_congreso" id="input-hora" class="form-control form-control-alternative timepicker" placeholder="{{ __('00:00') }}" value="{{ $persona->get('hora_congreso') }}" required>
-                            </div>
+                            </div>-->
 
                             <!-- foto -->
                             <div class="form-group">
