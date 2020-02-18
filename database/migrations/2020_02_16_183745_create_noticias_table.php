@@ -19,6 +19,8 @@ class CreateNoticiasTable extends Migration
             $table->text('cuerpo');
             $table->unsignedBigInteger('created_by_user')->nullable();
             $table->string('picture_url');
+            $table->string('meta_tags')->default('');
+            $table->string('categoria')->default('');
             $table->timestamp('fecha')->useCurrent();
             $table->timestamps();
         });

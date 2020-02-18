@@ -23,7 +23,6 @@ Route::get('/home', function(){
 });
 
 Route::post('/inscripcion', ['as' => 'inscripcion.store', 'uses' => 'InscripcionController@store']);
-
 Route::get('/inscripcion', ['as' => 'inscripcion.index', 'uses' => 'InscripcionController@index']);
 
 Auth::routes();
@@ -57,8 +56,6 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::get('disertantes/create', ['as' => 'disertantes.create', 'uses' => 'DisertantesController@create']);
 });
 
-
-
 Route::group(['middleware' => 'auth'], function(){
 	Route::get('noticias', ['as' => 'noticias.index', 'uses' => 'NoticiasController@index']);
 	Route::get('noticias/create', ['as' => 'noticias.create', 'uses' => 'NoticiasController@create']);
@@ -82,6 +79,7 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::get('/cursos', ['as' => 'cursos.index', 'uses' => 'CursosController@index']);
 	Route::get('/cursos/create', ['as' => 'cursos.create', 'uses' => 'CursosController@create']);
 	Route::post('/cursos/create', ['as' => 'cursos.store', 'uses' => 'CursosController@store']);
+	Route::post('/cursos/update', ['as' => 'cursos.update', 'uses' => 'CursosController@update']);
 	Route::get('/cursos/delete/{id}', ['as' => 'cursos.destroy', 'uses' => 'CursosController@destroy']);
 	Route::get('/cursos/edit/{id}', ['as' => 'cursos.edit', 'uses' => 'CursosController@edit']);
 });

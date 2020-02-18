@@ -7,15 +7,15 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-8">
-                            <h4 class="card-title">{{ __('Nueva Noticia') }}</h4>
+                            <h4 class="card-title">{{ __('Editar Noticia') }}</h4>
                         </div>
                         <div class="col-4 text-right">
-                            <a href="{{ route('noticias.index') }}" class="btn btn-sm btn-primary">{{ __('Ver Todas') }}</a>
+                            <!--<a href="{{ route('noticias.create') }}" class="btn btn-sm btn-primary">{{ __('Nueva Noticia') }}</a>-->
                         </div>
                     </div>
                 </div>
                 <div class="card-body">
-                    <form method="post" action="{{ route('noticias.store') }}" autocomplete="off" enctype="multipart/form-data">
+                     <form method="post" action="{{ route('noticias.store') }}" autocomplete="off" enctype="multipart/form-data">
                         @csrf
 
                         <!--<h6 class="heading-small text-muted mb-4">{{ __('User information') }}</h6>-->
