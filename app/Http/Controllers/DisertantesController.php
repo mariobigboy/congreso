@@ -48,15 +48,15 @@ class DisertantesController extends Controller
         //Creando el nombre para la imagen y el thumb.
         $time_img = time();
         $img_name = $time_img.'.'.$request->foto_url->getClientOriginalExtension();
-        $img_name_thumb = $time_img.'_thumb.'.$request->foto_url->getClientOriginalExtension();
+        //$img_name_thumb = $time_img.'_thumb.'.$request->foto_url->getClientOriginalExtension();
         
         //creando las imagenes:
         //guardo las imagenes:
         $img_principal = Image::make($request->foto_url);
         $img_principal->save(public_path('images/avatar/').$img_name);
 
-        $img_thumb = $img_principal->resize(50,50);
-        $img_thumb->save(public_path('images/avatar/thumbs/').$img_name_thumb);
+        $img_principal->resize(50,50);
+        $img_principal->save(public_path('images/avatar/thumbs/').$img_name);
 
         //creo Persona y la asocio al disertante:
         $persona = new Persona();
@@ -74,6 +74,7 @@ class DisertantesController extends Controller
 
         $disertante = new Disertante();
         $disertante->persona_id = $persona_id;
+        $disertante->prefijo = $request->prefijo;
        /* $disertante->fecha_congreso = $request->fecha_congreso;
         $disertante->hora_congreso = $request->hora_congreso;*/
         $disertante->save();
@@ -93,9 +94,7 @@ class DisertantesController extends Controller
             //'required.foto_url' => 'Foto requerida',
         ];
         $rules = [
-            //'dni' => 'sometimes|required|unique:persona',
-            //'email' => 'sometimes|required|unique:persona|unique:users',
-            //'foto_url' => 'required|image|mimes:jpeg,png,jpg|max:4096',
+
         ];
         $validator = Validator::make($request->all(), $rules, $messages);
         $validator->validate();
@@ -120,8 +119,8 @@ class DisertantesController extends Controller
             $img_principal = Image::make($request->foto_url);
             $img_principal->save(public_path('images/avatar/').$img_name);
 
-            $img_thumb = $img_principal->resize(50,50);
-            $img_thumb->save(public_path('images/avatar/thumbs/').$img_name_thumb);
+            $img_principal->resize(50,50);
+            $img_principal->save(public_path('images/avatar/thumbs/').$img_name);
             $request_params['foto_url'] = $img_name;
             //dd($request->foto_url);
         }

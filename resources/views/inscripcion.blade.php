@@ -7,10 +7,11 @@
 </head>
 <body>
 	<div class="container text-center mb-5">
+		<img src="img/core-img/logoSolo.svg" alt="" style="width:40%;margin-bottom: 50px;">
 		<h2>Inscripción AOA - 2.020</h2>
 		<p>Inscripción de asistentes.</p>
 	</div>
-	<div class="container">
+	<div class="container " style="margin-bottom: 100px;">
 		@if(session('success_register'))
 			<div class="alert alert-success" role="alert">
 			  Usuario registrado correctamente. Ingrese a su correo para confirmar su email.
@@ -88,7 +89,9 @@
 			    </div>
 
 			</div>
-			<button type="submit" class="btn btn-primary">Registrar!</button>
+			<div class="form-group col-md-12 text-left">
+				<button type="submit" class="btn btn-primary">Registrar!</button>
+			</div>
 
 		  
 		  
@@ -102,5 +105,10 @@
 		  </div> --}}
 		</form>
 	</div>
+
+	<!-- jQuery 2.2.4 -->
+    <script src="js/jquery.min.js"></script>
+
+	</script>
 </body>
 </html>

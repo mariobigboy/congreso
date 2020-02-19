@@ -16,6 +16,7 @@ class CreateDisertanteTable extends Migration
         Schema::create('disertante', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('persona_id')->nullable();
+            $table->string('prefijo')->default('');
             $table->timestamps();
             //$table->timestamp('fecha_congreso');
             /*$table->string('fecha_congreso');

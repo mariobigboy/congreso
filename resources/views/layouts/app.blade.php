@@ -31,6 +31,9 @@
             select > option{
                 color: #000 !important;
             }
+            .note-dropdown-menu > ul > li{
+                color: #000000 !important;
+            }
         </style>
         {{-- <link rel="stylesheet" href="{{ asset('pickadate')}}/css/default.css"> --}}
     </head>

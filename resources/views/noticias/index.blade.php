@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['pageSlug' => 'noticias'])
 
 @section('content')
     <div class="row">
@@ -7,7 +7,7 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-8">
-                            <h4 class="card-title">{{ __('index Noticias') }}</h4>
+                            <h4 class="card-title">{{ __('Noticias') }}</h4>
                         </div>
                         <div class="col-4 text-right">
                             <a href="{{ route('noticias.create') }}" class="btn btn-sm btn-primary">{{ __('Nueva Noticia') }}</a>

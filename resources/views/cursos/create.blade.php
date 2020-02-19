@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['pageSlug' => 'cursos'])
 
 @section('content')
     <div class="row">
@@ -34,7 +34,7 @@
                         </div>
                     @endif
                     @if($disertantes->count()>0)
-                        <form action="{{route('cursos.store')}}" method="POST" >
+                        <form action="{{route('cursos.store')}}" method="POST" enctype="multipart/form-data">
                             @csrf
 
                             <!-- disertante -->

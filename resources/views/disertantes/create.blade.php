@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['pageSlug' => 'disertantes'])
 
 @section('content')
 
@@ -21,6 +21,12 @@
 
                         <h6 class="heading-small text-muted mb-4">{{ __('Información del Disertante') }}</h6>
                         <div class="pl-lg-4">
+                            <!-- Prefijo -->
+                            <div class="form-group{{ $errors->has('prefijo') ? ' has-danger' : '' }}">
+                                <label class="form-control-label" for="input-prefijo">{{ __('Prefijo') }}</label>
+                                <input type="text" name="prefijo" id="input-prefijo" class="form-control form-control-alternative{{ $errors->has('prefijo') ? ' is-invalid' : '' }}" placeholder="{{ __('Dr. | Doctor ') }}" value="{{ old('prefijo') }}" autofocus>
+                                @include('alerts.feedback', ['field' => 'prefijo'])
+                            </div>
                             <!-- nombre -->
                             <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                                 <label class="form-control-label" for="input-nombre">{{ __('Nombre') }}</label>

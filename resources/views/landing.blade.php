@@ -429,12 +429,12 @@
                                 <h2 data-animation="fadeInUp" data-delay="100ms">{{$curso->tema}}</h2>
                                 <h3 data-animation="fadeInUp" data-delay="300ms">Jueves 26 de Agosto 14 a 18.30 </h3>
                                 <ul class="room-feature" data-animation="fadeInUp" data-delay="500ms">
-                                    <li>“Desinfección de los conductos radiculares: Nuevas soluciones para un problema conocido”</li>
-                                    <li>{{ $disertante->persona->nombre }} {{ $disertante->persona->apellido}}</li>
+                                    <li>“{{ $curso->contenido }}”</li>
+                                    <li>{{$disertante->prefijo}} {{ $disertante->persona->nombre }} {{ $disertante->persona->apellido}}</li>
                                     <li>{{$curso->lugar}}</li>
                                     
                                 </ul>
-                                <a href="#" class="btn roberto-btn mt-30" data-animation="fadeInUp" data-delay="700ms">Leer Mas</a>
+                                <!--<a href="#" class="btn roberto-btn mt-30" data-animation="fadeInUp" data-delay="700ms">Leer Mas</a>-->
                             </div>
                         </div>
                     @endforeach

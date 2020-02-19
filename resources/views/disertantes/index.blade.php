@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['pageSlug' => 'disertantes'])
 
 @section('content')
     <div class="row">

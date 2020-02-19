@@ -7,6 +7,7 @@ use App\Persona;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Hash;
 
+
 class UserController extends Controller
 {
     /**

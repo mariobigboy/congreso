@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Persona;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\ProfileRequest;
 use App\Http\Requests\PasswordRequest;
@@ -58,11 +59,15 @@ class ProfileController extends Controller
         }
 
 
-        $imageName = time().'.'.$request->foto_url->getClientOriginalExtension();
-        $request->foto_url->move(public_path('images/avatar/'), $imageName);
+        $img_name = time().'.'.$request->foto_url->getClientOriginalExtension();
+        $img_principal = Image::make($request->foto_url);
+        $img_principal->save(public_path('images/avatar/').$img_name);
+
+        $img_principal->resize(50,50);
+        $img_principal->save(public_path('images/avatar/thumbs/').$img_name);
 
         $persona = Persona::where('email', auth()->user()->email)->first();
-        $persona->foto_url = $imageName;
+        $persona->foto_url = $img_name;
         $persona->save();
         return back()->with('success_upload','success');
     }
