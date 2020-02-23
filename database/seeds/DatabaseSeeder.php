@@ -26,5 +26,11 @@ class DatabaseSeeder extends Seeder
 
         //seeders para asistente:
         $this->call([AsistenteSeeder::class]);
+
+        //seeders para comentarios:
+        $this->call([ComentarioSeeder::class]);
+
+        //seeders para respuestas:
+        $this->call([RespuestaSeeder::class]);
     }
 }
