@@ -15,7 +15,11 @@
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
-
+    <style type="text/css">
+        .owl-nav{
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -316,7 +320,7 @@
                                         <div class="about-thumbnail pr-lg-5 mb-100 wow fadeInUp" data-wow-delay="100ms">
                                             <img src="img/bg-img/19.jpg" alt="">
                                             <br>
-                                            <p  style="margin-right: 5%; text-align: justify;"">En lo que respecta para este año, tenemos algo muy especial que es el COSAE 2020, para ello le
+                                            <p  style="margin-right: 5%; text-align: justify;">En lo que respecta para este año, tenemos algo muy especial que es el COSAE 2020, para ello le
                                             hemos dado la
                                             posibilidad
                                             y la responsabilidad al Dr. Pablo Ensinas para presidir este congreso. Lo van a acompañar en su
@@ -612,14 +616,39 @@
                 <!-- Section Heading -->
                 <div class="col-12">
                     <div class="section-heading text-center wow fadeInUp" data-wow-delay="100ms">
-                        <h6>Noticias | News</h6>
-                        <h2>Latest News &amp; Event</h2>
+                        <h6>Noticias | Eventos</h6>
+                        <h2>Últimas Noticias &amp; Eventos</h2>
                     </div>
                 </div>
             </div>
 
             <div class="row">
-                <!-- Single Post Area -->
+                @if($noticias->count()>0)
+                    @foreach($noticias as $noticia)
+                        <!-- Single Post Area -->
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="single-post-area mb-100 wow fadeInUp" data-wow-delay="300ms">
+                                <a href="post/{{$noticia->id}}" class="post-thumbnail"><img src="images/noticias/thumbs/{{$noticia->foto_url}}" alt=""></a>
+                                <!-- Post Meta -->
+                                <div class="post-meta">
+                                    <a href="post/{{$noticia->id}}" class="post-date">{{ $noticia->fecha->format('M d, Y') }}</a>
+                                    <a href="post/{{$noticia->id}}" class="post-catagory">{{$noticia->categoria}}</a>
+                                </div>
+                                <!-- Post Title -->
+                                <a href="post/{{$noticia->id}}" class="post-title">{{ $noticia->titulo }}</a>
+                                <p>{!!Str::words($noticia->cuerpo,30,'...')!!}</p>
+                                <a href="post/{{$noticia->id}}" class="btn continue-btn"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    @endforeach
+                @else
+                    <div class="col-lg-12 text-center">
+                        <h3>Aún no hay Noticias</h3>
+                    </div>
+                @endif
+                
+                
+                {{-- <!-- Single Post Area -->
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="single-post-area mb-100 wow fadeInUp" data-wow-delay="300ms">
                         <a href="#" class="post-thumbnail"><img src="img/bg-img/2.jpg" alt=""></a>
@@ -665,7 +694,7 @@
                         <p>Some good steps to take to ensure you are getting what you need out of a autoresponder include…</p>
                         <a href="index.html" class="btn continue-btn"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                     </div>
-                </div>
+                </div> --}}
 
             </div>
         </div>

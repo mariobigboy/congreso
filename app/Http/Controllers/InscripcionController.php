@@ -7,12 +7,32 @@ use Illuminate\Http\Request;
 use App\Persona;
 use App\User;
 use App\Asistente;
+use MP;
+
 
 class InscripcionController extends Controller
 {
 
 	//return index page:
 	public function index(){
+        $preferenceData = [
+            'items' => [
+                [
+                    'id' => 12,
+                    'category_id' => 'school',
+                    'title' => 'Congreso de Endodoncia',
+                    'description' => 'XIX COSAE 2020',
+                    'quantity' => 1,
+                    'currency_id' => 'ARS',
+                    'unit_price' => 150
+                ]
+            ],
+        ];
+
+        //$preference = MP::create_preference($preferenceData);
+        //dd($preference);
+        
+        
 		return view('inscripcion');
 	}
 

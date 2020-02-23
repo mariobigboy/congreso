@@ -15,7 +15,9 @@
         "laravel-frontend-presets/black-dashboard": "^1.0",
         "laravel/framework": "^6.2",
         "laravel/tinker": "^2.0",
+        "mercadopago/dx-php": "1.2.1",
         "rohnstock/pickadate": "^3.5",
+        "santigraviano/laravel-mercadopago": "^1.0",
         "twbs/bootstrap": "4.4.1"
     },
     "require-dev": {

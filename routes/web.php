@@ -19,6 +19,9 @@ Route::get('/', ['as' =>'landing',  'uses' => 'LandingController@index']);
 Route::post('/inscripcion', ['as' => 'inscripcion.store', 'uses' => 'InscripcionController@store']);
 Route::get('/inscripcion', ['as' => 'inscripcion.index', 'uses' => 'InscripcionController@index']);
 
+//Rutas de post:
+Route::get('/post/{id}', ['as' => 'post.index', 'uses' => 'PostController@index']);
+
 Auth::routes();
 Route::get('/admin', 'HomeController@index')->name('home')->middleware('auth');
 

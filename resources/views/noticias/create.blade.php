@@ -15,6 +15,25 @@
                     </div>
                 </div>
                 <div class="card-body">
+                    @if(session('success'))
+                        <div class="alert alert-success">
+                          <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
+                            <i class="tim-icons icon-simple-remove"></i>
+                          </button>
+                          <span>
+                            <b> {{ session('success') }}</span>
+                        </div>
+                    @endif
+
+                    @if(session('error'))
+                        <div class="alert alert-danger">
+                          <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
+                            <i class="tim-icons icon-simple-remove"></i>
+                          </button>
+                          <span>
+                            <b> {{ session('error') }}</span>
+                        </div>
+                    @endif
                     <form method="post" action="{{ route('noticias.store') }}" autocomplete="off" enctype="multipart/form-data">
                         @csrf
 
@@ -29,7 +48,7 @@
                             <!-- cuerpo -->
                             <div class="form-group{{ $errors->has('cuerpo') ? ' has-danger' : '' }}">
                                 <label class="form-control-label" for="input-cuerpo">{{ __('Cuerpo') }}</label>
-                                <textarea name="cuerpo" id="input-cuerpo" class="form-control summernote form-control-alternative{{ $errors->has('cuerpo') ? ' is-invalid' : '' }}" value="{{ old('cuerpo') }}" required height="400px"></textarea>
+                                <textarea name="cuerpo" id="input-cuerpo" class="form-control form-control-alternative{{ $errors->has('cuerpo') ? ' is-invalid' : '' }}" value="{{ old('cuerpo') }}" required height="400px" placeholder="Contenido de la noticia..."></textarea>
                                 @include('alerts.feedback', ['field' => 'cuerpo'])
                             </div>
 

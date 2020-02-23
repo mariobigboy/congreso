@@ -17,7 +17,8 @@ class CreateNoticiasTable extends Migration
             $table->bigIncrements('id');
             $table->string('titulo');
             $table->text('cuerpo');
-            $table->unsignedBigInteger('created_by_user')->nullable();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('foto_url')->default('news_default.png');
             $table->string('meta_tags')->default('');
             $table->string('categoria')->default('');

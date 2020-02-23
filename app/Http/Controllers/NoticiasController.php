@@ -68,7 +68,7 @@ class NoticiasController extends Controller
         
         $noticia = new Noticia();
         $noticia->fill($request->all());
-        $noticia->created_by_user = auth()->user()->id;
+        $noticia->user_id = auth()->user()->id;
         $noticia->foto_url = $img_name;
         $noticia->save();
 
