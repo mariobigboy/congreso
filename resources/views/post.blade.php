@@ -308,16 +308,16 @@
                                 <div class="single-recent-post d-flex">
                                     <!-- Thumb -->
                                     <div class="post-thumb">
-                                        <a href="single-blog.html"><img src="{{asset('')}}images/noticias/thumbs/{{ $row->foto_url }}" alt=""></a>
+                                        <a href="{{$row->id}}"><img src="{{asset('')}}images/noticias/thumbs/{{ $row->foto_url }}" alt=""></a>
                                     </div>
                                     <!-- Content -->
                                     <div class="post-content">
                                         <!-- Post Meta -->
                                         <div class="post-meta">
-                                            <a href="#" class="post-author">{{$row->fecha->format('d M, Y')}}</a>
-                                            <a href="#" class="post-tutorial">{{$row->categoria}}</a>
+                                            <a href="{{$row->id}}" class="post-author">{{$row->fecha->format('d M, Y')}}</a>
+                                            <a href="{{$row->id}}" class="post-tutorial">{{$row->categoria}}</a>
                                         </div>
-                                        <a href="single-blog.html" class="post-title">{{Str::limit($row->titulo,30)}}</a>
+                                        <a href="{{$row->id}}" class="post-title">{{Str::limit($row->titulo,30)}}</a>
                                     </div>
                                 </div>
                             @endforeach

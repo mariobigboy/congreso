@@ -28,9 +28,9 @@ class DatabaseSeeder extends Seeder
         $this->call([AsistenteSeeder::class]);
 
         //seeders para comentarios:
-        $this->call([ComentarioSeeder::class]);
+        //$this->call([ComentarioSeeder::class]);
 
         //seeders para respuestas:
-        $this->call([RespuestaSeeder::class]);
+        //$this->call([RespuestaSeeder::class]);
     }
 }

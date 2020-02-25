@@ -36,6 +36,8 @@
                     @endif
                     <form method="post" action="{{ route('noticias.update') }}" autocomplete="off" enctype="multipart/form-data">
                         @csrf
+                        
+                        <input type="hidden" name="id" value="{{$noticia->id}}">
 
                         <div class="pl-lg-4">
                             <!-- titulo -->

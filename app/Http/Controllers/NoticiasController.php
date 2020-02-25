@@ -17,6 +17,7 @@ class NoticiasController extends Controller
     public function index()
     {
         $noticias = Noticia::all();
+        //dd($noticias);
         return view('noticias.index')->with('noticias', $noticias);
     }
 
@@ -27,8 +28,44 @@ class NoticiasController extends Controller
     }
 
     public function update(Request $request){
-        dd($request);
-        //return
+        
+        $messages = [
+            'required.titulo' => 'Título requerido',
+            'required.cuerpo' => 'Cuerpo de la noticia requerida',
+            'foto_url' => 'No es una foto',
+        ];
+        $rules = [
+            'titulo' => 'required',
+            'cuerpo' => 'required',
+            'foto_url' => 'image|mimes:jpeg,png,jpg|max:4096',
+        ];
+        
+        $validator = Validator::make($request->all(), $rules, $messages);
+        $validator->validate();
+
+        if($validator->fails()){
+            return back()->with('error', '¡Ocurrió un error!');
+        }
+
+        $request_params = $request->all();
+        if(isset($request->foto_url)){
+            //creando las imagenes:
+            //Creando el nombre para la imagen y el thumb.
+            $time_img = time();
+            $img_name = $time_img.'.'.$request->foto_url->getClientOriginalExtension();
+            //guardo las imagenes:
+            $img_principal = Image::make($request->foto_url);
+            $img_principal->save(public_path('images/noticias/').$img_name);
+
+            $img_thumb = $img_principal->resize(600, 400);
+            $img_thumb->save(public_path('images/noticias/thumbs/').$img_name);
+            $request_params['foto_url'] = $img_name;
+        }
+
+        $noticia = Noticia::where('id', $request->id)->first();
+        $noticia->fill($request_params);
+        $noticia->update();
+        return back()->with('success', '¡Noticia Actualizada Correctamente!');
     }
 
     /**
