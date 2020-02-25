@@ -26,7 +26,7 @@
         <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote-lite.min.css"  rel="stylesheet">
         <style>
             .note-editable{
-                background-color: #000 !important;
+                background-color: #fff !important;
             }
             select > option{
                 color: #000 !important;

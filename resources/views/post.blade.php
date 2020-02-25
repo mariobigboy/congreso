@@ -194,7 +194,7 @@
 
                         <!-- Author Social Info -->
                         <div class="author-social-info d-flex align-items-center">
-                            <p>Share:</p>
+                            <p>Compartir:</p>
                             <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
                             <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
                             <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
@@ -205,72 +205,59 @@
 
                     <!-- Comments Area -->
                     <div class="comment_area mb-50 clearfix">
-                        <h2>02 Comments</h2>
+                        <h2>{{$comentarios->count()}} Comentarios</h2>
 
                         <ol>
-                            <!-- Single Comment Area -->
-                            <li class="single_comment_area">
-                                <!-- Comment Content -->
-                                <div class="comment-content d-flex">
-                                    <!-- Comment Author -->
-                                    <div class="comment-author">
-                                        <img src="{{asset('')}}img/bg-img/40.jpg" alt="author">
-                                    </div>
-                                    <!-- Comment Meta -->
-                                    <div class="comment-meta">
-                                        <a href="#" class="post-date">27 Aug 2016</a>
-                                        <h5>Brandon Kelley</h5>
-                                        <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi.</p>
-                                        <a href="#" class="like">Like</a>
-                                        <a href="#" class="reply">Reply</a>
-                                    </div>
-                                </div>
-
-                                <ol class="children">
-                                    <li class="single_comment_area">
-                                        <!-- Comment Content -->
-                                        <div class="comment-content d-flex">
-                                            <!-- Comment Author -->
-                                            <div class="comment-author">
-                                                <img src="{{asset('')}}img/bg-img/41.jpg" alt="author">
-                                            </div>
-                                            <!-- Comment Meta -->
-                                            <div class="comment-meta">
-                                                <a href="#" class="post-date">27 Aug 2018</a>
-                                                <h5>John Doe</h5>
-                                                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetu adipisci velit, sed quia non numquam eius modi</p>
-                                                <a href="#" class="like">Like</a>
-                                                <a href="#" class="reply">Reply</a>
-                                            </div>
+                            @foreach($comentarios as $comentario)
+                                <!-- Single Comment Area -->
+                                <li class="single_comment_area">
+                                    <!-- Comment Content -->
+                                    <div class="comment-content d-flex">
+                                        <!-- Comment Author -->
+                                        <div class="comment-author">
+                                            <img src="{{asset('')}}images/avatar/{{ $comentario->user->persona->foto_url }}" alt="author">
                                         </div>
-                                    </li>
-                                </ol>
-                            </li>
+                                        <!-- Comment Meta -->
+                                        <div class="comment-meta">
+                                            <a href="#" class="post-date">{{$comentario->created_at->format('d M Y')}}</a>
+                                            <h5>{{$comentario->user->persona->nombre}} {{$comentario->user->persona->apellido}}</h5>
+                                            <p>{{$comentario->comentario}}</p>
+                                            <a href="#" class="like" data-comentario="{{$comentario->id}}">Like</a>
+                                            <a href="#" class="reply" data-comentario="{{$comentario->id}}">Reply</a>
+                                        </div>
+                                    </div>
 
-                            <!-- Single Comment Area -->
-                            <li class="single_comment_area">
-                                <!-- Comment Content -->
-                                <div class="comment-content d-flex">
-                                    <!-- Comment Author -->
-                                    <div class="comment-author">
-                                        <img src="{{asset('')}}img/bg-img/42.jpg" alt="author">
-                                    </div>
-                                    <!-- Comment Meta -->
-                                    <div class="comment-meta">
-                                        <a href="#" class="post-date">27 Aug 2018</a>
-                                        <h5>Lander Tea</h5>
-                                        <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetu adipisci velit, sed quia non numquam eius modi</p>
-                                        <a href="#" class="like">Like</a>
-                                        <a href="#" class="reply">Reply</a>
-                                    </div>
-                                </div>
-                            </li>
+                                @foreach($comentario->respuestas as $respuesta)
+                                    <ol class="children">
+                                        <li class="single_comment_area">
+                                            <!-- Comment Content -->
+                                            <div class="comment-content d-flex">
+                                                <!-- Comment Author -->
+                                                <div class="comment-author">
+                                                    <img src="{{asset('')}}images/avatar/{{ $respuesta->user->persona->foto_url }}" alt="author">
+                                                </div>
+                                                <!-- Comment Meta -->
+                                                <div class="comment-meta">
+                                                    <a href="#" class="post-date">{{$respuesta->created_at->format('d M Y')}}</a>
+                                                    <h5>{{$respuesta->user->persona->nombre}} {{$respuesta->user->persona->apellido}}</h5>
+                                                    <p>{{$respuesta->comentario}}</p>
+                                                    <a href="#" class="like" data-respuesta="{{$respuesta->id}}">Like</a>
+                                                    <a href="#" class="reply" data-respuesta="{{$respuesta->id}}">Reply</a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ol>
+                                @endforeach
+                                </li>
+                            @endforeach
+
+                       
                         </ol>
                     </div>
 
                     <!-- Leave A Reply -->
                     <div class="roberto-contact-form mt-80 mb-100">
-                        <h2>Leave A Comment</h2>
+                        <h2>Dejar un comentario</h2>
 
                         <!-- Form -->
                         <form action="#" method="post">
@@ -313,75 +300,30 @@
 
                         <!-- Recent Post -->
                         <div class="single-widget-area mb-100">
-                            <h4 class="widget-title mb-30">Recent News</h4>
+                            <h4 class="widget-title mb-30">Noticias Recientes</h4>
 
-                            <!-- Single Recent Post -->
-                            <div class="single-recent-post d-flex">
-                                <!-- Thumb -->
-                                <div class="post-thumb">
-                                    <a href="single-blog.html"><img src="{{asset('')}}img/bg-img/29.jpg" alt=""></a>
-                                </div>
-                                <!-- Content -->
-                                <div class="post-content">
-                                    <!-- Post Meta -->
-                                    <div class="post-meta">
-                                        <a href="#" class="post-author">Jan 29, 2019</a>
-                                        <a href="#" class="post-tutorial">Event</a>
-                                    </div>
-                                    <a href="single-blog.html" class="post-title">Proven Techniques Help You Herbal Breast</a>
-                                </div>
-                            </div>
+                            @foreach($noticias as $row)
 
-                            <!-- Single Recent Post -->
-                            <div class="single-recent-post d-flex">
-                                <!-- Thumb -->
-                                <div class="post-thumb">
-                                    <a href="single-blog.html"><img src="{{asset('')}}img/bg-img/30.jpg" alt=""></a>
-                                </div>
-                                <!-- Content -->
-                                <div class="post-content">
-                                    <!-- Post Meta -->
-                                    <div class="post-meta">
-                                        <a href="#" class="post-author">Jan 29, 2019</a>
-                                        <a href="#" class="post-tutorial">Event</a>
+                                <!-- Single Recent Post -->
+                                <div class="single-recent-post d-flex">
+                                    <!-- Thumb -->
+                                    <div class="post-thumb">
+                                        <a href="single-blog.html"><img src="{{asset('')}}images/noticias/thumbs/{{ $row->foto_url }}" alt=""></a>
                                     </div>
-                                    <a href="single-blog.html" class="post-title">Cooking On A George Foreman Grill</a>
+                                    <!-- Content -->
+                                    <div class="post-content">
+                                        <!-- Post Meta -->
+                                        <div class="post-meta">
+                                            <a href="#" class="post-author">{{$row->fecha->format('d M, Y')}}</a>
+                                            <a href="#" class="post-tutorial">{{$row->categoria}}</a>
+                                        </div>
+                                        <a href="single-blog.html" class="post-title">{{Str::limit($row->titulo,30)}}</a>
+                                    </div>
                                 </div>
-                            </div>
+                            @endforeach
 
-                            <!-- Single Recent Post -->
-                            <div class="single-recent-post d-flex">
-                                <!-- Thumb -->
-                                <div class="post-thumb">
-                                    <a href="single-blog.html"><img src="{{asset('')}}img/bg-img/31.jpg" alt=""></a>
-                                </div>
-                                <!-- Content -->
-                                <div class="post-content">
-                                    <!-- Post Meta -->
-                                    <div class="post-meta">
-                                        <a href="#" class="post-author">Jan 29, 2019</a>
-                                        <a href="#" class="post-tutorial">Event</a>
-                                    </div>
-                                    <a href="single-blog.html" class="post-title">Selecting The Right Hotel</a>
-                                </div>
-                            </div>
+                            
 
-                            <!-- Single Recent Post -->
-                            <div class="single-recent-post d-flex">
-                                <!-- Thumb -->
-                                <div class="post-thumb">
-                                    <a href="single-blog.html"><img src="{{asset('')}}img/bg-img/32.jpg" alt=""></a>
-                                </div>
-                                <!-- Content -->
-                                <div class="post-content">
-                                    <!-- Post Meta -->
-                                    <div class="post-meta">
-                                        <a href="#" class="post-author">Jan 29, 2019</a>
-                                        <a href="#" class="post-tutorial">Event</a>
-                                    </div>
-                                    <a href="single-blog.html" class="post-title">Comment Importance Of Human Life</a>
-                                </div>
-                            </div>
                         </div>
 
                         <!-- Popular Tags -->

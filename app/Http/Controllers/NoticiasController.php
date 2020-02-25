@@ -20,6 +20,17 @@ class NoticiasController extends Controller
         return view('noticias.index')->with('noticias', $noticias);
     }
 
+    public function edit($id){
+        $noticia = Noticia::where('id', $id)->first();
+        //dd($noticia);
+        return view('noticias.edit')->with('noticia', $noticia);
+    }
+
+    public function update(Request $request){
+        dd($request);
+        //return
+    }
+
     /**
      * Display noticias page
      *

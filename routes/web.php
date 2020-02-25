@@ -54,6 +54,8 @@ Route::group(['middleware' => 'auth'], function(){
 //noticias:
 Route::group(['middleware' => 'auth'], function(){
 	Route::get('noticias', ['as' => 'noticias.index', 'uses' => 'NoticiasController@index']);
+	Route::get('noticias/edit/{id}', ['as' => 'noticias.edit', 'uses' => 'NoticiasController@edit']);
+	Route::post('noticias/update', ['as' => 'noticias.update', 'uses' => 'NoticiasController@update']);
 	Route::post('noticias', ['as' => 'noticias.store', 'uses' => 'NoticiasController@store']);
 	Route::get('noticias/create', ['as' => 'noticias.create', 'uses' => 'NoticiasController@create']);
 });
