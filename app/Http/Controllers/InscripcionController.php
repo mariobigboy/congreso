@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Persona;
 use App\User;
+use App\Role;
 use App\Asistente;
 use MP;
 
@@ -77,6 +78,9 @@ class InscripcionController extends Controller
         $asistente->persona_id = $persona_id;
         $asistente->save();
 
+        //asignamos un rol asistente:
+        $role_asistente = Role::where('nombre', 'asistente')->first();
+
 
     	//creamos un usuario para la persona anteriormente creada:
     	$usuario = new User();
@@ -84,6 +88,9 @@ class InscripcionController extends Controller
     	$usuario->email = $request->email;
     	$usuario->password = bcrypt($request->password);
     	$usuario->save();
+        $usuario->roles()->attach($role_asistente);
+
+
     	
 
     	//luego redirigir con mensaje de éxito:

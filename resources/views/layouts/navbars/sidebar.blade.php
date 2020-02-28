@@ -135,7 +135,30 @@
                 <!-- aquí los items para usuario: -->
             @endif
 
+            @if(Auth::user()->hasRole('asistente'))
+                <!-- aquí los items para asistente: -->
+                <li @if (isset($pageSlug) && $pageSlug == 'programas') class="active " @endif>
+                    <a href="{{ route('programas.index') }}">
+                        <i class="tim-icons icon-notes"></i>
+                        <p>{{ __('Inicio') }}</p>
+                    </a>
+                </li>
 
+                <li @if (isset($pageSlug) && $pageSlug == 'programas') class="active " @endif>
+                    <a href="{{ route('programas.index') }}">
+                        <i class="tim-icons icon-notes"></i>
+                        <p>{{ __('Matricula') }}</p>
+                    </a>
+                </li>
+
+                <li @if (isset($pageSlug) && $pageSlug == 'noticias') class="active " @endif>
+                    <a href="{{ route('cursos.index') }}">
+                        <i class="tim-icons icon-paper"></i>
+                        <p>{{ __('Cursos') }}</p>
+                    </a>
+                </li>
+
+            @endif
         </ul>
     </div>
 </div>

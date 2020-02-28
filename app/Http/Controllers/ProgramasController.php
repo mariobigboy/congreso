@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Programa;
 
 class ProgramasController extends Controller
 {
@@ -12,5 +13,10 @@ class ProgramasController extends Controller
 
     public function create(){
     	return view('programas.create');
+    }
+
+    public function todos(){
+    	$programas = Programa::all();
+    	return view('programas.todos')->with('programas', $programas);
     }
 }

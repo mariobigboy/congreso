@@ -74,7 +74,11 @@ class DisertantesController extends Controller
 
         $disertante = new Disertante();
         $disertante->persona_id = $persona_id;
-        $disertante->prefijo = $request->prefijo;
+        $disertante->prefijo = isset($request->prefijo)? $request->prefijo : '';
+        if(isset($request->destacado)){
+            $disertante->destacado = $request->destacado;
+        }
+        $disertante->cv = isset($request->cv)? $request->cv : '';
        /* $disertante->fecha_congreso = $request->fecha_congreso;
         $disertante->hora_congreso = $request->hora_congreso;*/
         $disertante->save();
@@ -104,16 +108,16 @@ class DisertantesController extends Controller
         //$persona->update();
 
         if($validator->fails()){
+
             return back();
         }
-
+        //dd($request->all());
         $request_params = $request->all();
         if(isset($request->foto_url)){
             //Creando el nombre para la imagen y el thumb.
             $time_img = time();
             $img_name = $time_img.'.'.$request->foto_url->getClientOriginalExtension();
             $img_name_thumb = $time_img.'_thumb.'.$request->foto_url->getClientOriginalExtension();
-            //dd($img_name);
             //creando las imagenes:
             //guardo las imagenes:
             $img_principal = Image::make($request->foto_url);
@@ -122,14 +126,15 @@ class DisertantesController extends Controller
             $img_principal->resize(50,50);
             $img_principal->save(public_path('images/avatar/thumbs/').$img_name);
             $request_params['foto_url'] = $img_name;
-            //dd($request->foto_url);
         }
 
-        //dd($request_params);
         $persona = Disertante::find($request->id)->persona;
         $persona->fill($request_params);
-        //dd($request->all());
         $persona->update();
+
+        $disertante = Disertante::find($request->id)->first();
+        $disertante->fill($request_params);
+        $disertante->update();
 
         return back()->with('success', '¡Actualizado correctamente!');
     }
@@ -139,6 +144,7 @@ class DisertantesController extends Controller
         $disertante = Disertante::where('persona_id', $id)->first();
         if(!is_null($disertante)){
             $persona = $disertante->persona;
+            //dd(collect($persona->toArray())->merge($disertante->toArray()));
             return view('disertantes.edit')->with('persona', collect($persona->toArray())->merge($disertante->toArray()));
         }else{
             //redirige al index de disertantes en caso de no encontrar persona asociada al id

@@ -19,6 +19,7 @@ Route::get('/', ['as' =>'landing',  'uses' => 'LandingController@index']);
 Route::post('/inscripcion', ['as' => 'inscripcion.store', 'uses' => 'InscripcionController@store']);
 Route::get('/inscripcion', ['as' => 'inscripcion.index', 'uses' => 'InscripcionController@index']);
 
+
 //Rutas de post:
 Route::get('/post/{id}', ['as' => 'post.index', 'uses' => 'PostController@index']);
 
@@ -67,12 +68,14 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('profile', ['as' => 'profile.updatepicture', 'uses' => 'ProfileController@updatePicture']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
 });
-//programas
+//rutas de programas:
+Route::get('/programas/todos', ['as' => 'programas.todos', 'uses' => 'ProgramasController@todos']);
 Route::group(['middleware' => 'auth'], function(){
 	Route::get('programas', ['as' => 'programas.index', 'uses' => 'ProgramasController@index']);
 	Route::get('programas/create', ['as' => 'programas.create', 'uses' => 'ProgramasController@create']);
 });
 //cursos
+Route::get('/cursos/todos', ['as' => 'cursos.todos', 'uses' => 'CursosController@todos']);
 Route::group(['middleware' => 'auth'], function(){
 	Route::get('/cursos', ['as' => 'cursos.index', 'uses' => 'CursosController@index']);
 	Route::get('/cursos/create', ['as' => 'cursos.create', 'uses' => 'CursosController@create']);

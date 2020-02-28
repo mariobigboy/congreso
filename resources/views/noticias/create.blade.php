@@ -48,7 +48,7 @@
                             <!-- cuerpo -->
                             <div class="form-group{{ $errors->has('cuerpo') ? ' has-danger' : '' }}">
                                 <label class="form-control-label" for="input-cuerpo">{{ __('Cuerpo') }}</label>
-                                <textarea name="cuerpo" id="input-cuerpo" class="form-control form-control-alternative{{ $errors->has('cuerpo') ? ' is-invalid' : '' }}" value="{{ old('cuerpo') }}" required height="400px" placeholder="Contenido de la noticia..."></textarea>
+                                <textarea name="cuerpo" id="input-cuerpo" class="form-control form-control-alternative{{ $errors->has('cuerpo') ? ' is-invalid' : '' }} summernote" required height="400px" placeholder="Contenido de la noticia..."></textarea>
                                 @include('alerts.feedback', ['field' => 'cuerpo'])
                             </div>
 

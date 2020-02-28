@@ -17,6 +17,8 @@ class CreateDisertanteTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('persona_id')->nullable();
             $table->string('prefijo')->default('');
+            $table->text('cv')->default('');
+            $table->boolean('destacado')->default(0);
             $table->timestamps();
             //$table->timestamp('fecha_congreso');
             /*$table->string('fecha_congreso');

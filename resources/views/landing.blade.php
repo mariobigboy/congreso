@@ -1,28 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="description" content="">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Title -->
-    <title>COSAE 2020 &amp; Buenos Aires - Argentina</title>
-
-    <!-- Favicon -->
-    <link rel="icon" href="./img/core-img/favicon.png">
-
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="style.css">
-    <style type="text/css">
-        .owl-nav{
-            display: none;
-        }
-    </style>
-</head>
-
-<body>
+@include('header')
     <!-- Preloader -->
     <div id="preloader">
         <div class="loader"></div>
@@ -61,66 +37,7 @@
         </div>
         <!-- Top Header Area End -->
 
-        <!-- Main Header Start -->
-        <div class="main-header-area">
-            <div class="classy-nav-container breakpoint-off">
-                <div class="container">
-                    <!-- Classy Menu -->
-                    <nav class="classy-navbar justify-content-between" id="robertoNav">
-
-                        <!-- Logo -->
-                        <a class="nav-brand" href="index.html"><img src="img/core-img/logoSolo.svg" alt="" width="150"></a>
-
-                        <!-- Navbar Toggler -->
-                        <div class="classy-navbar-toggler">
-                            <span class="navbarToggler"><span></span><span></span><span></span></span>
-                        </div>
-
-                        <!-- Menu -->
-                        <div class="classy-menu">
-                            <!-- Menu Close Button -->
-                            <div class="classycloseIcon">
-                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                            </div>
-                            <!-- Nav Start -->
-                            <div class="classynav">
-                                <ul id="nav">
-                                    <li class="active"><a href="#">Home</a></li>
-                                    <li><a href="#">COSAE</a>
-                                        <ul class="dropdown">
-                                            <li><a href="#">- Disertantes</a></li>
-                                            <li><a href="#">- Programa</a></li>
-                                            <li><a href="#">- Salas</a></li>
-                                            
-                                    
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Organización</a>
-                                        <ul class="dropdown">
-                                           <li><a href="#">- SAE</a></li>
-                                            <li><a href="#">- AOA</a></li>
-                                           
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Acomodation</a></li>
-                                    <li><a href="#">Contacto</a></li>
-                                </ul>
-
-                                
-
-                                <!-- Book Now -->
-                                <div class="book-now-btn ml-3 ml-lg-5">
-                                    <a href="{{ route('inscripcion.index') }}">Inscripción<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-                                </div>
-                            </div>
-                            <!-- Nav End -->
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- Header Area End -->
+    @include('navbar')
 
     <!-- Welcome Area Start -->
     <section class="welcome-area">
@@ -418,30 +335,51 @@
     <!-- Testimonials Area End -->
 
     <!-- Our Room Area Start -->
-    <section class="roberto-rooms-area">
+    <section id="disertantes" class="roberto-rooms-area">
         <div class="rooms-slides owl-carousel">
             @if($disertantes->count()>0)
                 @foreach($disertantes as $disertante)
-                    @foreach($disertante->cursos as $curso)
-                        <!-- Single Room Slide -->
-                        <div class="single-room-slide d-flex align-items-center">
-                            <!-- Thumbnail -->
-                            <div class="room-thumbnail h-100 bg-img" style="background-image: url({{asset('')}}images/avatar/{{$disertante->persona->foto_url}});"></div>
+                    @if($disertante->cursos->count()>0)
+                        @foreach($disertante->cursos as $curso)
+                            <!-- Single Room Slide -->
+                            <div class="single-room-slide d-flex align-items-center">
+                                <!-- Thumbnail -->
+                                <div class="room-thumbnail h-100 bg-img" style="background-image: url({{asset('')}}images/avatar/{{$disertante->persona->foto_url}});"></div>
 
-                            <!-- Content -->
-                            <div class="room-content">
-                                <h2 data-animation="fadeInUp" data-delay="100ms">{{$curso->tema}}</h2>
-                                <h3 data-animation="fadeInUp" data-delay="300ms">Jueves 26 de Agosto 14 a 18.30 </h3>
-                                <ul class="room-feature" data-animation="fadeInUp" data-delay="500ms">
-                                    <li>“{{ $curso->contenido }}”</li>
-                                    <li>{{$disertante->prefijo}} {{ $disertante->persona->nombre }} {{ $disertante->persona->apellido}}</li>
-                                    <li>{{$curso->lugar}}</li>
-                                    
-                                </ul>
-                                <!--<a href="#" class="btn roberto-btn mt-30" data-animation="fadeInUp" data-delay="700ms">Leer Mas</a>-->
+                                <!-- Content -->
+                                <div class="room-content">
+                                    <h2 data-animation="fadeInUp" data-delay="100ms">{{$curso->tema}}</h2>
+                                    <h3 data-animation="fadeInUp" data-delay="300ms">Jueves 26 de Agosto 14 a 18.30 </h3>
+                                    <ul class="room-feature" data-animation="fadeInUp" data-delay="500ms">
+                                        <li>“{{ $curso->contenido }}”</li>
+                                        <li>{{$disertante->prefijo}} {{ $disertante->persona->nombre }} {{ $disertante->persona->apellido}}</li>
+                                        <li>{{$curso->lugar}}</li>
+                                        
+                                    </ul>
+                                    <!--<a href="#" class="btn roberto-btn mt-30" data-animation="fadeInUp" data-delay="700ms">Leer Mas</a>-->
+                                </div>
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+                    @else
+                        <!-- Single Room Slide -->
+                            <div class="single-room-slide d-flex align-items-center">
+                                <!-- Thumbnail -->
+                                <div class="room-thumbnail h-100 bg-img" style="background-image: url({{asset('')}}images/avatar/{{$disertante->persona->foto_url}});"></div>
+
+                                <!-- Content -->
+                                <div class="room-content">
+                                    <h2 data-animation="fadeInUp" data-delay="100ms">{{$disertante->prefijo}} {{$disertante->persona->nombre}} {{$disertante->persona->apellido}}</h2>
+                                    <!--<h3 data-animation="fadeInUp" data-delay="300ms">Jueves 26 de Agosto 14 a 18.30 </h3>-->
+                                    <ul class="room-feature" data-animation="fadeInUp" data-delay="500ms">
+                                        <li>“{{ $disertante->cv }}”</li>
+                                        {{-- <li>{{$disertante->prefijo}} {{ $disertante->persona->nombre }} {{ $disertante->persona->apellido}}</li>
+                                        <li>{{$curso->lugar}}</li> --}}
+                                        
+                                    </ul>
+                                    <!--<a href="#" class="btn roberto-btn mt-30" data-animation="fadeInUp" data-delay="700ms">Leer Mas</a>-->
+                                </div>
+                            </div>
+                    @endif
                 @endforeach
             @else
                 <div class="text-center">
@@ -499,14 +437,40 @@
     <section class="roberto-project-area">
         <div class="section-heading wow fadeInUp" style="margin-top: 10%;">
             <div class="container h-100">
-                <h6>Conocer</h6>
-                <h2>Buenos Aires</h2>
+                <h6>Lo nuevo</h6>
+                <h2>Cursos</h2>
             </div>
             
         </div>
         <!-- Projects Slide -->
         <div class="projects-slides owl-carousel">
-            <!-- Single Project Slide -->
+            @if($cursos->count()>0)
+                @foreach($cursos as $curso)
+                    <!-- Single Project Slide -->
+                    <div class="single-project-slide active bg-img" style="background-image: url(images/cursos/{{$curso->foto_url}});">
+                        <!-- Project Text -->
+                        <div class="project-content">
+                            <div class="text">
+                                <h6>{{$curso->disertante->prefijo}} {{$curso->disertante->persona->nombre}} {{$curso->disertante->persona->apellido}}</h6>
+                                <h5>{{$curso->tema}}</h5>
+                            </div>
+                        </div>
+                        <!-- Hover Effects -->
+                        <div class="hover-effects">
+                            <div class="text">
+                                <!--<h6>{{ $curso->fecha_curso }} {{ $curso->hora_curso }}</h6>-->
+                                <h6>{{ \Carbon\Carbon::create($curso->fecha.$curso->hora_curso)->format('d M Y, H:i') }} - Lugar: {{ $curso->lugar }}</h6>
+                                <h5>{{$curso->tema}}</h5>
+                                <p>{{$curso->contenido}}</p>
+                            </div>
+                            <a href="#" class="btn project-btn">Ingresar ahora! <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                @endforeach
+            @else
+                <h3>Aún no hay cursos cargados</h3>
+            @endif
+            {{-- <!-- Single Project Slide -->
             <div class="single-project-slide active bg-img" style="background-image: url(img/bg-img/5.jpg);">
                 <!-- Project Text -->
                 <div class="project-content">
@@ -604,7 +568,7 @@
                     </div>
                     <a href="#" class="btn project-btn">Discover Now <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </section>
     <!-- Projects Area End -->
@@ -636,7 +600,7 @@
                                 </div>
                                 <!-- Post Title -->
                                 <a href="post/{{$noticia->id}}" class="post-title">{{ $noticia->titulo }}</a>
-                                <p>{!!Str::words($noticia->cuerpo,30,'...')!!}</p>
+                                <p>{{Str::limit(strip_tags(html_entity_decode($noticia->cuerpo)),140,'...')}}</p>
                                 <a href="post/{{$noticia->id}}" class="btn continue-btn"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                             </div>
                         </div>
@@ -744,87 +708,4 @@
     </div>
     <!-- Partner Area End -->
 
-    <!-- Footer Area Start -->
-    <footer class="footer-area section-padding-80-0">
-        <!-- Main Footer Area -->
-        <div class="main-footer-area">
-            <div class="container">
-                <div class="row align-items-baseline justify-content-between">
-                    <!-- Single Footer Widget Area -->
-                    <div class="col-12 col-sm-6 col-lg-8">
-                        <div class="single-footer-widget mb-80">
-                            <!-- Footer Logo -->
-                            <a href="#" class="footer-logo"><img src="img/bg-img/sae.svg" alt="" width="600"></a>
-
-                            <h4>(+5411) 4961-6141 (Int 203) - FAX: (+5411) 4961-1110</h4>
-                            <span>info@cosae2020.com</span>
-                            <span>JUNÍN 959 (C1113AAC) - CIUDAD DE BUENOS AIRES, ARG</span>
-                        </div>
-                    </div>
-
-                    
-
-                    <!-- Single Footer Widget Area -->
-                    <div class="col-12 col-sm-4 col-lg-4">
-                        <div class="single-footer-widget mb-80">
-                            <!-- Widget Title -->
-                            <h5 class="widget-title">Links</h5>
-
-                            <!-- Footer Nav -->
-                            <ul class="footer-nav">
-                                <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> About Us</a></li>
-                                <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Our Room</a></li>
-                                <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Career</a></li>
-                                <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> FAQs</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                  
-                </div>
-            </div>
-        </div>
-
-        <!-- Copywrite Area -->
-        <div class="container">
-            <div class="copywrite-content">
-                <div class="row align-items-center">
-                    <div class="col-12 col-md-8">
-                        <!-- Copywrite Text -->
-                        <div class="copywrite-text">
-                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | design by <a href="https://zeromar.net" target="_blank">zeromar</a>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-4">
-                        <!-- Social Info -->
-                        <div class="social-info">
-                            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                            <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- Footer Area End -->
-
-    <!-- **** All JS Files ***** -->
-    <!-- jQuery 2.2.4 -->
-    <script src="js/jquery.min.js"></script>
-    <!-- Popper -->
-    <script src="js/popper.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- All Plugins -->
-    <script src="js/roberto.bundle.js"></script>
-    <!-- Active -->
-    <script src="js/default-assets/active.js"></script>
-
-</body>
-
-</html>
+    @include('footer')

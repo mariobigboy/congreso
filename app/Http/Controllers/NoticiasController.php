@@ -85,7 +85,7 @@ class NoticiasController extends Controller
         $messages = [
             'required.titulo' => 'Título requerido',
             'required.cuerpo' => 'Cuerpo de la noticia requerida',
-            'required.foto_url' => 'required|image|mimes:jpeg,png,jpg|max:4096',
+            'required.foto_url' => 'Se requiere una foto',
         ];
         $rules = [
             'titulo' => 'required',

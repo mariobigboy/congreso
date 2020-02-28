@@ -34,6 +34,14 @@
     // :: 4.0 Welcome Slides Active Code
     // *********************************
 
+    //Sort random function
+    function random(owlSelector){
+        owlSelector.children().sort(function(){
+            return Math.round(Math.random()) - 0.5;
+        }).each(function(){
+          $(this).appendTo(owlSelector);
+        });
+    }
     if ($.fn.owlCarousel) {
         var welcomeSlider = $('.welcome-slides');
         welcomeSlider.owlCarousel({
@@ -41,7 +49,14 @@
             loop: true,
             autoplay: true,
             smartSpeed: 1000,
-            nav: true
+            nav: true,
+            /*onInitialize : function(element){
+                welcomeSlider.children().sort(function(){
+                    return Math.round(Math.random()) - 0.5;
+                }).each(function(){
+                    $(this).appendTo(welcomeSlider);
+                });
+            },*/
         })
 
         welcomeSlider.on('translate.owl.carousel', function () {

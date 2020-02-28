@@ -34,6 +34,9 @@
             .note-dropdown-menu > ul > li{
                 color: #000000 !important;
             }
+            .capitalize{
+                text-transform: capitalize;
+            }
         </style>
         {{-- <link rel="stylesheet" href="{{ asset('pickadate')}}/css/default.css"> --}}
     </head>
@@ -280,13 +283,14 @@
                         toolbar: [
                           ['style', ['style']],
                           ['font', ['bold', 'underline', 'clear']],
-                          ['color', ['color']],
+                          //['color', ['color']],
                           ['para', ['ul', 'ol', 'paragraph']],
                           ['table', ['table']],
                           //['insert', ['link', 'picture', 'video']],
                           ['view', ['fullscreen']]
                         ]
                     });
+                    $('.summernote').summernote('foreColor', 'black');
                 });
             });
         </script>

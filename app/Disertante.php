@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Disertante extends Model
 {
     protected $table = 'disertante';
+    protected $fillable = ['prefijo', 'cv'];
 
      
     public function persona(){
