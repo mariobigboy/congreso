@@ -9,5 +9,8 @@ class Persona extends Model{
     protected $fillable = ['nombre', 'apellido', 'telefono', 'pais', 'foto_url'];
 
     
+	/*public function asistente(){
+		return $this->belongsTo('\App\Asistente', 'email', 'email');
+	}    */
 }
 	

@@ -11,6 +11,7 @@ use Intervention\Image\Facades\Image;
 class DisertantesController extends Controller
 {
     public function index(){
+        
     	//disertantes:
     	/*$model_disertantes = Role::where('nombre', 'disertante')->first();
     	$disertantes = $model_disertantes->users;*/

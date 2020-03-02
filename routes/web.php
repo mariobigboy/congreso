@@ -26,6 +26,10 @@ Route::get('/post/{id}', ['as' => 'post.index', 'uses' => 'PostController@index'
 Auth::routes();
 Route::get('/admin', 'HomeController@index')->name('home')->middleware('auth');
 
+//Rutas hoteles:
+Route::get('/acommodation', ['as' => 'hoteles.accomodation', 'uses' => 'HotelesController@index']);
+Route::get('/hotel/{id}', ['as' => 'hoteles.hotel', 'uses' => 'HotelesController@hotel']);
+
 //pages
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('icons', ['as' => 'pages.icons', 'uses' => 'PageController@icons']);
@@ -83,4 +87,5 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::post('/cursos/update', ['as' => 'cursos.update', 'uses' => 'CursosController@update']);
 	Route::get('/cursos/delete/{id}', ['as' => 'cursos.destroy', 'uses' => 'CursosController@destroy']);
 	Route::get('/cursos/edit/{id}', ['as' => 'cursos.edit', 'uses' => 'CursosController@edit']);
+	Route::get('/cursos/my', ['as' => 'cursos.my', 'uses' => 'CursosController@my_curses']);
 });

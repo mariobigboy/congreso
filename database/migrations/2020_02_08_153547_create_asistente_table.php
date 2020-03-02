@@ -17,6 +17,8 @@ class CreateAsistenteTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('matricula_id')->nullable();
             $table->unsignedBigInteger('persona_id');
+            $table->unsignedBigInteger('mercadopagos_id')->nullable();
+            $table->foreign('mercadopagos_id')->references('id')->on('mercadopagos');
             $table->timestamps();
         });
     }

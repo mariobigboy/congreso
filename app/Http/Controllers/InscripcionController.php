@@ -2,38 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use MP;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Persona;
 use App\User;
 use App\Role;
 use App\Asistente;
-use MP;
+use App\Mercadopago;
 
-
-class InscripcionController extends Controller
-{
+class InscripcionController extends Controller{
 
 	//return index page:
-	public function index(){
-        $preferenceData = [
-            'items' => [
-                [
-                    'id' => 12,
-                    'category_id' => 'school',
-                    'title' => 'Congreso de Endodoncia',
-                    'description' => 'XIX COSAE 2020',
-                    'quantity' => 1,
-                    'currency_id' => 'ARS',
-                    'unit_price' => 150
-                ]
-            ],
-        ];
-
-        //$preference = MP::create_preference($preferenceData);
-        //dd($preference);
-        
-        
+	public function index(Request $request){
+        $request_all = $request->all();
+        if(sizeof($request_all)>0){
+            //$mercadopago = Mercadopago::create($request_all);
+            if($request_all['collection_status']=='approved'){
+                return redirect('/login')->with('message', '¡Registrado correctamente!');
+            }
+        }
 		return view('inscripcion');
 	}
 
@@ -91,10 +79,35 @@ class InscripcionController extends Controller
         $usuario->roles()->attach($role_asistente);
 
 
-    	
+        //creamos la preferencia de pago:
+    	$preferenceData = [
+            'back_urls' => [
+                'success' => 'http://localhost:8000/inscripcion',
+                'pending' => 'http://localhost:8000/inscripcion',
+                'failure' => 'http://localhost:8000/inscripcion'
+            ],
+            'auto_return' => 'approved',
+            'items' => [
+                [
+                    'id' => 12,
+                    'category_id' => 'school',
+                    'title' => 'Arancel Congreso',
+                    'description' => 'XIX COSAE 2020',
+                    'quantity' => 1,
+                    'currency_id' => 'ARS',
+                    'unit_price' => 130
+                ]
+            ],
+        ];
+
+        $preference = MP::create_preference($preferenceData);
+        //dd($preference['response']['init_point']);
+        
+        //redirigimos al pago:
+        return redirect($preference['response']['init_point']);
 
     	//luego redirigir con mensaje de éxito:
-    	return redirect()->route('inscripcion.index')->with('success_register', 'success');
+    	//return redirect()->route('inscripcion.index')->with('success_register', 'success');
 
     }
 

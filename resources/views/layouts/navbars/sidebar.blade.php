@@ -137,24 +137,24 @@
 
             @if(Auth::user()->hasRole('asistente'))
                 <!-- aquí los items para asistente: -->
-                <li @if (isset($pageSlug) && $pageSlug == 'programas') class="active " @endif>
-                    <a href="{{ route('programas.index') }}">
+                <li @if (isset($pageSlug) && $pageSlug == 'dashboard') class="active " @endif>
+                    <a href="{{ route('home') }}">
                         <i class="tim-icons icon-notes"></i>
                         <p>{{ __('Inicio') }}</p>
                     </a>
                 </li>
 
-                <li @if (isset($pageSlug) && $pageSlug == 'programas') class="active " @endif>
+                <li @if (isset($pageSlug) && $pageSlug == 'matricula') class="active " @endif>
                     <a href="{{ route('programas.index') }}">
                         <i class="tim-icons icon-notes"></i>
                         <p>{{ __('Matricula') }}</p>
                     </a>
                 </li>
 
-                <li @if (isset($pageSlug) && $pageSlug == 'noticias') class="active " @endif>
-                    <a href="{{ route('cursos.index') }}">
+                <li @if (isset($pageSlug) && $pageSlug == 'miscursos') class="active " @endif>
+                    <a href="{{ route('cursos.my') }}">
                         <i class="tim-icons icon-paper"></i>
-                        <p>{{ __('Cursos') }}</p>
+                        <p>{{ __('Mis cursos') }}</p>
                     </a>
                 </li>
 

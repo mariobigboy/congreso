@@ -1,6 +1,15 @@
 @extends('layouts.app', ['class' => 'login-page', 'page' => __('Login Page'), 'contentClass' => 'login-page'])
 
 @section('content')
+    @if(session('message'))
+        <div class="alert alert-success">
+          <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
+            <i class="tim-icons icon-simple-remove"></i>
+          </button>
+          <span>
+            <b> ¡Felicidades! - </b> ¡Fue registrado correctamente!</span>
+        </div>
+    @endif
     <div class="col-md-10 text-center ml-auto mr-auto">
         <h3 class="mb-5">Bienvenid@</h3>
     </div>

@@ -1,9 +1,5 @@
 @include('header')
-    <!-- Preloader -->
-    <div id="preloader">
-        <div class="loader"></div>
-    </div>
-    <!-- /Preloader -->
+   
 
     @include('navbar')
 

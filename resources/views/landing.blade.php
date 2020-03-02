@@ -1,49 +1,12 @@
 @include('header')
-    <!-- Preloader -->
-    <div id="preloader">
-        <div class="loader"></div>
-    </div>
-    <!-- /Preloader -->
-
-    <!-- Header Area Start -->
-    <header class="header-area">
-        
-
-        <!-- Top Header Area Start -->
-        <div class="top-header-area">
-            <div class="container">
-                <div class="row">
-
-                    <div class="col-6">
-                        <div class="top-header-content">
-                            <a href="#"><i class="icon_phone"></i> <span>(123) 456-789-1230</span></a>
-                            <a href="#"><i class="icon_mail"></i> <span>info@cosae2020.com</span></a>
-                        </div>
-                    </div>
-
-                    <div class="col-6">
-                        <div class="top-header-content">
-                            <!-- Top Social Area -->
-                            <div class="top-social-area ml-auto">
-                                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <!-- Top Header Area End -->
-
+    
     @include('navbar')
 
     <!-- Welcome Area Start -->
     <section class="welcome-area">
         <div class="welcome-slides owl-carousel">
             <!-- Single Welcome Slide -->
-            <div class="single-welcome-slide bg-img bg-overlay" style="background-image: url(img/bg-img/bg2.jpg);" >
+            <div class="single-welcome-slide bg-img bg-overlay" style="background-image: url({{asset('')}}img/bg-img/bg2.jpg);" >
                 <!-- Welcome Content -->
                 <div class="welcome-content h-100">
                     <div class="container h-100">
@@ -60,7 +23,7 @@
             </div>
 
             <!-- Single Welcome Slide -->
-            <div class="single-welcome-slide bg-img bg-overlay" style="background-image: url(img/bg-img/bg3.jpg);" >
+            <div class="single-welcome-slide bg-img bg-overlay" style="background-image: url({{asset('')}}img/bg-img/bg3.jpg);" >
                 <!-- Welcome Content -->
                 <div class="welcome-content h-100">
                     <div class="container h-100">
@@ -79,7 +42,7 @@
             </div>
 
             <!-- Single Welcome Slide -->
-            <div class="single-welcome-slide bg-img bg-overlay" style="background-image: url(img/bg-img/bg4.jpg);" >
+            <div class="single-welcome-slide bg-img bg-overlay" style="background-image: url({{asset('')}}img/bg-img/bg4.jpg);" >
                 <!-- Welcome Content -->
                 <div class="welcome-content h-100">
                     <div class="container h-100">
@@ -166,17 +129,17 @@
 
     <!-- Video Area Start -->
     <div class="roberto--video--area bg-img bg-overlay jarallax section-padding-0-100"
-        style="background-image: url(img/bg-img/20.jpg);">
+        style="background-image: url({{asset('')}}img/bg-img/20.jpg);">
         <div class="container h-100">
             <div class="row h-100 align-items-center justify-content-center">
                 <div class="col-12 col-md-6">
                     <!-- Section Heading -->
                     <div class="section-heading text-center white wow fadeInUp" data-wow-delay="100ms">
-                        <h6>About Congress</h6>
-                        <h2>A cerca del XIX COSAE</h2>
+                        <h6>IN 360 </h6>
+                        <h2>HILTON BUENOS AIRES</h2>
                     </div>
                     <div class="video-content-area mt-100 wow fadeInUp" data-wow-delay="500ms">
-                        <a href="https://www.youtube.com/watch?v=Ldd8yjjo6jA" class="video-play-btn"><i
+                        <a href="https://www.youtube.com/watch?v=UlDJOEYivt4" class="video-play-btn"><i
                                 class="fa fa-play"></i></a>
                     </div>
                 </div>
@@ -393,7 +356,7 @@
             <!-- Single Room Slide -->
             <div class="single-room-slide d-flex align-items-center">
                 <!-- Thumbnail -->
-                <div class="room-thumbnail h-100 bg-img" style="background-image: url(img/bg-img/kuttler.jpg);"></div>
+                <div class="room-thumbnail h-100 bg-img" style="background-image: url({{asset('')}}img/bg-img/kuttler.jpg);"></div>
         
                 <!-- Content -->
                 <div class="room-content">
@@ -413,7 +376,7 @@
             <!-- Single Room Slide -->
             <div class="single-room-slide d-flex align-items-center">
                 <!-- Thumbnail -->
-                <div class="room-thumbnail h-100 bg-img" style="background-image: url(img/bg-img/bruder.jpg);"></div>
+                <div class="room-thumbnail h-100 bg-img" style="background-image: url({{asset('')}}img/bg-img/bruder.jpg);"></div>
         
                 <!-- Content -->
                 <div class="room-content">
@@ -471,7 +434,7 @@
                 <h3>Aún no hay cursos cargados</h3>
             @endif
             {{-- <!-- Single Project Slide -->
-            <div class="single-project-slide active bg-img" style="background-image: url(img/bg-img/5.jpg);">
+            <div class="single-project-slide active bg-img" style="background-image: url({{asset('')}}img/bg-img/5.jpg);">
                 <!-- Project Text -->
                 <div class="project-content">
                     <div class="text">
@@ -491,7 +454,7 @@
             </div>
 
             <!-- Single Project Slide -->
-            <div class="single-project-slide bg-img" style="background-image: url(img/bg-img/6.jpg);">
+            <div class="single-project-slide bg-img" style="background-image: url({{asset('')}}img/bg-img/6.jpg);">
                 <!-- Project Text -->
                 <div class="project-content">
                     <div class="text">
@@ -511,7 +474,7 @@
             </div>
 
             <!-- Single Project Slide -->
-            <div class="single-project-slide bg-img" style="background-image: url(img/bg-img/7.jpg);">
+            <div class="single-project-slide bg-img" style="background-image: url({{asset('')}}img/bg-img/7.jpg);">
                 <!-- Project Text -->
                 <div class="project-content">
                     <div class="text">
@@ -531,7 +494,7 @@
             </div>
 
             <!-- Single Project Slide -->
-            <div class="single-project-slide bg-img" style="background-image: url(img/bg-img/8.jpg);">
+            <div class="single-project-slide bg-img" style="background-image: url({{asset('')}}img/bg-img/8.jpg);">
                 <!-- Project Text -->
                 <div class="project-content">
                     <div class="text">
@@ -551,7 +514,7 @@
             </div>
 
             <!-- Single Project Slide -->
-            <div class="single-project-slide bg-img" style="background-image: url(img/bg-img/9.jpg);">
+            <div class="single-project-slide bg-img" style="background-image: url({{asset('')}}img/bg-img/9.jpg);">
                 <!-- Project Text -->
                 <div class="project-content">
                     <div class="text">
@@ -668,7 +631,7 @@
     <!-- Call To Action Area Start -->
     <section class="roberto-cta-area">
         <div class="container">
-            <div class="cta-content bg-img bg-overlay jarallax" style="background-image: url(img/bg-img/1.jpg);">
+            <div class="cta-content bg-img bg-overlay jarallax" style="background-image: url({{asset('')}}img/bg-img/1.jpg);">
                 <div class="row align-items-center">
                     <div class="col-12 col-md-7">
                         <div class="cta-text mb-50">

@@ -1,4 +1,42 @@
-<!-- Main Header Start -->
+<!-- Preloader -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+    <!-- /Preloader -->
+
+    <!-- Header Area Start -->
+    <header class="header-area">
+        
+
+        <!-- Top Header Area Start -->
+        <div class="top-header-area">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-6">
+                        <div class="top-header-content">
+                            <a href="#"><i class="icon_phone"></i> <span>(123) 456-789-1230</span></a>
+                            <a href="#"><i class="icon_mail"></i> <span>info@cosae2020.com</span></a>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="top-header-content">
+                            <!-- Top Social Area -->
+                            <div class="top-social-area ml-auto">
+                                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- Top Header Area End -->
+        
+        <!-- Main Header Start -->
         <div class="main-header-area" style="z-index: 99999;">
             <div class="classy-nav-container breakpoint-off">
                 <div class="container">
@@ -38,7 +76,7 @@
                                             <li><a href="#">- AOA</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#">Acomodation</a></li>
+                                    <li><a href="{{route('hoteles.accomodation')}}">Acommodation</a></li>
                                     <li><a href="#">Contacto</a></li>
                                 </ul>
 

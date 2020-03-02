@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Disertante;
 use App\Curso;
+use App\Asistente;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Validator;
@@ -20,6 +21,17 @@ class CursosController extends Controller
     public function todos(){
         $cursos = Curso::paginate(10);
         return view('cursos.todos')->with('cursos', $cursos);
+    }
+
+    public function my_curses(){
+        
+        $current_user = auth()->user();
+        $user_id = $current_user->id;
+        $persona_id = $current_user->persona->id;
+        $asistente = Asistente::where('persona_id', $persona_id)->first();
+        $cursos_inscripto = $asistente->cursos;
+        
+        return view('cursos.my')->with('cursos_inscripto', $cursos_inscripto);
     }
 
     public function create(){

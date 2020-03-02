@@ -1,23 +1,7 @@
 @include('header')
-    <!-- Preloader -->
-    <div id="preloader">
-        <div class="loader"></div>
-    </div>
-    <!-- /Preloader -->
+   
 
-    <!-- Header Area Start -->
-    <header class="header-area">
-        <!-- Search Form -->
-        <div class="search-form d-flex align-items-center">
-            <div class="container">
-                <form action="index.html" method="get">
-                    <input type="search" name="search-form-input" id="searchFormInput" placeholder="Type your keyword ...">
-                    <button type="submit"><i class="icon_search"></i></button>
-                </form>
-            </div>
-        </div>
-
-        
+            
 	@include('navbar')
 
     <!-- Breadcrumb Area Start -->
