@@ -147,19 +147,7 @@
                         </div>
 
                         
-                        <!-- Instagram -->
-                        <div class="single-widget-area mb-100 clearfix">
-                            <h4 class="widget-title mb-30">Instagram</h4>
-                            <!-- Instagram Feeds -->
-                            <ul class="instagram-feeds">
-                                <li><a href="#"><img src="{{asset('')}}img/bg-img/33.jpg" alt=""></a></li>
-                                <li><a href="#"><img src="{{asset('')}}img/bg-img/34.jpg" alt=""></a></li>
-                                <li><a href="#"><img src="{{asset('')}}img/bg-img/35.jpg" alt=""></a></li>
-                                <li><a href="#"><img src="{{asset('')}}img/bg-img/36.jpg" alt=""></a></li>
-                                <li><a href="#"><img src="{{asset('')}}img/bg-img/37.jpg" alt=""></a></li>
-                                <li><a href="#"><img src="{{asset('')}}img/bg-img/38.jpg" alt=""></a></li>
-                            </ul>
-                        </div>
+                        @include('sidebar_instagram')
 
                     </div>
                 </div>
@@ -168,25 +156,7 @@
     </div>
     <!-- Blog Area End -->
 
-    <!-- Call To Action Area Start -->
-    <section class="roberto-cta-area">
-        <div class="container">
-            <div class="cta-content bg-img bg-overlay jarallax" style="background-image: url({{asset('')}}img/bg-img/1.jpg);">
-                <div class="row align-items-center">
-                    <div class="col-12 col-md-7">
-                        <div class="cta-text mb-50">
-                            <h2>Contact us now!</h2>
-                            <h6>Contact (+12) 345-678-9999 to book directly or for advice</h6>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-5 text-right">
-                        <a href="#" class="btn roberto-btn mb-50">Contact Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Call To Action Area End -->
+    @include('banner_inscripcion')
 
     <!-- Partner Area Start -->
     <div class="partner-area">

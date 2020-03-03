@@ -129,6 +129,47 @@
 
             @if(Auth::user()->hasRole('admin'))
                 <!-- aquí los items para Administrador: -->
+                <li @if (isset($pageSlug) && $pageSlug == 'dashboard') class="active " @endif>
+                    <a href="{{ route('home') }}">
+                        <i class="tim-icons icon-chart-pie-36"></i>
+                        <p>{{ __('Dashboard') }}</p>
+                    </a>
+                </li>
+
+                <li @if (isset($pageSlug) && $pageSlug == 'asistentes') class="active " @endif>
+                    <a href="{{ route('asistentes.index') }}">
+                        <i class="tim-icons icon-single-02"></i>
+                        <p>{{ __('Asistentes') }}</p>
+                    </a>
+                </li>
+
+                <li @if (isset($pageSlug) && $pageSlug == 'disertantes') class="active " @endif>
+                    <a href="{{ route('disertantes.index') }}">
+                        <i class="tim-icons icon-badge"></i>
+                        <p>{{ __('Disertantes') }}</p>
+                    </a>
+                </li>
+
+                <li @if (isset($pageSlug) && $pageSlug == 'programas') class="active " @endif>
+                    <a href="{{ route('programas.index') }}">
+                        <i class="tim-icons icon-notes"></i>
+                        <p>{{ __('Programas') }}</p>
+                    </a>
+                </li>
+
+                <li @if (isset($pageSlug) && $pageSlug == 'noticias') class="active " @endif>
+                    <a href="{{ route('noticias.index') }}">
+                        <i class="tim-icons icon-paper"></i>
+                        <p>{{ __('Noticias') }}</p>
+                    </a>
+                </li>
+
+                <li @if (isset($pageSlug) && $pageSlug == 'cursos') class="active " @endif>
+                    <a href="{{ route('cursos.index') }}">
+                        <i class="tim-icons icon-trophy"></i>
+                        <p>{{ __('Cursos') }}</p>
+                    </a>
+                </li>
             @endif
 
             @if(Auth::user()->hasRole('user'))
@@ -144,12 +185,12 @@
                     </a>
                 </li>
 
-                <li @if (isset($pageSlug) && $pageSlug == 'matricula') class="active " @endif>
+                {{-- <li @if (isset($pageSlug) && $pageSlug == 'matricula') class="active " @endif>
                     <a href="{{ route('programas.index') }}">
                         <i class="tim-icons icon-notes"></i>
                         <p>{{ __('Matricula') }}</p>
                     </a>
-                </li>
+                </li> --}}
 
                 <li @if (isset($pageSlug) && $pageSlug == 'miscursos') class="active " @endif>
                     <a href="{{ route('cursos.my') }}">

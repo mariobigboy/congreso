@@ -24,9 +24,9 @@
                         <div class="top-header-content">
                             <!-- Top Social Area -->
                             <div class="top-social-area ml-auto">
-                                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                <a href="https://www.facebook.com/cosae2020/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                <a href="https://twitter.com/hashtag/cosae2020?src=hashtag_click" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                <a href="https://www.instagram.com/cosae2020/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
@@ -64,7 +64,7 @@
                                     <li><a href="#">COSAE</a>
                                         <ul class="dropdown">
                                             <li><a href="{{route('landing')}}#disertantes">- Disertantes</a></li>
-                                            <li><a href="{{route('programas.todos')}}">- Programa</a></li>
+                                            <li><a href="#{{-- {{route('programas.todos')}} --}}">- Programa</a></li>
                                             <li><a href="#salas">- Salas</a></li>
                                             
                                     

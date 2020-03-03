@@ -10,11 +10,16 @@ use App\User;
 use App\Role;
 use App\Asistente;
 use App\Mercadopago;
+//use Vinkla\Instagram\Instagram;
 
 class InscripcionController extends Controller{
 
 	//return index page:
 	public function index(Request $request){
+        
+        //$instagram = new Instagram('IGQVJXeWJQVXVoTjlzODk3Yk9tckQ4aFI0TFhmd2JFOUlYZAHQtc3Q0VnpHdUdJeWFCaUMzekFkZAlRKYjJBdGNkMmJjQ19MeEp0VmRfaXlSZAjRkRHNmdXZAHdm9mOF9PWG91S1RlT0N3');
+        //dd($instagram->media(['count'=>9]));
+
         $request_all = $request->all();
         if(sizeof($request_all)>0){
             //$mercadopago = Mercadopago::create($request_all);
@@ -82,9 +87,9 @@ class InscripcionController extends Controller{
         //creamos la preferencia de pago:
     	$preferenceData = [
             'back_urls' => [
-                'success' => 'http://localhost:8000/inscripcion',
-                'pending' => 'http://localhost:8000/inscripcion',
-                'failure' => 'http://localhost:8000/inscripcion'
+                'success' => env('APP_URL').'/inscripcion',
+                'pending' => env('APP_URL').'/inscripcion',
+                'failure' => env('APP_URL').'/inscripcion'
             ],
             'auto_return' => 'approved',
             'items' => [

@@ -18,7 +18,7 @@ class PersonasSeeder extends Seeder
         Persona::truncate();
         Schema::enableForeignKeyConstraints();
 
-        $persona = new Persona();
+        /*$persona = new Persona();
         $persona->nombre = 'persona1';
         $persona->apellido = 'apellido1';
         $persona->dni = '35480920';
@@ -36,6 +36,6 @@ class PersonasSeeder extends Seeder
         $persona->pais = 'Argentina';
         $persona->email = 'palinejs2@gmail.com';
         $persona->foto_url = 'avatar_default.png';
-        $persona->save();
+        $persona->save();*/
     }
 }

@@ -23,7 +23,7 @@
                                 <i class="tim-icons icon-simple-remove"></i>
                               </button>
                               <span>
-                                <b> {{ session('success') }}</span>
+                                {{ session('success') }}</span>
                             </div>
                         @endif
                         @if(session('error'))
@@ -32,10 +32,13 @@
                                 <i class="tim-icons icon-simple-remove"></i>
                               </button>
                               <span>
-                                <b> {{ session('error') }}</span>
+                                {{ session('error') }}</span>
                             </div>
                         @endif
                     </div>
+
+                    
+                    
                     <!-- aqui tabla -->
                     @if(count($cursos_inscripto) > 0)
                     <table class="table tablesorter table-hover table-click" id="">
@@ -44,12 +47,13 @@
                             <th scope="col">{{ __('Tema') }}</th>
                             <th scope="col">{{ __('Disertante') }}</th>
                             <th scope="col">{{ __('Fecha y hora') }}</th>
-                            <th scope="col"></th>
+                            {{-- <th scope="col"></th> --}}
                             {{-- <th scope="col"></th> --}}
                         </thead>
                         <tbody>
                                 @php
                                     $i = 0;
+
                                 @endphp
 
                                 @foreach ($cursos_inscripto as $curso)
@@ -62,7 +66,7 @@
                                         <td>{{ Str::title($curso->tema) }}</td>
                                         <td class="capitalize">{{ $curso->disertante->persona->nombre }} {{ $curso->disertante->persona->apellido}}</td>
                                         <td>{{ $curso->fecha_curso }} {{ $curso->hora_curso }}</td>
-                                        <td class="text-right">
+                                        {{-- <td class="text-right">
                                             <div class="dropdown">
                                                 <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <i class="fas fa-ellipsis-v"></i>
@@ -79,7 +83,7 @@
                                                         </form>
                                                 </div>
                                             </div>
-                                        </td>
+                                        </td> --}}
                                         
                                     </tr>
                                 @endforeach
@@ -87,6 +91,94 @@
                     </table>
                     @else
                         <p class="text-center">Aún no estas matriculado a un curso.</p>
+                    @endif
+                </div>
+                <div class="card-footer py-4">
+                    <nav class="d-flex justify-content-end" aria-label="...">
+                       
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <!-- cursos -->
+        <div class="col-md-12">
+            <div class="card ">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-8">
+                            <h4 class="card-title">{{ __('Cursos Disponibles') }}</h4>
+                        </div>
+                        {{-- <div class="col-4 text-right">
+                            <a href="{{ route('cursos.create') }}" class="btn btn-sm btn-primary">{{ __('Nuevo Curso') }}</a>
+                        </div> --}}
+                    </div>
+                </div>
+                <div class="card-body">
+
+                    @php
+                        $has_one = 0;
+                    @endphp
+                    @foreach($cursos as $curso)
+                        @if($ids_cursos_inscripto->contains($curso->id))
+                            @php
+                                $has_one ++;
+                            @endphp
+                        @endif
+                    @endforeach
+                    <!-- aqui tabla -->
+                    @if(count($cursos) > 0 && count($cursos) > $has_one)
+                    <form action="{{route('cursos.save_my_curses')}}" id="form-registro" method="POST">
+                        <input type="hidden" name="asistente_id" value="{{$asistente->id}}">
+                        <table class="table tablesorter table-hover table-click" id="">
+                            <thead class=" text-primary">
+                                <th scope="col"></th>
+                                <th scope="col">{{ __('Tema') }}</th>
+                                <th scope="col">{{ __('Disertante') }}</th>
+                                <th scope="col">{{ __('Fecha y hora') }}</th>
+                                <th scope="col">{{__('Seleccionar')}}</th>
+                                {{-- <th scope="col"></th> --}}
+                            </thead>
+                            <tbody>
+                                    @csrf
+                                    
+                                    @php
+                                        $i = 0;
+                                    @endphp
+
+                                    @foreach ($cursos as $curso)
+                                        @if(!$ids_cursos_inscripto->contains($curso->id))
+                                            @php
+                                                $i++;
+                                            @endphp
+                                            <tr {{-- onclick="location.href='{{ route('disertantes.edit', $disertante->id)}}';" --}}>
+                                                <td>{{ $i }}</td>
+                                                <td>{{ Str::title($curso->tema) }}</td>
+                                                <td class="capitalize">{{ $curso->disertante->persona->nombre }} {{ $curso->disertante->persona->apellido}}</td>
+                                                <td>{{ $curso->fecha_curso }} {{ $curso->hora_curso }}</td>
+                                                <td>
+                                                    <div class="form-check">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="checkbox" name="cursos[]" value="{{$curso->id}}">
+                                                            <span class="form-check-sign">
+                                                                <span class="check"></span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @endif
+                                        
+                                    @endforeach
+                                </form>
+                            </tbody>
+                        </table>
+                        <div class="text-left">
+                            <button type="submit" class="btn btn-success mt-4">Inscribir</button>
+                        </div>
+                    </form>
+                    @else
+                        <p class="text-center">Aún no hay cursos disponibles.</p>
                     @endif
                 </div>
                 <div class="card-footer py-4">

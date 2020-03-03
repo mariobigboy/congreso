@@ -88,4 +88,5 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::get('/cursos/delete/{id}', ['as' => 'cursos.destroy', 'uses' => 'CursosController@destroy']);
 	Route::get('/cursos/edit/{id}', ['as' => 'cursos.edit', 'uses' => 'CursosController@edit']);
 	Route::get('/cursos/my', ['as' => 'cursos.my', 'uses' => 'CursosController@my_curses']);
+	Route::post('/cursos/save_my_curses', ['as' => 'cursos.save_my_curses', 'uses' => 'CursosController@save_my_curses']);
 });
