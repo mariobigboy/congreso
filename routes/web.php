@@ -19,6 +19,8 @@ Route::get('/', ['as' =>'landing',  'uses' => 'LandingController@index']);
 Route::post('/inscripcion', ['as' => 'inscripcion.store', 'uses' => 'InscripcionController@store']);
 Route::get('/inscripcion', ['as' => 'inscripcion.index', 'uses' => 'InscripcionController@index']);
 
+//Ruta Comision directiva
+Route::get('/comision', ['as' => 'comision.index', 'uses' => 'ComisionDirectiva@index']);
 
 //Rutas de post:
 Route::get('/post/{id}', ['as' => 'post.index', 'uses' => 'PostController@index']);

@@ -63,6 +63,7 @@
                                     <li class="active"><a href="{{route('landing')}}">Home</a></li>
                                     <li><a href="#">COSAE</a>
                                         <ul class="dropdown">
+                                            <li><a href="{{route('comision.index')}}">- Comisión Directiva</a></li>
                                             <li><a href="{{route('landing')}}#disertantes">- Disertantes</a></li>
                                             <li><a href="#{{-- {{route('programas.todos')}} --}}">- Programa</a></li>
                                             <li><a href="#salas">- Salas</a></li>
