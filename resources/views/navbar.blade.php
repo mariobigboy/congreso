@@ -67,18 +67,23 @@
                                             <li><a href="{{route('landing')}}#disertantes">- Disertantes</a></li>
                                             <li><a href="#{{-- {{route('programas.todos')}} --}}">- Programa</a></li>
                                             <li><a href="#salas">- Salas</a></li>
-                                            
-                                    
+                                            <li><a href="#">Organización</a>
+                                                <ul class="dropdown">
+                                                   <li><a href="#">- SAE</a></li>
+                                                    <li><a href="#">- AOA</a></li>
+                                                </ul>
+                                            </li>
                                         </ul>
                                     </li>
-                                    <li><a href="#">Organización</a>
+                                    <!--<li><a href="#">Organización</a>
                                         <ul class="dropdown">
                                            <li><a href="#">- SAE</a></li>
                                             <li><a href="#">- AOA</a></li>
                                         </ul>
-                                    </li>
+                                    </li>-->
                                     <li><a href="{{route('hoteles.accomodation')}}">Acommodation</a></li>
                                     <li><a href="#">Contacto</a></li>
+                                    <li><a href="{{route('login')}}">Login</a></li>
                                 </ul>
 
                                 

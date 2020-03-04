@@ -46,9 +46,9 @@
                 <div class="card-footer">
                     <button type="submit" href="" class="btn btn-primary btn-lg btn-block mb-3">{{ __('Ingresar') }}</button>
                     <div class="pull-left">
-                        <h6>
+                        {{-- <h6>
                             <a href="{{ route('register') }}" class="link footer-link">{{ __('Registro') }}</a>
-                        </h6>
+                        </h6> --}}
                     </div>
                     <div class="pull-right">
                         <h6>

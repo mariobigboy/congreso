@@ -37,10 +37,17 @@
             .capitalize{
                 text-transform: capitalize;
             }
+            .fondo_bsas{
+                background: url({{asset('')}}img/bg-img/1.jpg) no-repeat center center fixed; 
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+            }
         </style>
         {{-- <link rel="stylesheet" href="{{ asset('pickadate')}}/css/default.css"> --}}
     </head>
-    <body class="{{ $class ?? '' }}">
+    <body class="{{ $class ?? '' }} fondo_bsas">
         @auth()
             <div class="wrapper">
                     @include('layouts.navbars.sidebar')
