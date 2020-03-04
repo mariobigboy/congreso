@@ -26,10 +26,9 @@
 
                             <!-- Footer Nav -->
                             <ul class="footer-nav">
-                                <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> About Us</a></li>
-                                <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Our Room</a></li>
-                                <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Career</a></li>
-                                <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> FAQs</a></li>
+                                <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Contacto</a></li>
+                                <li><a href="{{route('hoteles.accomodation')}}"><i class="fa fa-caret-right" aria-hidden="true"></i> Acommodation</a></li>
+                                <li><a href="{{ route('inscripcion.index') }}"><i class="fa fa-caret-right" aria-hidden="true"></i> Inscripción</a></li>
                             </ul>
                         </div>
                     </div>

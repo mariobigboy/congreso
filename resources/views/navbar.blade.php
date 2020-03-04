@@ -44,7 +44,7 @@
                     <nav class="classy-navbar justify-content-between" id="robertoNav">
 
                         <!-- Logo -->
-                        <a class="nav-brand" href="index.html"><img src="{{asset('')}}img/core-img/logoSolo.svg" alt="" width="150"></a>
+                        <a class="nav-brand" href="{{route('landing')}}"><img src="{{asset('')}}img/core-img/logoSolo.svg" alt="" width="150"></a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
