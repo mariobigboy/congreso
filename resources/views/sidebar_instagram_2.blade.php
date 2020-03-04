@@ -14,12 +14,23 @@
 @endphp
 <!-- Instagram -->
 <div class="single-widget-area mb-100 clearfix">
-    <h4 class="widget-title mb-30">Instagram</h4>
+    <h4 class="widget-title mb-30"><i class="fa fa-instagram"></i> Instagram</h4>
     <!-- Instagram Feeds -->
-    <ul class="instagram-feeds">
+    <div class="instagram-feeds overflow-auto" style="max-height: 400px;">
         @foreach($data as $o)
             @if($o->media_type == 'IMAGE' && $cont <= 9)
-                <li><a href="https://instagram.com/cosae2020" target="_blank"><img src="{{$o->media_url}}" alt=""></a></li>
+                <div style="border-bottom: 1px solid #ebebeb;">
+                    <div class="pull-right">
+                        <i class="fa fa-instagram" style="color:#A92562;"></i>
+                    </div>
+                    <p style="color:#000;font-size:0.9em;">{{ isset($o->caption)? $o->caption : '#Cosae2020' }}</p>
+                    <a href="https://instagram.com/cosae2020" target="_blank" class="text-center">
+                        <img src="{{$o->media_url}}" alt="" style="width:80%;">
+                    </a>
+                    <div class="pull-right">
+                        <p style="color: #000;font-size:0.8em;">{{\Carbon\Carbon::create($o->timestamp)->format('d M Y')}}</p>
+                    </div>
+                </div>
                 @php $cont++; @endphp
             @endif
         @endforeach
@@ -28,5 +39,5 @@
         <li><a href="#"><img src="{{asset('')}}img/bg-img/36.jpg" alt=""></a></li>
         <li><a href="#"><img src="{{asset('')}}img/bg-img/37.jpg" alt=""></a></li>
         <li><a href="#"><img src="{{asset('')}}img/bg-img/38.jpg" alt=""></a></li> --}}
-    </ul>
+    </div>
 </div>

@@ -147,7 +147,7 @@
                         </div>
 
                         
-                        @include('sidebar_instagram')
+                        @include('sidebar_instagram_2')
 
                     </div>
                 </div>
