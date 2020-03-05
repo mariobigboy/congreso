@@ -44,6 +44,9 @@
                 -o-background-size: cover;
                 background-size: cover;
             }
+            .shadow-text{
+                text-shadow: 1px 1px 10px rgba(255,255,255,.9) !important;
+            }
         </style>
         {{-- <link rel="stylesheet" href="{{ asset('pickadate')}}/css/default.css"> --}}
     </head>

@@ -22,9 +22,9 @@
                 </a>
             </li>-->
         </ul>
-        <div class="copyright">
+        <div class="copyright shadow-text" >
             &copy; {{ now()->year }} {{ __('made with') }} <i class="tim-icons icon-heart-2"></i> {{ __('by') }}
-            <a href="http://zeromar.net" target="_blank">{{ __('Zeromar') }}</a> {{ __('for a better web') }}.
+            <a href="http://zeromar.net" target="_blank" class=>{{ __('Zeromar') }}</a> {{ __('for a better web') }}.
         </div>
     </div>
 </footer>

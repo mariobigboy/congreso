@@ -426,7 +426,7 @@
                                 <h5>{{$curso->tema}}</h5>
                                 <p>{{$curso->contenido}}</p>
                             </div>
-                            <a href="#" class="btn project-btn">Ingresar ahora! <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                            <a href="/cursos/todos" class="btn project-btn">Ingresar ahora! <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 @endforeach
