@@ -34,21 +34,22 @@
                             <b> {{ session('error') }}</span>
                         </div>
                     @endif
-                    <form method="post" action="{{ route('programas.store') }}" autocomplete="off" enctype="multipart/form-data">
+                    <form method="post" action="{{ route('programas.update') }}" autocomplete="off" enctype="multipart/form-data">
                         @csrf
 
+                        <input type="hidden" name="id" value="{{$programa->id}}">
                         <div class="pl-lg-4">
                             <!-- titulo -->
                             <div class="form-group{{ $errors->has('titulo') ? ' has-danger' : '' }}">
                                 <label class="form-control-label" for="input-titulo">{{ __('Título') }}</label>
-                                <input type="text" name="titulo" id="input-titulo" class="form-control form-control-alternative{{ $errors->has('titulo') ? ' is-invalid' : '' }}" placeholder="{{ __('Título') }}" value="{{ old('titulo') }}" required autofocus>
+                                <input type="text" name="titulo" id="input-titulo" class="form-control form-control-alternative{{ $errors->has('titulo') ? ' is-invalid' : '' }}" placeholder="{{ __('Título') }}" value="{{ $programa->titulo }}" required autofocus>
                                 @include('alerts.feedback', ['field' => 'titulo'])
                             </div>
                             
                             <!-- cuerpo -->
                             <div class="form-group{{ $errors->has('descripcion') ? ' has-danger' : '' }}">
                                 <label class="form-control-label" for="input-descripcion">{{ __('Descripcion') }}</label>
-                                <textarea name="descripcion" id="input-descripcion" class="form-control form-control-alternative{{ $errors->has('descripcion') ? ' is-invalid' : '' }} summernote" required height="400px" placeholder="Contenido del programa..."></textarea>
+                                <textarea name="descripcion" id="input-descripcion" class="form-control form-control-alternative{{ $errors->has('descripcion') ? ' is-invalid' : '' }} summernote" required height="400px" placeholder="Contenido del programa...">{!!$programa->descripcion!!}</textarea>
                                 @include('alerts.feedback', ['field' => 'descripcion'])
                             </div>
 
@@ -58,7 +59,7 @@
                                 <label for="" class="form-control-label">{{__('Foto')}}</label>
                                 <div class="input-group mb-3">
                                   <div class="custom-file">
-                                    <input type="file" class="custom-file-input form-control" id="input-foto_url" aria-describedby="inputGroupFileAddon01" name="foto_url" required>
+                                    <input type="file" class="custom-file-input form-control" id="input-foto_url" aria-describedby="inputGroupFileAddon01" name="foto_url">
                                     <label class="custom-file-label" for="input-foto_url">Elegir Foto</label>
                                   </div>
                                   
@@ -66,7 +67,7 @@
                             </div>
 
                             <div class="col-lg-12 text-center">
-                                <img style="display:none;" id="preview_foto" width="50%" src="http://placekitten.com/g/300/600" alt="">
+                                <img style="" id="preview_foto" width="50%" src="{{asset('')}}images/programas/{{$programa->foto_url}}" alt="">
                             </div>
 
                             <div class="text-center">

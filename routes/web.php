@@ -79,6 +79,10 @@ Route::get('/programas/todos', ['as' => 'programas.todos', 'uses' => 'ProgramasC
 Route::group(['middleware' => 'auth'], function(){
 	Route::get('programas', ['as' => 'programas.index', 'uses' => 'ProgramasController@index']);
 	Route::get('programas/create', ['as' => 'programas.create', 'uses' => 'ProgramasController@create']);
+	Route::post('programas/store', ['as' => 'programas.store', 'uses' => 'ProgramasController@store']);
+	Route::post('programas/update', ['as' => 'programas.update', 'uses' => 'ProgramasController@update']);
+	Route::get('programas/delete/{id}', ['as' => 'programas.delete', 'uses' => 'ProgramasController@delete']);
+	Route::get('programas/edit/{id}', ['as' => 'programas.edit', 'uses' => 'ProgramasController@edit']);
 });
 //cursos
 Route::get('/cursos/todos', ['as' => 'cursos.todos', 'uses' => 'CursosController@todos']);

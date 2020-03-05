@@ -66,6 +66,7 @@ class CursosController extends Controller
     }
 
     public function store(Request $request){
+        //dd($request);
     	$rules = [
     		'disertante_id' => 'required',
 			'tema' => 'required',
@@ -73,7 +74,7 @@ class CursosController extends Controller
 			'hora_curso' => 'required',
 			'contenido' => 'required',
 			'lugar' => 'required',
-            'foto_url' => 'image|mimes:jpeg,png,jpg|max:4096',
+            'foto_url' => 'image|mimes:jpeg,png,jpg,octet-stream|max:10096',
     	];
     	$messages = [
     		'require.tema' => 'Necesita ingresar un tema',

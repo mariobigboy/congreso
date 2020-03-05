@@ -16,6 +16,7 @@ class DisertantesController extends Controller
     	/*$model_disertantes = Role::where('nombre', 'disertante')->first();
     	$disertantes = $model_disertantes->users;*/
         $disertantes = Disertante::select('disertante.id as disertante_id','persona.*')->join('persona', 'disertante.persona_id', '=', 'persona.id')->get(['disertante.id as disertante_id']);
+        //dd($disertantes);
     	return view('disertantes.index')->with('disertantes', $disertantes);
     }
 
@@ -49,7 +50,6 @@ class DisertantesController extends Controller
         //Creando el nombre para la imagen y el thumb.
         $time_img = time();
         $img_name = $time_img.'.'.$request->foto_url->getClientOriginalExtension();
-        //$img_name_thumb = $time_img.'_thumb.'.$request->foto_url->getClientOriginalExtension();
         
         //creando las imagenes:
         //guardo las imagenes:
