@@ -21,6 +21,10 @@ class InscripcionController extends Controller{
         $request_all = $request->all();
         if(sizeof($request_all)>0){
             //$mercadopago = Mercadopago::create($request_all);
+            $mercadopago = Mercadopago::where('external_reference', $request_all['external_reference'])->first();
+            $mercadopago->fill($request_all);
+            $mercadopago->update();
+
             if($request_all['collection_status']=='approved'){
                 return redirect('/login')->with('message', '¡Registrado correctamente!');
             }
@@ -50,6 +54,13 @@ class InscripcionController extends Controller{
     		return redirect()->route('inscripcion.index')->withErrors($validator);
     	}
 
+        //external_reference para pagos:
+        $external_reference = time();
+
+        $mercadopago = new Mercadopago();
+        $mercadopago->id = intval($external_reference);
+        $mercadopago->fill(['external_reference' => $external_reference, 'collection_status' => 'pending']);
+        $mercadopago->save();
 
     	//aquí guardar inscripción
     	$persona = new Persona();
@@ -67,6 +78,7 @@ class InscripcionController extends Controller{
         //creamos asistente y lo asociamos:
         $asistente = new Asistente();
         $asistente->persona_id = $persona_id;
+        $asistente->mercadopagos_id = $external_reference;
         $asistente->save();
 
         //asignamos un rol asistente:
@@ -80,10 +92,11 @@ class InscripcionController extends Controller{
     	$usuario->password = bcrypt($request->password);
     	$usuario->save();
         $usuario->roles()->attach($role_asistente);
-
+        
 
         //creamos la preferencia de pago:
     	$preferenceData = [
+            'external_reference' => $external_reference,
             'back_urls' => [
                 'success' => env('APP_URL').'/inscripcion',
                 'pending' => env('APP_URL').'/inscripcion',
@@ -92,7 +105,6 @@ class InscripcionController extends Controller{
             'auto_return' => 'approved',
             'items' => [
                 [
-                    'id' => 12,
                     'category_id' => 'school',
                     'title' => 'Arancel Congreso',
                     'description' => 'XIX COSAE 2020',
