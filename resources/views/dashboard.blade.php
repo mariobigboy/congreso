@@ -1,7 +1,7 @@
 @extends('layouts.app', ['pageSlug' => 'dashboard'])
 
 @section('content')
-    @if(Auth::user()->hasRole('superadmin'))
+    @if(Auth::user()->hasRole('superadmin') || Auth::user()->hasRole('admin'))
         <div class="row">
             <div class="col-lg-4">
                 <div class="card card-chart">

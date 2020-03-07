@@ -14,7 +14,7 @@ class CreateMercadopagosTable extends Migration
     public function up()
     {
         Schema::create('mercadopagos', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id')->nullable();
             $table->unsignedBigInteger('collection_id')->nullable();
             $table->string('collection_status')->nullable();
             $table->string('external_reference')->nullable();

@@ -19,6 +19,8 @@ Route::get('/', ['as' =>'landing',  'uses' => 'LandingController@index']);
 Route::post('/inscripcion', ['as' => 'inscripcion.store', 'uses' => 'InscripcionController@store']);
 Route::get('/inscripcion', ['as' => 'inscripcion.index', 'uses' => 'InscripcionController@index']);
 
+Route::post('/subscribe', ['as' => 'subscribe.save', 'uses' => 'SubscribeController@save']);
+
 //Ruta Comision directiva
 Route::get('/comision', ['as' => 'comision.index', 'uses' => 'ComisionDirectiva@index']);
 
@@ -95,4 +97,10 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::get('/cursos/edit/{id}', ['as' => 'cursos.edit', 'uses' => 'CursosController@edit']);
 	Route::get('/cursos/my', ['as' => 'cursos.my', 'uses' => 'CursosController@my_curses']);
 	Route::post('/cursos/save_my_curses', ['as' => 'cursos.save_my_curses', 'uses' => 'CursosController@save_my_curses']);
+});
+
+//Rutas de configuracion:
+Route::group(['middleware' => 'auth'], function(){
+	Route::get('/configuraciones', ['as' => 'configuraciones.index', 'uses' => 'ConfiguracionesController@index']);
+	Route::post('/configuraciones', ['as' => 'configuraciones.save', 'uses' => 'ConfiguracionesController@save']);
 });

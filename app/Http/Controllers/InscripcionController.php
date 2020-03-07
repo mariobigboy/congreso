@@ -10,6 +10,7 @@ use App\User;
 use App\Role;
 use App\Asistente;
 use App\Mercadopago;
+use App\Configuracion;
 //use Vinkla\Instagram\Instagram;
 
 class InscripcionController extends Controller{
@@ -93,6 +94,7 @@ class InscripcionController extends Controller{
     	$usuario->save();
         $usuario->roles()->attach($role_asistente);
         
+        $configuraciones = Configuracion::all()->first();
 
         //creamos la preferencia de pago:
     	$preferenceData = [
@@ -106,11 +108,11 @@ class InscripcionController extends Controller{
             'items' => [
                 [
                     'category_id' => 'school',
-                    'title' => 'Arancel Congreso',
-                    'description' => 'XIX COSAE 2020',
+                    'title' => $configuraciones->mp_title,
+                    'description' => $configuraciones->mp_description,
                     'quantity' => 1,
                     'currency_id' => 'ARS',
-                    'unit_price' => 130
+                    'unit_price' => $configuraciones->mp_unit_price
                 ]
             ],
         ];
