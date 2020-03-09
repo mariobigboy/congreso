@@ -12,5 +12,10 @@ class Persona extends Model{
 	/*public function asistente(){
 		return $this->belongsTo('\App\Asistente', 'email', 'email');
 	}    */
+
+	public function asistente(){
+		//persona_id: 13,
+		return $this->hasMany('App\Asistente', 'persona_id', 'id');
+	}
 }
 	

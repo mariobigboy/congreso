@@ -90,7 +90,7 @@
                                                                 
 
                 
-                                                                <a class="dropdown-item" href="{{ route('disertantes.edit', $disertante->id)}}">{{ __('Editar') }}</a>
+                                                                <a class="dropdown-item" href="{{ route('disertantes.edit', $disertante->disertante_id)}}">{{ __('Editar') }}</a>
                                                                 <button type="button" class="dropdown-item" onclick="confirm('{{ __("¿Está seguro de eliminar este disertante?") }}') ? this.parentElement.submit() : ''">
                                                                             {{ __('Eliminar') }}
                                                                 </button>

@@ -17,7 +17,11 @@ class CreateProgramasTable extends Migration
             $table->bigIncrements('id');
             $table->string('titulo');
             $table->text('descripcion');
+            $table->string('fecha_curso');
+            $table->string('hora_curso');
+            $table->string('lugar');
             $table->string('foto_url');
+            $table->float('precio', 8, 2)->default(1)->nullable();
             $table->timestamps();
         });
     }

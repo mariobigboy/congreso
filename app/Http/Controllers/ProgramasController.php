@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Programa;
+use App\Curso;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Validator;
@@ -112,7 +113,35 @@ class ProgramasController extends Controller{
     }
 
     public function todos(){
-    	$programas = Programa::all();
-    	return view('programas.todos')->with('programas', $programas);
+    	//$programas = Programa::all();
+        $cursos = Curso::orderBy('hora_curso', 'asc')->get();
+        $day26 = array();
+        $day27 = array();
+        $day28 = array();
+        $day29 = array();
+        foreach($cursos as $curso){
+            switch ($curso->fecha_curso) {
+                case '26/08/2020':
+                    array_push($day26, $curso);
+                    break;
+                case '27/08/2020':
+                    array_push($day27, $curso);
+                    break;
+                case '28/08/2020':
+                    array_push($day28, $curso);
+                    break;
+                case '29/08/2020':
+                    array_push($day29, $curso);
+                    break;
+                
+            }
+        }
+    	return view('programas.todos')->with([
+            'cursos' => $cursos,
+            'day26' => $day26,
+            'day27' => $day27,
+            'day28' => $day28,
+            'day29' => $day29
+        ]);
     }
 }

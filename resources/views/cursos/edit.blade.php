@@ -34,7 +34,7 @@
                         </div>
                     @endif
                     @if($disertantes->count()>0)
-                        <form action="{{route('cursos.update')}}" method="POST" >
+                        <form action="{{route('cursos.update')}}" method="POST" enctype="multipart/form-data">
                             @csrf
 
                             <!-- disertante -->

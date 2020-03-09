@@ -30,34 +30,31 @@
             <div class="row">
                 <div class="col-12 col-lg-8">
 
-                    @if($cursos->count()>0)
-                    	@foreach($cursos as $curso)
-                    		<!-- Single Room Area -->
-    	                    <div class="single-room-area d-flex align-items-center mb-50 wow fadeInUp" data-wow-delay="100ms">
-    	                        <!-- Room Thumbnail -->
-    	                        <div class="room-thumbnail">
-    	                            <img src="{{asset('')}}images/cursos/thumbs/{{$curso->foto_url}}" alt="">
-    	                        </div>
-    	                        <!-- Room Content -->
-    	                        <div class="room-content">
-    	                            <h2>{{$curso->tema}}</h2>
-    	                            <!--<h4>400$ <span>/ Day</span></h4>-->
-    	                            <div class="room-feature">
-    	                            	@php
-    	                            		$persona = $curso->disertante->persona;
-    	                            	@endphp
-    	                                <h6 class="capitalize">Dictado por: <span>{{$persona->nombre}} {{$persona->apellido}}</span></h6>
-    	                                <h6>Ubicación: <span>{{$curso->lugar}}</span></h6>
-    	                                <h6>Fecha: <span>{{$curso->fecha_curso}}</span></h6>
-    	                                <h6>Hora: <span>{{$curso->hora_curso}} hs</span></h6>
-    	                            </div>
-    	                            <a href="curso/{{$curso->id}}" class="btn view-detail-btn">Detalles <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-    	                        </div>
-    	                    </div>
-                    	@endforeach
-                    @else
-                        <h3>Aún no hay cursos.</h3>
-                    @endif
+                	@foreach($cursos as $curso)
+                		<!-- Single Room Area -->
+	                    <div class="single-room-area d-flex align-items-center mb-50 wow fadeInUp" data-wow-delay="100ms">
+	                        <!-- Room Thumbnail -->
+	                        <div class="room-thumbnail">
+	                            <img src="{{asset('')}}images/cursos/thumbs/{{$curso->foto_url}}" alt="">
+	                        </div>
+	                        <!-- Room Content -->
+	                        <div class="room-content">
+	                            <h2>{{$curso->tema}}</h2>
+	                            <!--<h4>400$ <span>/ Day</span></h4>-->
+	                            <div class="room-feature">
+	                            	@php
+	                            		$persona = $curso->disertante->persona;
+	                            	@endphp
+	                                <h6 class="capitalize">Dictado por: <span>{{$persona->nombre}} {{$persona->apellido}}</span></h6>
+	                                <h6>Ubicación: <span>{{$curso->lugar}}</span></h6>
+	                                <h6>Fecha: <span>{{$curso->fecha_curso}}</span></h6>
+	                                <h6>Hora: <span>{{$curso->hora_curso}} hs</span></h6>
+	                            </div>
+	                            <a href="curso/{{$curso->id}}" class="btn view-detail-btn">Detalles <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+	                        </div>
+	                    </div>
+                	@endforeach
+
                     
 
                     <!-- Pagination -->
@@ -74,7 +71,7 @@
                 </div>
 
                 <div class="col-12 col-lg-4">
-                    @include('sidebar_instagram_2')
+                    @include('sidebar_instagram')
                 </div>
             </div>
         </div>

@@ -39,7 +39,7 @@
 
                             <!-- disertante -->
                             <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
-                                <label class="form-control-label" for="input-nombre">{{ __('Nombre') }}</label>
+                                <label class="form-control-label" for="input-nombre">{{ __('Disertantes') }}</label>
                                 <select name="disertante_id" id="idPersona" class="form-control" required>
                                     <option value="">Seleccione Disertante</option>
                                     @foreach($disertantes as $disertante)
@@ -50,6 +50,7 @@
                                 
                                 @include('alerts.feedback', ['field' => 'disertante_id'])
                             </div>
+                            
                             <!-- tema -->
                             <div class="form-group{{ $errors->has('tema') ? ' has-danger' : '' }}">
                                 <label class="form-control-label" for="input-tema">{{ __('Tema') }}</label>

@@ -128,7 +128,7 @@ class CursosController extends Controller
             'hora_curso' => 'required',
             'contenido' => 'required',
             'lugar' => 'required',
-
+            'foto_url' => 'image|mimes:jpeg,png,jpg|max:4096',
         ];
         $messages = [
             'require.tema' => 'Necesita ingresar un tema',
@@ -144,13 +144,14 @@ class CursosController extends Controller
 
         $request_params = $request->all();
         //dd($request_params);
-        if(!is_null($request->foto_url)){
+        if(!is_null($request_params['foto_url'])){
+            //dd($request);
             //creando las imagenes:
             //Creando el nombre para la imagen y el thumb.
             $time_img = time();
-            $img_name = $time_img.'.'.$request->foto_url->getClientOriginalExtension();
+            $img_name = $time_img.'.'.$request['foto_url']->getClientOriginalExtension();
             //guardo las imagenes:
-            $img_principal = Image::make($request->foto_url);
+            $img_principal = Image::make($request['foto_url']);
             $img_principal->save(public_path('images/cursos/').$img_name);
 
             $img_thumb = $img_principal->resize(600, 400);

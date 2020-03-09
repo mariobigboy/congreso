@@ -28,17 +28,25 @@ class HomeController extends Controller
      */
     public function index()
     {
-        
-        $estadisticas = [
-            'cant_asistente' => Asistente::all()->count(),
-            'cant_asistente' => Asistente::where('matricula_id','!=', null)->count(),
-            'cant_disertante' => Disertante::all()->count(),
-            'cant_usuario' => User::all()->count(),
-            'cant_persona' => Persona::all()->count(),
-            'cant_curso' => Curso::all()->count(),
-        ];
-        //$users_cant = DB::table('users')->get()->count();
-        return view('dashboard')->with('estadisticas', $estadisticas);
+        if(auth()->user()->hasRole('superadmin') || auth()->user()->hasRole('admin')){
+            $estadisticas = [
+                'cant_asistente' => Asistente::all()->count(),
+                'cant_asistente' => Asistente::where('matricula_id','!=', null)->count(),
+                'cant_disertante' => Disertante::all()->count(),
+                'cant_usuario' => User::all()->count(),
+                'cant_persona' => Persona::all()->count(),
+                'cant_curso' => Curso::all()->count(),
+            ];
+            return view('dashboard')->with('estadisticas', $estadisticas);    
+        }        
+
+        if(auth()->user()->hasRole('asistente')){
+            $asistente = auth()->user()->persona->asistente->first();
+            $pagos = $asistente->pagos;
+            
+            return view('dashboard')->with('pagos', $pagos);
+        }
+
     }
 
 

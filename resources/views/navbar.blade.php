@@ -64,9 +64,10 @@
                                     <li><a href="#">COSAE</a>
                                         <ul class="dropdown">
                                             <li><a href="{{route('comision.index')}}">- Comisión Directiva</a></li>
-                                            <li><a href="{{route('landing')}}#disertantes">- Disertantes</a></li>
-                                            <li><a href="#{{-- {{route('programas.todos')}} --}}">- Programa</a></li>
-                                            <li><a href="#salas">- Salas</a></li>
+                                            <li><a href="{{route('disertantes.todos')}}">- Disertantes</a></li>
+                                            <li><a href="{{route('cursos.todos')}}">- Workshops</a></li>
+                                            <li><a href="{{route('programas.todos')}}">- Programa</a></li>
+                                            <li><a href="{{route('salas.index')}}">- Salas</a></li>
                                             <li><a href="#">Organización</a>
                                                 <ul class="dropdown">
                                                    <li><a href="#">- SAE</a></li>
@@ -82,7 +83,7 @@
                                         </ul>
                                     </li>-->
                                     <li><a href="{{route('hoteles.accomodation')}}">Acommodation</a></li>
-                                    <li><a href="#">Contacto</a></li>
+                                    <li><a href="{{route('contacto.index')}}">Contacto</a></li>
                                     <li><a href="{{route('login')}}">Login</a></li>
                                 </ul>
 

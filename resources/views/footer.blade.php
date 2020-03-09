@@ -26,7 +26,7 @@
 
                             <!-- Footer Nav -->
                             <ul class="footer-nav">
-                                <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Contacto</a></li>
+                                <li><a href="{{route('contacto.index')}}"><i class="fa fa-caret-right" aria-hidden="true"></i> Contacto</a></li>
                                 <li><a href="{{route('hoteles.accomodation')}}"><i class="fa fa-caret-right" aria-hidden="true"></i> Acommodation</a></li>
                                 <li><a href="{{ route('inscripcion.index') }}"><i class="fa fa-caret-right" aria-hidden="true"></i> Inscripción</a></li>
                             </ul>

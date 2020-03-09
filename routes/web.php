@@ -19,7 +19,15 @@ Route::get('/', ['as' =>'landing',  'uses' => 'LandingController@index']);
 Route::post('/inscripcion', ['as' => 'inscripcion.store', 'uses' => 'InscripcionController@store']);
 Route::get('/inscripcion', ['as' => 'inscripcion.index', 'uses' => 'InscripcionController@index']);
 
+//rutas de subscripcion:
 Route::post('/subscribe', ['as' => 'subscribe.save', 'uses' => 'SubscribeController@save']);
+
+//rutas de salas:
+Route::get('/salas', ['as' => 'salas.index', 'uses' => 'SalasController@index']);
+
+//rutas de contacto:
+Route::get('/contacto', ['as' => 'contacto.index', 'uses' => 'ContactoController@index']);
+Route::post('/contacto', ['as' => 'contacto.message', 'uses' => 'ContactoController@message']);
 
 //Ruta Comision directiva
 Route::get('/comision', ['as' => 'comision.index', 'uses' => 'ComisionDirectiva@index']);
@@ -52,6 +60,7 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::get('asistentes/create', ['as' => 'asistentes.create', 'uses' => 'AsistentesController@create']);
 });
 //disertantes
+Route::get('disertantes/todos', ['as' => 'disertantes.todos', 'uses' => 'DisertantesController@todos']);
 Route::group(['middleware' => 'auth'], function(){
 	Route::post('disertantes/update', ['as' => 'disertantes.update', 'uses' => 'DisertantesController@update']);
 	Route::get('disertantes/edit/{id}', ['as' => 'disertantes.edit', 'uses' => 'DisertantesController@edit']);	

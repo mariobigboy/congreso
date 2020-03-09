@@ -16,7 +16,7 @@
                 </div>
                 <div class="card-body">
                     <div class="">
-                        @if(count($asistentes ) > 0)
+                        @if(count($asistentes) > 0)
                         <table class="table tablesorter " id="">
                             <thead class=" text-primary">
                                 <th scope="col"> </th>
@@ -46,8 +46,7 @@
                                             <td>{{ $asistente->dni }}</td>
                                             <td>{{ $asistente->telefono }}</td>
                                             <td>{{ ($asistente->created_at->format('d M Y, H:i')) }}</td>
-                                            {{-- <td>{{ $asistente->matricula_id == NULL? 'No pagada' : 'Pagada' }}</td> --}}
-                                            <td>{{$asistente->pago->collection_status}}</td>
+                                            <td><a href="#">Pagos</a></td>
                                             
                                         </tr>
                                     @endforeach

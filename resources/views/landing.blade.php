@@ -127,27 +127,6 @@
     <!-- About Us Area End -->
 
 
-    <!-- Video Area Start -->
-    <div class="roberto--video--area bg-img bg-overlay jarallax section-padding-0-100"
-        style="background-image: url({{asset('')}}img/bg-img/20.jpg);">
-        <div class="container h-100">
-            <div class="row h-100 align-items-center justify-content-center">
-                <div class="col-12 col-md-6">
-                    <!-- Section Heading -->
-                    <div class="section-heading text-center white wow fadeInUp" data-wow-delay="100ms">
-                        <h6>IN 360 </h6>
-                        <h2>HILTON BUENOS AIRES</h2>
-                    </div>
-                    <div class="video-content-area mt-100 wow fadeInUp" data-wow-delay="500ms">
-                        <a href="https://www.youtube.com/watch?v=UlDJOEYivt4" class="video-play-btn"><i
-                                class="fa fa-play"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Video Area End -->
-
     <!-- Testimonials Area Start -->
     <section class="roberto-testimonials-area section-padding-100-0">
         <div class="container">
@@ -156,13 +135,13 @@
                     <!-- Section Heading -->
                 
                     <!-- Testimonial Slide -->
-                    <div class="testimonial-slides owl-carousel mb-100">
+                    <div class=" mb-100">
                 
                         <!-- Single Testimonial Slide -->
-                        <div class="single-testimonial-slide">
+                        <div class="">
                             <div class="row">
 
-                                <div class="row align-items-center">
+                                <div class="row">
 
                                     <div class="col-12 col-lg-6">
                                         <!-- Section Heading -->
@@ -172,6 +151,7 @@
                                         </div>
                                         <div class="about-content mb-100 wow fadeInUp" data-wow-delay="500ms"
                                             style="margin-right: 5%; text-align: justify; padding-left: 5%;">
+                                            <img src="img/bg-img/19.jpg" alt="">
                                             <p>Es para mi un orgullo estar presidiendo la Sociedad Argentina de Endodoncia, institución de
                                                 reconocida trayectoria
                                                 con
@@ -192,14 +172,7 @@
                                                 Especialidad en
                                                 Endodoncia y la otra, el 12° Encuentro de Investigación en Endodoncia en la ciudad de Santa Fé.
                                                 <br>
-                                               
-                                    
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-lg-6">
-                                        <div class="about-thumbnail pr-lg-5 mb-100 wow fadeInUp" data-wow-delay="100ms">
-                                            <img src="img/bg-img/19.jpg" alt="">
-                                            <br>
+                                            </p>
                                             <p  style="margin-right: 5%; text-align: justify;">En lo que respecta para este año, tenemos algo muy especial que es el COSAE 2020, para ello le
                                             hemos dado la
                                             posibilidad
@@ -223,35 +196,15 @@
                                             <p class="wow fadeInUp" data-wow-delay="400ms">Presidente SAE: <span>Dr. Emilio Manzur</span></p>
                                         </div>
                                     </div>
-                                   
-                                </div>
-
-
-                               
-                                
-                            </div>
-                        </div>
-                
-                        <!-- Single Testimonial Slide -->
-                        <div class="single-testimonial-slide container">
-                            <div class="row">
-
-
-                                <div class="row align-items-center">
+                                    
                                     <div class="col-12 col-lg-6">
-                                        <div class="about-thumbnail pr-lg-5 mb-100 wow fadeInUp" data-wow-delay="100ms">
-                                            <img src="img/bg-img/19.jpg" alt="">
-                                            
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-lg-6">
-                                        <!-- Section Heading -->
                                         <div class="section-heading wow fadeInUp" data-wow-delay="300ms">
                                             <h6>Palabras del</h6>
                                             <h2>Presidente XIX COSAE</h2>
                                         </div>
                                         <div class="about-content mb-100 wow fadeInUp" data-wow-delay="500ms" style="text-align: justify;">
-                                        <p>Quiero agradecer profundamente a la Sociedad Argentina de Endodoncia, a través de su presidente
+                                            <img src="img/bg-img/19.jpg" alt="">
+                                            <p>Quiero agradecer profundamente a la Sociedad Argentina de Endodoncia, a través de su presidente
                                             el Dr. Emilio Manzur por
                                             el honor y la responsabilidad brindados en mi designación como presidente de este XIX COSAE, el
                                             congreso de endodoncia
@@ -276,24 +229,14 @@
                                             COSAE 2020, tu lugar de
                                             reencuentro.</p>
                                             <p class="wow fadeInUp" data-wow-delay="400ms">Presidente XIX COSAE: <span>Dr. Pablo Ensinas</span></p>
-                                           
-                                        </div>
                                     </div>
-                                </div>
-
-
-
-                             
-                            </div>
-                
-                
-                
-                        </div>
-                    </div>
-    
-                
-            </div>
-        </div>
+                                </div><!-- row aligned items -->
+                            </div><!-- row -->
+                        </div><!-- single-testimonial-slide -->
+                    </div><!-- testimonial-slides owl-carousel mb-100 -->
+                </div><!-- col-12 -->
+            </div><!-- row align-items-center -->
+        </div><!-- container -->
     </section>
     <!-- Testimonials Area End -->
 
@@ -575,58 +518,33 @@
                 @endif
                 
                 
-                {{-- <!-- Single Post Area -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-post-area mb-100 wow fadeInUp" data-wow-delay="300ms">
-                        <a href="#" class="post-thumbnail"><img src="img/bg-img/2.jpg" alt=""></a>
-                        <!-- Post Meta -->
-                        <div class="post-meta">
-                            <a href="#" class="post-date">Jan 02, 2019</a>
-                            <a href="#" class="post-catagory">Event</a>
-                        </div>
-                        <!-- Post Title -->
-                        <a href="#" class="post-title">Learn How To Motivate Yourself</a>
-                        <p>How many free autoresponders have you tried? And how many emails did you get through using them?</p>
-                        <a href="index.html" class="btn continue-btn"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-                    </div>
-                </div>
-
-                <!-- Single Post Area -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-post-area mb-100 wow fadeInUp" data-wow-delay="500ms">
-                        <a href="#" class="post-thumbnail"><img src="img/bg-img/3.jpg" alt=""></a>
-                        <!-- Post Meta -->
-                        <div class="post-meta">
-                            <a href="#" class="post-date">Jan 02, 2019</a>
-                            <a href="#" class="post-catagory">Event</a>
-                        </div>
-                        <!-- Post Title -->
-                        <a href="#" class="post-title">What If Let You Run The Hubble</a>
-                        <p>My point here is that if you have no clue for the answers above you probably are not operating a followup.</p>
-                        <a href="index.html" class="btn continue-btn"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-                    </div>
-                </div>
-
-                <!-- Single Post Area -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-post-area mb-100 wow fadeInUp" data-wow-delay="700ms">
-                        <a href="#" class="post-thumbnail"><img src="img/bg-img/4.jpg" alt=""></a>
-                        <!-- Post Meta -->
-                        <div class="post-meta">
-                            <a href="#" class="post-date">Jan 02, 2019</a>
-                            <a href="#" class="post-catagory">Event</a>
-                        </div>
-                        <!-- Post Title -->
-                        <a href="#" class="post-title">Six Pack Abs The Big Picture</a>
-                        <p>Some good steps to take to ensure you are getting what you need out of a autoresponder include…</p>
-                        <a href="index.html" class="btn continue-btn"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-                    </div>
-                </div> --}}
 
             </div>
         </div>
     </section>
     <!-- Blog Area End -->
+
+    <!-- Video Area Start -->
+    <div class="roberto--video--area bg-img bg-overlay jarallax section-padding-0-100 mb-5"
+        style="background-image: url({{asset('')}}img/bg-img/20.jpg);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center justify-content-center">
+                <div class="col-12 col-md-6">
+                    <!-- Section Heading -->
+                    <div class="section-heading text-center white wow fadeInUp" data-wow-delay="100ms">
+                        <h6>IN 360 </h6>
+                        <h2>HILTON BUENOS AIRES</h2>
+                    </div>
+                    <div class="video-content-area mt-100 wow fadeInUp" data-wow-delay="500ms">
+                        <a href="https://www.youtube.com/watch?v=UlDJOEYivt4" class="video-play-btn"><i
+                                class="fa fa-play"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Video Area End -->
+
 
     @include('banner_inscripcion')
 

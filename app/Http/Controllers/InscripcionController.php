@@ -18,16 +18,26 @@ class InscripcionController extends Controller{
 	//return index page:
 	public function index(Request $request){
         
-
         $request_all = $request->all();
         if(sizeof($request_all)>0){
-            //$mercadopago = Mercadopago::create($request_all);
             $mercadopago = Mercadopago::where('external_reference', $request_all['external_reference'])->first();
-            $mercadopago->fill($request_all);
+            $mercadopago->fill([
+                "collection_id" => ($request_all['collection_id']=="null")? null : $request_all['collection_id'],
+                "collection_status" => ($request_all['collection_status']=="null")? null : $request_all['collection_status'],
+                "external_reference" => ($request_all['external_reference']=="null")? null : $request_all['external_reference'],
+                "payment_type" => ($request_all['payment_type']=="null")? null : $request_all['payment_type'],
+                "merchant_order_id" => ($request_all['merchant_order_id']=="null")? null : $request_all['merchant_order_id'],
+                "preference_id" => ($request_all['preference_id']=="null")? null : $request_all['preference_id'],
+                "site_id" => ($request_all['site_id']=="null")? null : $request_all['site_id'],
+                "processing_mode" => ($request_all['processing_mode']=="null")? null : $request_all['processing_mode'],
+                "merchant_account_id" => ($request_all['merchant_account_id']=="null")? null : $request_all['merchant_account_id']
+            ]);
             $mercadopago->update();
 
             if($request_all['collection_status']=='approved'){
                 return redirect('/login')->with('message', '¡Registrado correctamente!');
+            }else{
+                return redirect('/login')->with('error', '¡No se registró el pago!');
             }
         }
 		return view('inscripcion');
@@ -58,9 +68,41 @@ class InscripcionController extends Controller{
         //external_reference para pagos:
         $external_reference = time();
 
+
+        $configuraciones = Configuracion::all()->first();
+
+        //creamos la preferencia de pago:
+        $preferenceData = [
+            'external_reference' => $external_reference,
+            'back_urls' => [
+                'success' => env('APP_URL').'/inscripcion',
+                'pending' => env('APP_URL').'/inscripcion',
+                'failure' => env('APP_URL').'/inscripcion'
+            ],
+            'items' => [
+                [
+                    'category_id' => 'school',
+                    'title' => $configuraciones->mp_title,
+                    'description' => $configuraciones->mp_description,
+                    'quantity' => 1,
+                    'currency_id' => 'ARS',
+                    'unit_price' => $configuraciones->mp_unit_price
+                ]
+            ],
+            'additional_info' => "INSCRIPCION"
+        ];
+
+        $preference = MP::create_preference($preferenceData);
+
+
         $mercadopago = new Mercadopago();
         $mercadopago->id = intval($external_reference);
-        $mercadopago->fill(['external_reference' => $external_reference, 'collection_status' => 'pending']);
+        $mercadopago->fill([
+            'external_reference' => $external_reference, 
+            'collection_status' => 'pending',
+            'preference_id' => $preference['response']['id'],
+            'additional_info' => 'INSCRIPCION'
+        ]);
         $mercadopago->save();
 
     	//aquí guardar inscripción
@@ -94,30 +136,7 @@ class InscripcionController extends Controller{
     	$usuario->save();
         $usuario->roles()->attach($role_asistente);
         
-        $configuraciones = Configuracion::all()->first();
-
-        //creamos la preferencia de pago:
-    	$preferenceData = [
-            'external_reference' => $external_reference,
-            'back_urls' => [
-                'success' => env('APP_URL').'/inscripcion',
-                'pending' => env('APP_URL').'/inscripcion',
-                'failure' => env('APP_URL').'/inscripcion'
-            ],
-            'auto_return' => 'approved',
-            'items' => [
-                [
-                    'category_id' => 'school',
-                    'title' => $configuraciones->mp_title,
-                    'description' => $configuraciones->mp_description,
-                    'quantity' => 1,
-                    'currency_id' => 'ARS',
-                    'unit_price' => $configuraciones->mp_unit_price
-                ]
-            ],
-        ];
-
-        $preference = MP::create_preference($preferenceData);
+        
         //dd($preference['response']['init_point']);
         
         //redirigimos al pago:

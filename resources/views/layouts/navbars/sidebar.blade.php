@@ -32,7 +32,7 @@
                 <li @if (isset($pageSlug) && $pageSlug == 'programas') class="active " @endif>
                     <a href="{{ route('programas.index') }}">
                         <i class="tim-icons icon-notes"></i>
-                        <p>{{ __('Programas') }}</p>
+                        <p>{{ __('Workshops') }}</p>
                     </a>
                 </li>
 
@@ -148,7 +148,7 @@
                 <li @if (isset($pageSlug) && $pageSlug == 'programas') class="active " @endif>
                     <a href="{{ route('programas.index') }}">
                         <i class="tim-icons icon-notes"></i>
-                        <p>{{ __('Programas') }}</p>
+                        <p>{{ __('Workshops') }}</p>
                     </a>
                 </li>
 

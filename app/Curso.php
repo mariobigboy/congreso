@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Curso extends Model{
     
-    protected $fillable = ['disertante_id', 'tema', 'fecha_curso', 'hora_curso', 'contenido', 'lugar'];
+    protected $fillable = ['disertante_id', 'tema', 'fecha_curso', 'hora_curso', 'contenido', 'lugar', 'foto_url'];
 
 
     public function disertante(){

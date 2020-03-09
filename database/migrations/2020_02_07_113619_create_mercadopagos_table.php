@@ -24,6 +24,7 @@ class CreateMercadopagosTable extends Migration
             $table->string('site_id')->nullable();
             $table->string('processing_mode')->nullable();
             $table->string('merchant_account_id')->nullable();
+            $table->string('additional_info')->nullable();
             $table->timestamps();
         });
     }

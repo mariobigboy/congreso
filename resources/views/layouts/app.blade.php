@@ -258,13 +258,16 @@
                         labelYearSelect: 'Seleccione un Año',
                         format: 'dd/mm/yyyy',
                         formatSubmit:'dd/mm/yyyy',
-                        min: new Date(),
+                        min: new Date(2020,7,26),
+                        max: new Date(2020,7,29)
                     });
 
                     $('.timepicker').pickatime({
                         format: 'HH:i',
                         formatSubmit: 'HH:i',
-                        dateInterval: 30,
+                        dateInterval: 15,
+                        min: [7,0],
+                        max: [21,0]
                     });
 
                     //function URL

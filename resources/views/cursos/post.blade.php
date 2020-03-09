@@ -2,7 +2,7 @@
 @include('navbar')
 
     <!-- Breadcrumb Area Start -->
-    <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url({{asset('')}}images/noticias/{{$noticia->foto_url}});">
+    <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url({{asset('')}}img/bg-img/17.jpg);">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
@@ -201,7 +201,18 @@
                         </div>
 
                         <!-- Instagram -->
-                        @include('sidebar_instagram_2')
+                        <div class="single-widget-area mb-100 clearfix">
+                            <h4 class="widget-title mb-30">Instagram</h4>
+                            <!-- Instagram Feeds -->
+                            <ul class="instagram-feeds">
+                                <li><a href="#"><img src="{{asset('')}}img/bg-img/33.jpg" alt=""></a></li>
+                                <li><a href="#"><img src="{{asset('')}}img/bg-img/34.jpg" alt=""></a></li>
+                                <li><a href="#"><img src="{{asset('')}}img/bg-img/35.jpg" alt=""></a></li>
+                                <li><a href="#"><img src="{{asset('')}}img/bg-img/36.jpg" alt=""></a></li>
+                                <li><a href="#"><img src="{{asset('')}}img/bg-img/37.jpg" alt=""></a></li>
+                                <li><a href="#"><img src="{{asset('')}}img/bg-img/38.jpg" alt=""></a></li>
+                            </ul>
+                        </div>
 
                     </div>
                 </div>
@@ -253,4 +264,4 @@
     </div>
     <!-- Partner Area End -->
 
-    @include('footer')
+@include('footer')

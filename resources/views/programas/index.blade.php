@@ -7,10 +7,10 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-8">
-                            <h4 class="card-title">{{ __('Programas') }}</h4>
+                            <h4 class="card-title">{{ __('Workshops') }}</h4>
                         </div>
                         <div class="col-4 text-right">
-                            <a href="{{ route('programas.create') }}" class="btn btn-sm btn-primary">{{ __('Nuevo Programa') }}</a>
+                            <a href="{{ route('programas.create') }}" class="btn btn-sm btn-primary">{{ __('Nuevo Workshop') }}</a>
                         </div>
                     </div>
                 </div>
@@ -85,7 +85,7 @@
                         </tbody>
                     </table>
                     @else
-                        <p class="text-center">Aún no hay Programas</p>
+                        <p class="text-center">Aún no hay Workshops</p>
                     @endif
                 </div>
                 <div class="card-footer py-4">

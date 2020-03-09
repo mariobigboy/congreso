@@ -20,6 +20,7 @@
         "php-http/message": "^1.8",
         "rohnstock/pickadate": "^3.5",
         "santigraviano/laravel-mercadopago": "^1.0",
+        "srmklive/paypal": "~1.0",
         "twbs/bootstrap": "4.4.1",
         "vinkla/instagram": "^9.3"
     },
