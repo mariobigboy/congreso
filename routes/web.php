@@ -61,6 +61,7 @@ Route::group(['middleware' => 'auth'], function(){
 });
 //disertantes
 Route::get('disertantes/todos', ['as' => 'disertantes.todos', 'uses' => 'DisertantesController@todos']);
+Route::get('disertante/{id}', ['as' => 'disertantes.post', 'uses' => 'DisertantesController@post']);
 Route::group(['middleware' => 'auth'], function(){
 	Route::post('disertantes/update', ['as' => 'disertantes.update', 'uses' => 'DisertantesController@update']);
 	Route::get('disertantes/edit/{id}', ['as' => 'disertantes.edit', 'uses' => 'DisertantesController@edit']);	

@@ -70,8 +70,8 @@
                                             <li><a href="{{route('salas.index')}}">- Salas</a></li>
                                             <li><a href="#">Organización</a>
                                                 <ul class="dropdown">
-                                                   <li><a href="#">- SAE</a></li>
-                                                    <li><a href="#">- AOA</a></li>
+                                                   <li><a href="http://www.endodoncia-sae.com.ar/" target="_blank">- SAE</a></li>
+                                                    <li><a href="http://aoa.org.ar/" target="_blank">- AOA</a></li>
                                                 </ul>
                                             </li>
                                         </ul>

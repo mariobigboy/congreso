@@ -49,7 +49,7 @@
                                         </td>
                                         <td>{{ Str::title($disertante->persona->nombre) }} {{ Str::title($disertante->persona->apellido) }}</td>
                                         <td>
-                                            <p>{{Str::words($disertante->cv, 30)}} <a href="#" style="color:#007bff;"> Leer más</a></p>
+                                            <p>{{Str::words($disertante->cv, 30)}} <a href="/disertante/{{$disertante->id}}" style="color:#007bff;"> Leer más</a></p>
                                         </td>
                                         
                                     </tr>

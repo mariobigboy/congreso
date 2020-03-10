@@ -20,6 +20,11 @@ class DisertantesController extends Controller
     	return view('disertantes.index')->with('disertantes', $disertantes);
     }
 
+    public function post($id){
+        $disertante = Disertante::where('id', $id)->first();
+        return view('disertantes.post')->with('disertante', $disertante);
+    }
+
     public function todos(){
         $disertantes = Disertante::all();
         //dd($disertantes);

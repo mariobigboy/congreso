@@ -5,7 +5,7 @@
 
     <!-- Breadcrumb Area Start -->
     <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url({{asset('')}}img/bg-img/bg2.jpg);">
-    	
+        
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
@@ -34,9 +34,9 @@
                         <!--<img src="" alt="">-->
                     </div>
                                    
-					<div>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel voluptatum reprehenderit, fugit, quod dolorem quia molestias laudantium velit officia odit aliquid cumque, soluta? Ab error iure tenetur veritatis dolorem repudiandae!</p>
-					</div>
+                    <div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel voluptatum reprehenderit, fugit, quod dolorem quia molestias laudantium velit officia odit aliquid cumque, soluta? Ab error iure tenetur veritatis dolorem repudiandae!</p>
+                    </div>
                     <div>
                         @if(session('success_register'))
                             <div class="alert alert-success">

@@ -1,5 +1,5 @@
 <!-- Call To Action Area Start -->
-    <section class="roberto-cta-area">
+    <section class="roberto-cta-area mb-50">
         <div class="container">
             <div class="cta-content bg-img bg-overlay jarallax" style="background-image: url({{asset('')}}img/bg-img/1.jpg);">
                 <div class="row align-items-center">
