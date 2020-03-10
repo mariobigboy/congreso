@@ -2476,4 +2476,32 @@ html .ui-button.ui-state-disabled:active {
     .comment_area .children .single_comment_area:last-of-type {
       margin-bottom: 0; }
 
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+    #logo_cosae{
+        width: 95%; margin: 0 auto;
+    }
+}
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+    #logo_cosae{
+        width: 65%; margin: 0 auto;
+    }
+}
+
+/*Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+    #logo_cosae{
+        width: 65%; margin: 0 auto;
+    }
+}
+
+/*Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+    #logo_cosae{
+        width: 65%; margin: 0 auto;
+    }
+}
+
 /*# sourceMappingURL=style.css.map */

@@ -14,7 +14,7 @@
                             <!-- Welcome Text -->
                             <div class="col-12">
                                 <div class="welcome-text text-center">
-                                    <img src="img/bg-img/logo.svg" alt="" style="width: 65%; margin: 0 auto;;">
+                                    <img id="logo_cosae" src="img/bg-img/logo.svg" alt="" >
                                 </div>
                             </div>
                         </div>
@@ -52,7 +52,7 @@
                                 <div class="welcome-text text-center">
                                     <h6 data-animation="fadeInDown" data-delay="200ms">Buenos Aires</h6>
                                     <h2 data-animation="fadeInDown" data-delay="500ms">Welcome To COSAE 2020</h2>
-                                    <a href="#" class="btn roberto-btn btn-2" data-animation="fadeInDown" data-delay="800ms">Discover Now</a>
+                                    {{-- <a href="#" class="btn roberto-btn btn-2" data-animation="fadeInDown" data-delay="800ms">Discover Now</a> --}}
                                 </div>
                             </div>
                         </div>
@@ -147,90 +147,49 @@
                                         <!-- Section Heading -->
                                         <div class="section-heading wow fadeInUp" data-wow-delay="300ms" style="margin-right: 5%; text-align: justify; padding-left: 5%;">
                                             <h6>Palabras del</h6>
-                                            <h2>Presidente de SAE</h2>
+                                            <h2>Presidente XIX COSAE</h2>
+                                            
                                         </div>
                                         <div class="about-content mb-100 wow fadeInUp" data-wow-delay="500ms"
                                             style="margin-right: 5%; text-align: justify; padding-left: 5%;">
-                                            <img src="img/bg-img/19.jpg" alt="">
-                                            <p>Es para mi un orgullo estar presidiendo la Sociedad Argentina de Endodoncia, institución de
-                                                reconocida trayectoria
-                                                con
-                                                66 años desde su fundación, que sigue evolucionando a la par del avance tecnológico gracias a
-                                                todos que formamos
-                                                parte
-                                                de este Sociedad. <br>
-                                                El propósito más importante que plantea nuestra seccional “es el intercambio de ideas respecto a
-                                                métodos de
-                                                tratamiento,
-                                                sus bases y resultados, estimulando la investigación científica y facilitando la difusión de
-                                                conocimientos y el
-                                                mantenimiento de una alta calidad en los servicios profesionales de endodoncia por medio de
-                                                conferencias, cursos y
-                                                publicaciones”. Es por ello que en el año 2019 presentamos actividades científicas muy
-                                                concurridas, dos sábados de
-                                                actualización con destacados conferencistas y dos jornadas, una con alumnos de las carreras de
-                                                Especialidad en
-                                                Endodoncia y la otra, el 12° Encuentro de Investigación en Endodoncia en la ciudad de Santa Fé.
-                                                <br>
-                                            </p>
-                                            <p  style="margin-right: 5%; text-align: justify;">En lo que respecta para este año, tenemos algo muy especial que es el COSAE 2020, para ello le
-                                            hemos dado la
-                                            posibilidad
-                                            y la responsabilidad al Dr. Pablo Ensinas para presidir este congreso. Lo van a acompañar en su
-                                            mesa directiva, la
-                                            Dra.
-                                            Carolina Chaves como secretaria y el Dr. Federico Gibaja en la tesorería, también un grupo de
-                                            destacados colegas de
-                                            nuestra especialidad están trabajando en el desarrollo del congreso. Tenemos muchas expectativas
-                                            para este gran
-                                            evento
-                                            ya que hace 4 años que no se realiza, para ello disponemos de una agenda científica muy nutrida
-                                            con disertantes
-                                            nacionales e internacionales y a la fecha una importante cantidad de inscriptos de nuestro país
-                                            y del exterior. <br>
-                                            Quiero concluir este mensaje agradeciendo a todos los que participan activamente de nuestras
-                                            convocatorias, a las
-                                            Universidades, Posgrados y a las empresas de productos odontológicos. <br>
-                                            Les deseo un muy buen año y los esperamos en el COSAE 2020. <br>
-                                            Cordialmente</p>
-                                            <p class="wow fadeInUp" data-wow-delay="400ms">Presidente SAE: <span>Dr. Emilio Manzur</span></p>
+                                            <div class="text-center">
+                                                <img src="{{asset('')}}images/avatar/presidente_2.jpg" alt="" class="mb-5">
+                                            </div>
+                                            <p>Quiero agradecer profundamente a la Sociedad Argentina de Endodoncia, a través de su presidente
+                                            el Dr. Emilio Manzur por el honor y la responsabilidad brindados en mi designación como presidente de este XIX COSAE, el congreso de endodoncia mas importante de Sudamérica y que se realizará los días 26, 27, 28, 29 de Agosto de 2020 en el Hotel Hilton, Buenos Aires.</p>
+                                            <p>Es mi objetivo mantener y en lo posible superar, el alto nivel académico que tradicionalmente
+                                            los presidentes que me precedieron supieron conseguir. Es por esto que junto a la Comisión Organizadora que me acompaña, hemos apuntado a una agenda científica de excelencia, abarcando todos los tópicos inherentes a la especialidad que nos permitirá un intercambio y actualización a través de cursos, workshops, mesas redondas, conferencias seriadas y mesas de debate. Contaremos también con el IV Encuentro estudiantil de estudiantes de grado y el V Encuentro Latinoamericano de estudiantes de posgrado, actividades que superan siempre nuestras expectativas por la constante participación de alumnos nacionales e internacionales.</p>
+                                            <p>Es nuestro deseo contar con tu presencia y que disfrutes luego de 4 años de espera de este XIX
+                                            COSAE 2020, tu lugar de reencuentro.</p>
+                                            <p class="wow fadeInUp" data-wow-delay="400ms">Presidente XIX COSAE: <span>Dr. Pablo Ensinas</span></p>
                                         </div>
                                     </div>
                                     
                                     <div class="col-12 col-lg-6">
-                                        <div class="section-heading wow fadeInUp" data-wow-delay="300ms">
+                                        <div class="section-heading wow fadeInUp" data-wow-delay="300ms" style="margin-right: 5%; text-align: justify; padding-left: 5%;">
                                             <h6>Palabras del</h6>
-                                            <h2>Presidente XIX COSAE</h2>
+                                            <h2 style="text-transform: none;">Presidente de la SAE</h2>
                                         </div>
-                                        <div class="about-content mb-100 wow fadeInUp" data-wow-delay="500ms" style="text-align: justify;">
-                                            <img src="img/bg-img/19.jpg" alt="">
-                                            <p>Quiero agradecer profundamente a la Sociedad Argentina de Endodoncia, a través de su presidente
-                                            el Dr. Emilio Manzur por
-                                            el honor y la responsabilidad brindados en mi designación como presidente de este XIX COSAE, el
-                                            congreso de endodoncia
-                                            mas importante de Sudamérica y que se realizará los días 26,27,28,29 de Agosto de 2020 en el
-                                            Hotel Hilton, Buenos Aires.
-                                            <br>
-                                            Es mi objetivo mantener y en lo posible superar, el alto nivel académico que tradicionalmente
-                                            los presidentes que me
-                                            precedieron supieron conseguir.
-                                            Es por esto que junto a la Comisión Organizadora que me acompaña, hemos apuntado a una agenda
-                                            científica de excelencia,
-                                            abarcando todos los tópicos inherentes a la especialidad que nos permitirá un intercambio y
-                                            actualización a través de
-                                            cursos, workshops, mesas redondas, conferencias seriadas y mesas de debate.
-                                            Contaremos también con el IV Encuentro estudiantil de estudiantes de grado y el V Encuentro
-                                            Latinoamericano de
-                                            estudiantes de posgrado, actividades que superan siempre nuestras expectativas por la constante
-                                            participación de alumnos
-                                            nacionales e internacionales.
-                                            <br>
-                                            Es nuestro deseo contar con tu presencia y que disfrutes luego de 4 años de espera de este XIX
-                                            COSAE 2020, tu lugar de
-                                            reencuentro.</p>
-                                            <p class="wow fadeInUp" data-wow-delay="400ms">Presidente XIX COSAE: <span>Dr. Pablo Ensinas</span></p>
+                                        <div class="about-content mb-100 wow fadeInUp" data-wow-delay="500ms" style="margin-right: 5%; text-align: justify; padding-left: 5%;">
+                                            <div class="text-center">
+                                                <img src="{{asset('')}}images/avatar/presidente_2.jpg" alt="" class="mb-5">
+                                            </div>
+                                            <p>Es para mi un orgullo estar presidiendo la Sociedad Argentina de Endodoncia, institución de reconocida trayectoria con 66 años desde su fundación, que sigue evolucionando a la par del avance tecnológico gracias a todos que formamos parte de esta Sociedad.</p>
+                                            <p>El propósito más importante que plantea nuestra seccional “es el intercambio de ideas respecto a métodos de tratamiento, sus bases y resultados, estimulando la investigación científica y facilitando la difusión de conocimientos y el mantenimiento de una alta calidad en los servicios profesionales de endodoncia por medio de conferencias, cursos y publicaciones”. Es por ello que en el año 2019 presentamos actividades científicas muy concurridas, dos sábados de actualización con destacados conferencistas y dos jornadas, una con alumnos de las carreras de Especialidad en
+                                            Endodoncia y la otra, el 12° Encuentro de Investigación en Endodoncia en la ciudad de Santa Fé.  </p>
+                                            <p>En lo que respecta para este año, tenemos algo muy especial que es el COSAE 2020, para ello le
+                                            hemos dado la posibilidad y la responsabilidad al Dr. Pablo Ensinas para presidir este congreso. Lo van a acompañar en su mesa directiva, la Dra. Carolina Chaves como secretaria y el Dr. Federico Gibaja en la tesorería, también un grupo de destacados colegas de nuestra especialidad están trabajando en el desarrollo del congreso. Tenemos muchas expectativas para este gran
+                                            evento ya que hace 4 años que no se realiza, para ello disponemos de una agenda científica muy nutrida con disertantes nacionales e internacionales y a la fecha una importante cantidad de inscriptos de nuestro país y del exterior. </p>
+                                            <p>Quiero concluir este mensaje agradeciendo a todos los que participan activamente de nuestras
+                                            convocatorias, a las Universidades, Posgrados y a las empresas de productos odontológicos. </p>
+                                            <p>Les deseo un muy buen año y los esperamos en el COSAE 2020. </p>
+                                            <p>Cordialmente</p>
+                                            <p class="wow fadeInUp" data-wow-delay="400ms">Presidente SAE: <span>Dr. Emilio Manzur</span></p>
+                                            
                                     </div>
-                                </div><!-- row aligned items -->
+
+
+                                </div><!-- row -->
                             </div><!-- row -->
                         </div><!-- single-testimonial-slide -->
                     </div><!-- testimonial-slides owl-carousel mb-100 -->
