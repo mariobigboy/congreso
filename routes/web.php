@@ -15,7 +15,7 @@
 //route test:
 Route::get('/test', function(){
 	//Mail::to('mendezpablo90@gmail.com', 'Pablo')->send(new WelcomeEmail());
-	return env('APP_URL');
+	return redirect()->route('login')->with('confirm_success', '¡Correo confirmado correctamente!');
 });
 
 //route confirmar:

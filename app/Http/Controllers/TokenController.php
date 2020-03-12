@@ -17,8 +17,9 @@ class TokenController extends Controller
 		    	$user = User::where('email', $email)->get()->first();
 		    	$user->email_verified_at = now();
 		    	$user->update();
+		    	return redirect()->route('login')->with('confirm_success', '¡Correo confirmado correctamente!');
 	    	}
-	    	return redirect()->route('landing');
+	    	return redirect()->route('inscripcion.index');
     	}
     	return redirect()->route('landing');
     }

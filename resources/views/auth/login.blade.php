@@ -10,6 +10,15 @@
             <b> ¡Felicidades! - </b> ¡Fue registrado correctamente!</span>
         </div>
     @endif
+    @if(session('confirm_success'))
+        <div class="alert alert-success">
+          <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
+            <i class="tim-icons icon-simple-remove"></i>
+          </button>
+          <span>
+            <b> ¡Felicidades! - </b> ¡Correo confirmado correctamente!</span>
+        </div>
+    @endif
     <div class="col-md-10 text-center ml-auto mr-auto">
         <h3 class="mb-5 shadow-text">Bienvenid@</h3>
     </div>
