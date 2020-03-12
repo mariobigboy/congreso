@@ -6,6 +6,7 @@ use App\Disertante;
 use App\Curso;
 use App\Asistente;
 use App\Inscripcion;
+use App\Programa;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Validator;
@@ -20,7 +21,13 @@ class CursosController extends Controller
     }
 
     public function todos(){
-        $cursos = Curso::paginate(10);
+        $cursos = Curso::paginate(30);
+        $programas = Programa::all();
+        foreach($programas as $programa){
+            $programa->tema = $programa->titulo;
+            $cursos->push($programa);
+        }
+        //dd($cursos);
         return view('cursos.todos')->with('cursos', $cursos);
     }
 
@@ -98,10 +105,10 @@ class CursosController extends Controller
         //creando las imagenes:
         //guardo las imagenes:
         $img_principal = Image::make($request->foto_url);
-        $img_principal->save(public_path('images/cursos/').$img_name);
+        $img_principal->save('images/cursos/'.$img_name);
 
         $img_thumb = $img_principal->resize(600, 400);
-        $img_thumb->save(public_path('images/cursos/thumbs/').$img_name);
+        $img_thumb->save('images/cursos/thumbs/'.$img_name);
         
         
         //dd($request);
@@ -152,10 +159,10 @@ class CursosController extends Controller
             $img_name = $time_img.'.'.$request['foto_url']->getClientOriginalExtension();
             //guardo las imagenes:
             $img_principal = Image::make($request['foto_url']);
-            $img_principal->save(public_path('images/cursos/').$img_name);
+            $img_principal->save('images/cursos/'.$img_name);
 
             $img_thumb = $img_principal->resize(600, 400);
-            $img_thumb->save(public_path('images/cursos/thumbs/').$img_name);
+            $img_thumb->save('images/cursos/thumbs/'.$img_name);
             $request_params['foto_url'] = $img_name;
         }
 

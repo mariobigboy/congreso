@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Programa;
 use App\Curso;
+use App\Programa;
+use App\Disertante;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Validator;
@@ -17,7 +18,8 @@ class ProgramasController extends Controller{
 
     public function create(){
         /* ['id', 'titulo', 'descripcion', 'foto_url'] */
-    	return view('programas.create');
+        $disertantes = Disertante::all();
+    	return view('programas.create')->with('disertantes', $disertantes);
     }
 
     public function edit($id){
@@ -58,10 +60,10 @@ class ProgramasController extends Controller{
             //creando las imagenes:
             //guardo las imagenes:
             $img_principal = Image::make($request->foto_url);
-            $img_principal->save(public_path('images/programas/').$img_name);
+            $img_principal->save('images/programas/'.$img_name);
 
-            $img_principal->resize(50,50);
-            $img_principal->save(public_path('images/programas/thumbs/').$img_name);
+            $img_principal->resize(600,400);
+            $img_principal->save('images/programas/thumbs/'.$img_name);
 
             $request_params['foto_url'] = $img_name;
         }
@@ -74,6 +76,7 @@ class ProgramasController extends Controller{
     }
 
     public function store(Request $request){
+        //dd($request);
 
         $request_params = $request->all();
 
@@ -86,11 +89,12 @@ class ProgramasController extends Controller{
             'descripcion' => 'required',
             'foto_url' => 'required|image|mimes:jpeg,png,jpg|max:4096',
         ];
-        $validator = Validator::make($request->all(), $rules, $messages);
+        $validator = Validator::make($request_params, $rules, $messages);
         $validator->validate();
         //dd($validator);
 
         if($validator->fails()){
+            //dd($errors);
             return back();
         }
 
@@ -101,10 +105,10 @@ class ProgramasController extends Controller{
         //creando las imagenes:
         //guardo las imagenes:
         $img_principal = Image::make($request->foto_url);
-        $img_principal->save(public_path('images/programas/').$img_name);
+        $img_principal->save('images/programas/'.$img_name);
 
-        $img_principal->resize(50,50);
-        $img_principal->save(public_path('images/programas/thumbs/').$img_name);
+        $img_principal->resize(600, 400);
+        $img_principal->save('images/programas/thumbs/'.$img_name);
 
         $request_params['foto_url'] = $img_name;
 
@@ -115,6 +119,14 @@ class ProgramasController extends Controller{
     public function todos(){
     	//$programas = Programa::all();
         $cursos = Curso::orderBy('hora_curso', 'asc')->get();
+        $programas = Programa::orderBy('hora_curso', 'asc')->get();
+        foreach($programas as $programa){
+            $programa->tema = $programa->titulo;
+            $cursos->push($programa);
+        }
+        $cursos->sortBy(function($elem){
+            return $elem->hora_curso;
+        });
         $day26 = array();
         $day27 = array();
         $day28 = array();

@@ -42,9 +42,9 @@ class HomeController extends Controller
 
         if(auth()->user()->hasRole('asistente')){
             $asistente = auth()->user()->persona->asistente->first();
-            $pagos = $asistente->pagos;
+            //$pagos = $asistente->pagos;
             
-            return view('dashboard')->with('pagos', $pagos);
+            return view('dashboard');//->with('pagos', $pagos);
         }
 
     }

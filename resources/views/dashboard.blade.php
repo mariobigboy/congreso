@@ -348,6 +348,15 @@
                     </div>
                 </div>
                 <div class="card-body text-center">
+                    @if(is_null(Auth::user()->email_verified_at))
+                        <div class="alert alert-danger">
+                          <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
+                            <i class="tim-icons icon-simple-remove"></i>
+                          </button>
+                          <span>
+                            <b> ¡Atención! - </b> Su Email aún no fue confirmado. Por favor revise su correo electrónico.</span>
+                        </div>
+                    @endif
                     <p>Bienvenido al panel de Administración, donde puede inscribirse a los cursos que desee asistir.</p>
                 </div>
                 <div class="card-footer py-4">

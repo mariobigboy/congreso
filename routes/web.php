@@ -12,6 +12,15 @@
 */
 
 
+//route test:
+Route::get('/test', function(){
+	//Mail::to('mendezpablo90@gmail.com', 'Pablo')->send(new WelcomeEmail());
+	return env('APP_URL');
+});
+
+//route confirmar:
+Route::get('/confirmar', 'TokenController@index');
+
 //landingPage:
 Route::get('/', ['as' =>'landing',  'uses' => 'LandingController@index']);
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 
 class ContactoController extends Controller
@@ -11,7 +12,10 @@ class ContactoController extends Controller
     	return view('contacto.index');
     }
 
-    public function message(){
+    public function message(Request $request){
+    	
+
+    	
     	return view('contacto.index');
     }
 }

@@ -3,10 +3,10 @@
     @include('navbar')
 
     <!-- Welcome Area Start -->
-    <section class="welcome-area">
+    <section class="welcome-area" style="box-shadow: 1px 5px 15px rgba(0,0,0,0.3);">
         <div class="welcome-slides owl-carousel">
             <!-- Single Welcome Slide -->
-            <div class="single-welcome-slide bg-img bg-overlay" style="background-image: url({{asset('')}}img/bg-img/bg2.jpg);" >
+            <div class="single-welcome-slide bg-img " style="background-image: url({{asset('')}}img/bg-img/bgFondoBlanco.jpg);" >
                 <!-- Welcome Content -->
                 <div class="welcome-content h-100">
                     <div class="container h-100">
@@ -14,7 +14,7 @@
                             <!-- Welcome Text -->
                             <div class="col-12">
                                 <div class="welcome-text text-center">
-                                    <img id="logo_cosae" src="img/bg-img/logo.svg" alt="" >
+                                    <img id="logo_cosae" style="margin-top:-15%;" src="img/bg-img/logo_negro_3.svg" alt="" >
                                 </div>
                             </div>
                         </div>
@@ -42,7 +42,7 @@
             </div>
 
             <!-- Single Welcome Slide -->
-            <div class="single-welcome-slide bg-img bg-overlay" style="background-image: url({{asset('')}}img/bg-img/bg4.jpg);" >
+            <div class="single-welcome-slide bg-img bg-overlay" style="background-image: url({{asset('')}}img/bg-img/bg2.jpg);" >
                 <!-- Welcome Content -->
                 <div class="welcome-content h-100">
                     <div class="container h-100">
@@ -168,7 +168,7 @@
                                     <div class="col-12 col-lg-6">
                                         <div class="section-heading wow fadeInUp" data-wow-delay="300ms" style="margin-right: 5%; text-align: justify; padding-left: 5%;">
                                             <h6>Palabras del</h6>
-                                            <h2 style="text-transform: none;">Presidente de la SAE</h2>
+                                            <h2 style="text-transform: none;text-align:left;">Presidente de la Asociación Argentina de Endodoncia</h2>
                                         </div>
                                         <div class="about-content mb-100 wow fadeInUp" data-wow-delay="500ms" style="margin-right: 5%; text-align: justify; padding-left: 5%;">
                                             <div class="text-center">

@@ -49,7 +49,7 @@
                             <!-- cuerpo -->
                             <div class="form-group{{ $errors->has('descripcion') ? ' has-danger' : '' }}">
                                 <label class="form-control-label" for="input-descripcion">{{ __('Descripcion') }}</label>
-                                <textarea name="descripcion" id="input-descripcion" class="form-control form-control-alternative{{ $errors->has('descripcion') ? ' is-invalid' : '' }} summernote" required height="400px" placeholder="Contenido del programa...">{!!$programa->descripcion!!}</textarea>
+                                <textarea name="descripcion" id="input-descripcion" class="form-control form-control-alternative{{ $errors->has('descripcion') ? ' is-invalid' : '' }} " required placeholder="Contenido del programa..." style="min-height: 150px;">{{$programa->descripcion}}</textarea>
                                 @include('alerts.feedback', ['field' => 'descripcion'])
                             </div>
 
@@ -64,20 +64,20 @@
                             <!-- fecha -->
                             <div class="form-group{{ $errors->has('fecha_curso') ? ' has-danger' : '' }}">
                                 <label class="form-control-label" for="input-fecha">{{ __('Fecha') }}</label>
-                                <input type="text" name="fecha_curso" id="input-fecha" class="form-control form-control-alternative{{ $errors->has('fecha_curso') ? ' is-invalid' : '' }} datepicker" placeholder="{{ __('Fecha') }}" value="{{ $curso->fecha_curso }}" required>
+                                <input type="text" name="fecha_curso" id="input-fecha" class="form-control form-control-alternative{{ $errors->has('fecha_curso') ? ' is-invalid' : '' }} datepicker" placeholder="{{ __('Fecha') }}" value="{{ $programa->fecha_curso }}" required>
                                 @include('alerts.feedback', ['field' => 'nombre'])
                             </div>
                             <!-- hora -->
                             <div class="form-group{{ $errors->has('hora_curso') ? ' has-danger' : '' }}">
                                 <label class="form-control-label" for="input-hora">{{ __('Hora') }}</label>
-                                <input type="text" name="hora_curso" id="input-hora" class="form-control form-control-alternative{{ $errors->has('hora_curso') ? ' is-invalid' : '' }} timepicker" placeholder="{{ __('Hora') }}" value="{{ $curso->hora_curso }}" required >
+                                <input type="text" name="hora_curso" id="input-hora" class="form-control form-control-alternative{{ $errors->has('hora_curso') ? ' is-invalid' : '' }} timepicker" placeholder="{{ __('Hora') }}" value="{{ $programa->hora_curso }}" required >
                                 @include('alerts.feedback', ['field' => 'hora_curso'])
                             </div>
 
                             <!-- lugar -->
                             <div class="form-group{{ $errors->has('lugar') ? ' has-danger' : '' }}">
                                 <label class="form-control-label" for="input-lugar">{{ __('Lugar') }}</label>
-                                <input type="text" name="lugar" id="input-lugar" class="form-control form-control-alternative{{ $errors->has('nombre') ? ' is-invalid' : '' }}" placeholder="{{ __('Lugar') }}" value="{{ $curso->lugar }}" required >
+                                <input type="text" name="lugar" id="input-lugar" class="form-control form-control-alternative{{ $errors->has('nombre') ? ' is-invalid' : '' }}" placeholder="{{ __('Lugar') }}" value="{{ $programa->lugar }}" required >
                                 @include('alerts.feedback', ['field' => 'lugar'])
                             </div>
                             

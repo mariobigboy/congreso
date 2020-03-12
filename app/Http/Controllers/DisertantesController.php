@@ -65,10 +65,10 @@ class DisertantesController extends Controller
         //creando las imagenes:
         //guardo las imagenes:
         $img_principal = Image::make($request->foto_url);
-        $img_principal->save(public_path('images/avatar/').$img_name);
+        $img_principal->save('images/avatar/'.$img_name);
 
         $img_principal->resize(100,100);
-        $img_principal->save(public_path('images/avatar/thumbs/').$img_name);
+        $img_principal->save('images/avatar/thumbs/'.$img_name);
 
         //creo Persona y la asocio al disertante:
         $persona = new Persona();
@@ -138,10 +138,10 @@ class DisertantesController extends Controller
             //creando las imagenes:
             //guardo las imagenes:
             $img_principal = Image::make($request['foto_url']);
-            $img_principal->save(public_path('images/avatar/').$img_name);
+            $img_principal->save('images/avatar/'.$img_name);
 
             $img_principal->resize(100,100);
-            $img_principal->save(public_path('images/avatar/thumbs/').$img_name);
+            $img_principal->save('images/avatar/thumbs/'.$img_name);
             $request_params['foto_url'] = $img_name;
         }
 

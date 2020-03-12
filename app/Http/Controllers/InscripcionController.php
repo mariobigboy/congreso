@@ -3,14 +3,18 @@
 namespace App\Http\Controllers;
 
 use MP;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Http\Request;
-use App\Persona;
 use App\User;
 use App\Role;
+use App\Token;
+use App\Persona;
 use App\Asistente;
 use App\Mercadopago;
 use App\Configuracion;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Welcome as WelcomeEmail;
+use Illuminate\Support\Facades\Validator;
 //use Vinkla\Instagram\Instagram;
 
 class InscripcionController extends Controller{
@@ -66,13 +70,13 @@ class InscripcionController extends Controller{
     	}
 
         //external_reference para pagos:
-        $external_reference = time();
+        //$external_reference = time();
 
 
-        $configuraciones = Configuracion::all()->first();
+        //$configuraciones = Configuracion::all()->first();
 
         //creamos la preferencia de pago:
-        $preferenceData = [
+        /*$preferenceData = [
             'external_reference' => $external_reference,
             'back_urls' => [
                 'success' => env('APP_URL').'/inscripcion',
@@ -103,7 +107,7 @@ class InscripcionController extends Controller{
             'preference_id' => $preference['response']['id'],
             'additional_info' => 'INSCRIPCION'
         ]);
-        $mercadopago->save();
+        $mercadopago->save();*/
 
     	//aquí guardar inscripción
     	$persona = new Persona();
@@ -121,7 +125,7 @@ class InscripcionController extends Controller{
         //creamos asistente y lo asociamos:
         $asistente = new Asistente();
         $asistente->persona_id = $persona_id;
-        $asistente->mercadopagos_id = $external_reference;
+        //$asistente->mercadopagos_id = $external_reference;
         $asistente->save();
 
         //asignamos un rol asistente:
@@ -136,14 +140,22 @@ class InscripcionController extends Controller{
     	$usuario->save();
         $usuario->roles()->attach($role_asistente);
         
+        $token = new Token([
+            'email' => $usuario->email,
+            'token' => Str::random(32)
+        ]);
+        $token->save();
+        //dd($token);
+        Mail::to($token->email, $persona->nombre)->send(new WelcomeEmail($token->token));
+
         
         //dd($preference['response']['init_point']);
         
         //redirigimos al pago:
-        return redirect($preference['response']['init_point']);
+        //return redirect($preference['response']['init_point']);
 
     	//luego redirigir con mensaje de éxito:
-    	//return redirect()->route('inscripcion.index')->with('success_register', 'success');
+    	return redirect()->route('inscripcion.index')->with('success_register', 'success');
 
     }
 

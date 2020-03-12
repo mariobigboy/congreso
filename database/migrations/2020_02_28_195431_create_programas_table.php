@@ -17,6 +17,7 @@ class CreateProgramasTable extends Migration
             $table->bigIncrements('id');
             $table->string('titulo');
             $table->text('descripcion');
+            $table->unsignedBigInteger('disertante_id');
             $table->string('fecha_curso');
             $table->string('hora_curso');
             $table->string('lugar');

@@ -36,7 +36,7 @@
     	                    <div class="single-room-area d-flex align-items-center mb-50 wow fadeInUp" data-wow-delay="100ms">
     	                        <!-- Room Thumbnail -->
     	                        <div class="room-thumbnail">
-    	                            <img src="{{asset('')}}images/cursos/thumbs/{{$curso->foto_url}}" alt="">
+    	                            <img src="{{asset('')}}images/cursos/thumbs/{{$curso->foto_url}}" alt="" onerror="this.src='{{asset('')}}images/programas/thumbs/{{$curso->foto_url}}';">
     	                        </div>
     	                        <!-- Room Content -->
     	                        <div class="room-content">

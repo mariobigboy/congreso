@@ -3,7 +3,7 @@
 
         
     <!-- Breadcrumb Area Start -->
-    <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url(img/bg-img/acommodationbg.jpg);">
+    <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url({{asset('')}}img/salas/hilton_foyer_buen_ayre.jpg);">
         <div class="container h-100">
             <div class="row h-100 align-items-end">
                 <div class="col-12">
@@ -26,7 +26,7 @@
                     <div class="single-room-details-area mb-50">
                         <h1>Buen Ayre</h1>
                         <!-- Room Thumbnail Slides -->
-                        <img src="{{asset('')}}img/bg-img/acommodationbg.jpg" alt="">
+                        <img src="{{asset('')}}img/salas/hilton_buen_ayre_auditorio1.jpg" alt="">
 
                     </div>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores aut nesciunt dolor quod sit vitae dicta, nemo cum laboriosam! Explicabo et soluta alias placeat earum, minima nihil tempore autem in accusamus modi saepe officiis voluptatum veniam officia delectus. Beatae est, rem quidem, cum eius fuga nesciunt facere sapiente necessitatibus at!</p>
@@ -37,7 +37,7 @@
                     <div class="single-room-details-area mb-50">
                         <h1>Álamo</h1>
                         <!-- Room Thumbnail Slides -->
-                        <img src="{{asset('')}}img/bg-img/acommodationbg.jpg" alt="">
+                        <img src="{{asset('')}}img/salas/hilton_alamo.jpg" alt="">
 
                     </div>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam eligendi illo ad voluptates blanditiis sunt, a minima numquam officia laboriosam fugit provident delectus consectetur aperiam ipsam rem quam quasi accusamus.</p>
@@ -48,7 +48,7 @@
                     <div class="single-room-details-area mb-50">
                         <h1>Jacarandá</h1>
                         <!-- Room Thumbnail Slides -->
-                        <img src="{{asset('')}}img/bg-img/acommodationbg.jpg" alt="">
+                        <img src="{{asset('')}}img/salas/hilton_jacaranda_theatre_1.jpg" alt="">
 
                     </div>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam eligendi illo ad voluptates blanditiis sunt, a minima numquam officia laboriosam fugit provident delectus consectetur aperiam ipsam rem quam quasi accusamus.</p>
@@ -59,7 +59,7 @@
                     <div class="single-room-details-area mb-50">
                         <h1>Pacará</h1>
                         <!-- Room Thumbnail Slides -->
-                        <img src="{{asset('')}}img/bg-img/acommodationbg.jpg" alt="">
+                        <img src="{{asset('')}}img/salas/hilton_pacara_auditorio.2.jpg" alt="">
 
                     </div>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam eligendi illo ad voluptates blanditiis sunt, a minima numquam officia laboriosam fugit provident delectus consectetur aperiam ipsam rem quam quasi accusamus.</p>

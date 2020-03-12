@@ -41,7 +41,8 @@
                             <th scope="col"></th>
                             <th scope="col">{{__('Imágen')}}</th>
                             <th scope="col">{{ __('Título') }}</th>
-                            <th scope="col">{{ __('Descripción') }}</th>
+                            <th scope="col" style="width:50%;">{{ __('Descripción') }}</th>
+                            <th scope="col">{{ __('Precio') }}</th>
                             <th scope="col">{{ __('Creation Date') }}</th>
                             <th scope="col"></th>
                             {{-- <th scope="col"></th> --}}
@@ -61,6 +62,7 @@
                                         <td style="width:5%;"><img style="width:100%;" src="{{asset('')}}images/programas/thumbs/{{ $programa->foto_url }}" alt=""></td>
                                         <td>{{ $programa->titulo }}</td>
                                         <td>{{ Str::limit(strip_tags(html_entity_decode($programa->descripcion)),100,'...') }}</td>
+                                        <td>${{$programa->precio}}</td>
                                         <td>{{ ($programa->created_at->format('d/m/Y H:i')) }}</td>
                                         <td class="text-right">
                                             <div class="dropdown">

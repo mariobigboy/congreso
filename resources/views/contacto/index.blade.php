@@ -93,10 +93,10 @@
                             @csrf
                             <div class="row">
                                 <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="100ms">
-                                    <input type="text" name="message-name" class="form-control mb-30" placeholder="Your Name">
+                                    <input type="text" name="name" class="form-control mb-30" placeholder="Your Name">
                                 </div>
                                 <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="100ms">
-                                    <input type="email" name="message-email" class="form-control mb-30" placeholder="Your Email">
+                                    <input type="email" name="email" class="form-control mb-30" placeholder="Your Email">
                                 </div>
                                 <div class="col-12 wow fadeInUp" data-wow-delay="100ms">
                                     <textarea name="message" class="form-control mb-30" placeholder="Your Message"></textarea>

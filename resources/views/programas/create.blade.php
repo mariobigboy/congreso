@@ -34,10 +34,26 @@
                             <b> {{ session('error') }}</span>
                         </div>
                     @endif
+
+                    @if($disertantes->count()>0)
                     <form method="post" action="{{ route('programas.store') }}" autocomplete="off" enctype="multipart/form-data">
                         @csrf
 
                         <div class="pl-lg-4">
+                            <!-- disertante -->
+                            <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
+                                <label class="form-control-label" for="input-nombre">{{ __('Disertantes') }}</label>
+                                <select name="disertante_id" id="idPersona" class="form-control" required>
+                                    <option value="">Seleccione Disertante</option>
+                                    @foreach($disertantes as $disertante)
+                                        <option value="{{ $disertante->id }}">{{ $disertante->persona->nombre}} {{ $disertante->persona->apellido }}</option>
+                                        }
+                                    @endforeach
+                                </select>
+                                
+                                @include('alerts.feedback', ['field' => 'disertante_id'])
+                            </div>
+
                             <!-- titulo -->
                             <div class="form-group{{ $errors->has('titulo') ? ' has-danger' : '' }}">
                                 <label class="form-control-label" for="input-titulo">{{ __('Título') }}</label>
@@ -48,7 +64,7 @@
                             <!-- cuerpo -->
                             <div class="form-group{{ $errors->has('descripcion') ? ' has-danger' : '' }}">
                                 <label class="form-control-label" for="input-descripcion">{{ __('Descripcion') }}</label>
-                                <textarea name="descripcion" id="input-descripcion" class="form-control form-control-alternative{{ $errors->has('descripcion') ? ' is-invalid' : '' }} summernote" required height="400px" placeholder="Contenido del programa..."></textarea>
+                                <textarea name="descripcion" id="input-descripcion" class="form-control form-control-alternative{{ $errors->has('descripcion') ? ' is-invalid' : '' }} " required height="400px" placeholder="Contenido del programa..."></textarea>
                                 @include('alerts.feedback', ['field' => 'descripcion'])
                             </div>
 
@@ -100,6 +116,9 @@
                             </div>
                         </div>
                     </form>
+                    @else
+                        <p class="text-center">Debe existir un disertante para asociarlo a un curso, puede crear uno nuevo clickeando <a href="{{ route('disertantes.create') }}"><strong>aquí</strong></a></p>
+                    @endif
                 </div>
                 <div class="card-footer py-4">
                     <nav class="d-flex justify-content-end" aria-label="...">

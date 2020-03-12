@@ -5,7 +5,7 @@
 
     <!-- Breadcrumb Area Start -->
     <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url({{asset('')}}img/bg-img/bg3.jpg);">
-    	
+        
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
@@ -34,7 +34,7 @@
                         <!--<img src="" alt="">-->
                     </div>
                                    
-					<div>
+                    <div>
                         <div>
                             <h5>COMISIÓN DIRECTIVA SAE 2020:</h5>
                                 <strong>PRESIDENTE:</strong><p> Dr. Emilio Manzur </p>
@@ -86,8 +86,19 @@
     
                             <strong>STANDS COMERCIALES</strong>
                             <p>Dr. Jorge Basilaki <br>
-                            Dr. Carlos Cantarini</p></div>
-					</div>
+                            Dr. Carlos Cantarini</p>
+                        </div>
+                        <br><br>
+                        <div class="mb-5">
+                            <h5>DELEGADOS</h5>
+                            <p>Dr. Andrés Pantanali - Jujuy</p>
+                            <p>Dr. Matías Martel - Salta</p>
+                            <p>Dr. María de los Ángeles Bulacio - Tucumán</p>
+                            <p>Dr. Carolina Villalba - Córdoba</p>
+                            <p>Dr. Adrian Labanti - Mendoza</p>
+                            <p>Dr. Jorge Alberdi - Santa Fe</p>
+                        </div>
+                    </div>
                     
                 </div>
 
