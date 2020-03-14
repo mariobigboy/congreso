@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Curso;
 use App\Programa;
+use App\Asistente;
 use App\Disertante;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
@@ -73,6 +74,42 @@ class ProgramasController extends Controller{
         $programa->update();
 
         return back()->with('success', '¡Programa actualizado correctamente!');
+    }
+
+    public function my_programas(){
+        //todos los cursos:
+        $cursos = Programa::all();
+        //Usuario actual:
+        $current_user = auth()->user();
+        $user_id = $current_user->id;
+        //persona del usuario:
+        $persona_id = $current_user->persona->id;
+        $asistente = Asistente::where('persona_id', $persona_id)->first();
+        $cursos_inscripto = $asistente->cursos;
+
+        $ids_cursos_inscripto = $cursos_inscripto->pluck('id');
+        
+        return view('programas.my')->with([
+            'cursos_inscripto' => $cursos_inscripto, 
+            'ids_cursos_inscripto' => $ids_cursos_inscripto,
+            'cursos' => $cursos,
+            'asistente' => $asistente,
+        ]);
+    }
+
+    public function save_my_programas(Request $request){
+        $request_all = $request->all();
+        $asistente_id = $request_all['asistente_id'];
+        $ids_cursos = isset($request_all['cursos'])? $request_all['cursos'] : [];
+
+        if(sizeof($ids_cursos)>0){
+            foreach($ids_cursos as $id_curso){
+                Inscripcion::create(['asistente_id' => $asistente_id, 'curso_id' => $id_curso]);
+            }
+            return back()->with('success', '¡Cursos registrados correctamente!');
+        }else{
+            return back()->with('error', 'No seleccionó cursos');
+        }
     }
 
     public function store(Request $request){

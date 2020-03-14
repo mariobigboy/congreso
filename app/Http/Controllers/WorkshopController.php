@@ -2,38 +2,36 @@
 
 namespace App\Http\Controllers;
 
-use App\Disertante;
-use App\Curso;
 use App\Asistente;
+use App\Curso;
+use App\Disertante;
 use App\Inscripcion;
-use App\Programa;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Validator;
 
-class CursosController extends Controller
+class WorkshopController extends Controller
 {
-    //
     public function index(){
-    	$cursos = Curso::where('is_workshop', 0)->get();
+    	$cursos = Curso::where('is_workshop', 1)->get();
 
-    	return view('cursos.index')->with('cursos', $cursos);
+    	return view('workshops.index')->with('cursos', $cursos);
     }
 
     public function todos(){
         $cursos = Curso::paginate(30);
-        //$programas = Programa::all();
-        /*foreach($programas as $programa){
+        /*$programas = Programa::all();
+        foreach($programas as $programa){
             $programa->tema = $programa->titulo;
             $cursos->push($programa);
         }*/
         //dd($cursos);
-        return view('cursos.todos')->with('cursos', $cursos);
+        return view('workshops.todos')->with('cursos', $cursos);
     }
 
-    public function my_curses(){
+    public function my_workshops(){
         //todos los cursos:
-        $cursos = Curso::where('is_workshop', 0)->get();
+        $cursos = Curso::where('is_workshop', 1)->get();
         //Usuario actual:
         $current_user = auth()->user();
         $user_id = $current_user->id;
@@ -44,7 +42,7 @@ class CursosController extends Controller
 
         $ids_cursos_inscripto = $cursos_inscripto->pluck('id');
         
-        return view('cursos.my')->with([
+        return view('workshops.my')->with([
             'cursos_inscripto' => $cursos_inscripto, 
             'ids_cursos_inscripto' => $ids_cursos_inscripto,
             'cursos' => $cursos,
@@ -52,7 +50,7 @@ class CursosController extends Controller
         ]);
     }
 
-    public function save_my_curses(Request $request){
+    public function save_my_workshops(Request $request){
         $request_all = $request->all();
         $asistente_id = $request_all['asistente_id'];
         $ids_cursos = isset($request_all['cursos'])? $request_all['cursos'] : [];
@@ -69,7 +67,7 @@ class CursosController extends Controller
 
     public function create(){
     	$disertantes = Disertante::all();
-    	return view('cursos.create')->with('disertantes', $disertantes);
+    	return view('workshops.create')->with('disertantes', $disertantes);
     }
 
     public function store(Request $request){
@@ -115,6 +113,7 @@ class CursosController extends Controller
     	$curso = new Curso();
     	$curso->fill($request_params);
         $curso->foto_url = $img_name;
+        $curso->is_workshop = 1; //esto diferencia un curso de un workshop
     	$curso->save();
 
         return back()->with('success', '¡Curso guardado correctamente!');
@@ -123,7 +122,7 @@ class CursosController extends Controller
     public function edit($id){
         $curso = Curso::where('id', $id)->first();
         $disertantes = Disertante::all();
-        return view('cursos.edit')->with(['curso' => $curso, 'disertantes' => $disertantes]);
+        return view('workshops.edit')->with(['curso' => $curso, 'disertantes' => $disertantes]);
 
     }
     
@@ -150,7 +149,7 @@ class CursosController extends Controller
         }
 
         $request_params = $request->all();
-        //dd($request_params);
+        //dd(is_null($request->foto_url));
         if(!is_null($request->foto_url)){
             //dd($request);
             //creando las imagenes:
@@ -170,7 +169,7 @@ class CursosController extends Controller
         $curso->fill($request_params);
         $curso->update();
 
-        return redirect()->route('cursos.index')->with('success', '¡Editado correctamente!');
+        return redirect()->route('workshops.index')->with('success', '¡Editado correctamente!');
     }
 
     public function destroy($id){
@@ -178,9 +177,9 @@ class CursosController extends Controller
         if(!is_null($curso)){
             $curso->delete();
 
-            return redirect()->route('cursos.index')->with('success', '¡Curso eliminado correctamente!');
+            return redirect()->route('workshops.index')->with('success', '¡Curso eliminado correctamente!');
         }
 
-        return redirect()->route('cursos.index')->with('error', '¡Error al eliminar el curso!');
+        return redirect()->route('workshops.index')->with('error', '¡Error al eliminar el curso!');
     }
 }

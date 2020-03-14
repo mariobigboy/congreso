@@ -24,6 +24,8 @@ class CreateCursosTable extends Migration
             $table->string('lugar');
             $table->string('foto_url');
             $table->unsignedBigInteger('galeria_id')->nullable();
+            $table->tinyInteger('is_workshop')->default('0');
+            $table->float('precio', 8, 2)->default(0)->nullable();
             $table->timestamps();
         });
     }

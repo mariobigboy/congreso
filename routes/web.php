@@ -104,6 +104,19 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::post('programas/update', ['as' => 'programas.update', 'uses' => 'ProgramasController@update']);
 	Route::get('programas/delete/{id}', ['as' => 'programas.delete', 'uses' => 'ProgramasController@delete']);
 	Route::get('programas/edit/{id}', ['as' => 'programas.edit', 'uses' => 'ProgramasController@edit']);
+	Route::get('/programas/my', ['as' => 'programas.my', 'uses' => 'ProgramasController@my_programas']);
+});
+
+//rutas de workshops:
+Route::get('/workshops/todos', ['as' => 'workshops.todos', 'uses' => 'WorkshopController@todos']);
+Route::group(['middleware' => 'auth'], function(){
+	Route::get('workshops', ['as' => 'workshops.index', 'uses' => 'WorkshopController@index']);
+	Route::get('workshops/create', ['as' => 'workshops.create', 'uses' => 'WorkshopController@create']);
+	Route::post('workshops/store', ['as' => 'workshops.store', 'uses' => 'WorkshopController@store']);
+	Route::post('workshops/update', ['as' => 'workshops.update', 'uses' => 'WorkshopController@update']);
+	Route::get('workshops/delete/{id}', ['as' => 'workshops.delete', 'uses' => 'WorkshopController@delete']);
+	Route::get('workshops/edit/{id}', ['as' => 'workshops.edit', 'uses' => 'WorkshopController@edit']);
+	Route::get('/workshops/my', ['as' => 'workshops.my', 'uses' => 'WorkshopController@my_workshops']);
 });
 //cursos
 Route::get('/cursos/todos', ['as' => 'cursos.todos', 'uses' => 'CursosController@todos']);

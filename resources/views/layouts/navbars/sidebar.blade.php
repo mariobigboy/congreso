@@ -29,8 +29,8 @@
                     </a>
                 </li>
 
-                <li @if (isset($pageSlug) && $pageSlug == 'programas') class="active " @endif>
-                    <a href="{{ route('programas.index') }}">
+                <li @if (isset($pageSlug) && $pageSlug == 'workshops') class="active " @endif>
+                    <a href="{{ route('workshops.index') }}">
                         <i class="tim-icons icon-notes"></i>
                         <p>{{ __('Workshops') }}</p>
                     </a>
@@ -198,6 +198,13 @@
                     <a href="{{ route('cursos.my') }}">
                         <i class="tim-icons icon-paper"></i>
                         <p>{{ __('Mis cursos') }}</p>
+                    </a>
+                </li>
+
+                <li @if (isset($pageSlug) && $pageSlug == 'misworkshops') class="active " @endif>
+                    <a href="{{ route('workshops.my') }}">
+                        <i class="tim-icons icon-paper"></i>
+                        <p>{{ __('Mis Workshops') }}</p>
                     </a>
                 </li>
 
