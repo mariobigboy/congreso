@@ -51,7 +51,7 @@
     	                                <h6>Fecha: <span>{{$curso->fecha_curso}}</span></h6>
     	                                <h6>Hora: <span>{{$curso->hora_curso}} hs</span></h6>
     	                            </div>
-    	                            <a href="curso/{{$curso->id}}" class="btn view-detail-btn">Detalles <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+    	                            <a href="/curso/{{$curso->id}}" class="btn view-detail-btn">Detalles <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
     	                        </div>
     	                    </div>
                     	@endforeach

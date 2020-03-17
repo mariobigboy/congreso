@@ -120,6 +120,7 @@ Route::group(['middleware' => 'auth'], function(){
 });
 //cursos
 Route::get('/cursos/todos', ['as' => 'cursos.todos', 'uses' => 'CursosController@todos']);
+Route::get('/curso/{id}', ['as' => 'cursos.view', 'uses' => 'CursosController@view'])->where('id', '[0-9]+');
 Route::group(['middleware' => 'auth'], function(){
 	Route::get('/cursos', ['as' => 'cursos.index', 'uses' => 'CursosController@index']);
 	Route::get('/cursos/create', ['as' => 'cursos.create', 'uses' => 'CursosController@create']);

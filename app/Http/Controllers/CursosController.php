@@ -13,7 +13,12 @@ use Illuminate\Support\Facades\Validator;
 
 class CursosController extends Controller
 {
-    //
+
+    public function view($id){
+        $curso = Curso::where('id', $id)->get()->first();
+        return view('cursos.view')->with('curso',$curso);
+    }
+
     public function index(){
     	$cursos = Curso::where('is_workshop', 0)->get();
 
