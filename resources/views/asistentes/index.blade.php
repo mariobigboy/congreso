@@ -25,7 +25,7 @@
                                 <th scope="col">{{ __('Dni') }}</th>
                                 <th scope="col">{{ __('telefono') }}</th>
                                 <th scope="col">{{ __('Registrado') }}</th>
-                                <th scope="col">{{ __('Matricula') }}</th>
+                                {{-- <th scope="col">{{ __('Matricula') }}</th> --}}
                                 {{-- <th scope="col"></th> --}}
                             </thead>
                             <tbody>
@@ -46,7 +46,7 @@
                                             <td>{{ $asistente->dni }}</td>
                                             <td>{{ $asistente->telefono }}</td>
                                             <td>{{ ($asistente->created_at->format('d M Y, H:i')) }}</td>
-                                            <td><a href="#">Pagos</a></td>
+                                            {{-- <td><a href="#">Pagos</a></td> --}}
                                             
                                         </tr>
                                     @endforeach
