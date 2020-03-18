@@ -54,7 +54,7 @@
                                     <div class="carousel-inner">
                             
                                         <div class="carousel-item active">
-                                            <a href="#"><img src="{{asset('')}}img/bg-img/49.jpg" class="d-block w-100" alt=""></a>
+                                            <a href="{{'mailto:buehi-groups@hilton.com'}}"><img src="{{asset('')}}img/bg-img/49.jpg" class="d-block w-100" alt=""></a>
                                         </div>
                                         <div class="carousel-item ">
                                            <a href="{{'hotel/2'}}"><img src="{{asset('')}}img/bg-img/48.jpg" class="d-block w-100" alt=""></a> 
