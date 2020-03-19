@@ -22,6 +22,7 @@
     </div>
     <!-- Breadcrumb Area End -->
 
+
     <!-- Google Maps & Contact Info Area Start -->
     <section class="google-maps-contact-info">
         <div class="container-fluid">
@@ -74,7 +75,16 @@
 
     <!-- Contact Form Area Start -->
     <div class="roberto-contact-form-area section-padding-100">
+
         <div class="container">
+            @if(isset($success_message))
+            <div id="success_email" class="alert alert-success alert-dismissible fade show" role="alert">
+              {{$success_message}}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            @endif
             <div class="row">
                 <div class="col-12">
                     <!-- Section Heading -->
@@ -89,7 +99,7 @@
                 <div class="col-12">
                     <!-- Form -->
                     <div class="roberto-contact-form">
-                        <form action="#" method="post">
+                        <form action="{{ route('contacto.message') }}" method="post">
                             @csrf
                             <div class="row">
                                 <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="100ms">

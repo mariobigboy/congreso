@@ -166,12 +166,12 @@
                     </a>
                 </li>
 
-                <li @if (isset($pageSlug) && $pageSlug == 'configuraciones') class="active " @endif>
+                {{-- <li @if (isset($pageSlug) && $pageSlug == 'configuraciones') class="active " @endif>
                     <a href="{{ route('configuraciones.index') }}">
                         <i class="tim-icons icon-settings"></i>
                         <p>{{ __('Configuraciones') }}</p>
                     </a>
-                </li>
+                </li> --}}
             @endif
 
             @if(Auth::user()->hasRole('user'))
