@@ -74,6 +74,8 @@
                                                     <li><a href="http://aoa.org.ar/" target="_blank">- AOA</a></li>
                                                 </ul>
                                             </li>
+                                            <li><a href="{{route('capitulo.index')}}">- Capítulo Estudiantil</a></li>
+                                            <li><a href="{{route('encuentro.index')}}">- V Encuentro Posgrado</a></li>
                                         </ul>
                                     </li>
                                     <!--<li><a href="#">Organización</a>

@@ -107,10 +107,10 @@
                         <div class="row no-gutters">
                             <div class="col-6">
                                 <div class="single-thumb">
-                                    <img src="img/bg-img/13.jpg" alt="">
+                                    <a href="{{route('capitulo.index')}}"><img src="img/bg-img/boton22.jpg" alt=""></a>
                                 </div>
                                 <div class="single-thumb">
-                                    <img src="img/bg-img/14.jpg" alt="">
+                                    <a href="{{route('encuentro.index')}}"><img src="img/bg-img/boton11.jpg" alt=""></a>
                                 </div>
                             </div>
                             <div class="col-6">
@@ -153,7 +153,7 @@
                                         <div class="about-content mb-100 wow fadeInUp" data-wow-delay="500ms"
                                             style="margin-right: 5%; text-align: justify; padding-left: 5%;">
                                             <div class="text-center">
-                                                <img src="{{asset('')}}images/avatar/presidente_2.jpg" alt="" class="mb-5">
+                                                <img src="{{asset('')}}images/avatar/presidenteCOSAE.jpg" alt="" class="mb-5">
                                             </div>
                                             <p>Quiero agradecer profundamente a la Sociedad Argentina de Endodoncia, a través de su presidente
                                             el Dr. Emilio Manzur por el honor y la responsabilidad brindados en mi designación como presidente de este XIX COSAE, el congreso de endodoncia mas importante de Sudamérica y que se realizará los días 26, 27, 28, 29 de Agosto de 2020 en el Hotel Hilton, Buenos Aires.</p>
@@ -168,11 +168,11 @@
                                     <div class="col-12 col-lg-6">
                                         <div class="section-heading wow fadeInUp" data-wow-delay="300ms" style="margin-right: 5%; text-align: justify; padding-left: 5%;">
                                             <h6>Palabras del</h6>
-                                            <h2 style="text-transform: none;text-align:left;">Presidente de la Asociación Argentina de Endodoncia</h2>
+                                            <h2 style="text-transform: none;text-align:left;">Presidente SAE</h2>
                                         </div>
                                         <div class="about-content mb-100 wow fadeInUp" data-wow-delay="500ms" style="margin-right: 5%; text-align: justify; padding-left: 5%;">
                                             <div class="text-center">
-                                                <img src="{{asset('')}}images/avatar/presidente_2.jpg" alt="" class="mb-5">
+                                                <img src="{{asset('')}}images/avatar/presidenteSAE.jpg" alt="" class="mb-5">
                                             </div>
                                             <p>Es para mi un orgullo estar presidiendo la Sociedad Argentina de Endodoncia, institución de reconocida trayectoria con 66 años desde su fundación, que sigue evolucionando a la par del avance tecnológico gracias a todos que formamos parte de esta Sociedad.</p>
                                             <p>El propósito más importante que plantea nuestra seccional “es el intercambio de ideas respecto a métodos de tratamiento, sus bases y resultados, estimulando la investigación científica y facilitando la difusión de conocimientos y el mantenimiento de una alta calidad en los servicios profesionales de endodoncia por medio de conferencias, cursos y publicaciones”. Es por ello que en el año 2019 presentamos actividades científicas muy concurridas, dos sábados de actualización con destacados conferencistas y dos jornadas, una con alumnos de las carreras de Especialidad en
