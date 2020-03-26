@@ -31,7 +31,7 @@ class HomeController extends Controller
         if(auth()->user()->hasRole('superadmin') || auth()->user()->hasRole('admin')){
             $estadisticas = [
                 'cant_asistente' => Asistente::all()->count(),
-                'cant_asistente' => Asistente::where('matricula_id','!=', null)->count(),
+                //'cant_asistente' => Asistente::where('matricula_id','!=', null)->count(),
                 'cant_disertante' => Disertante::all()->count(),
                 'cant_usuario' => User::all()->count(),
                 'cant_persona' => Persona::all()->count(),

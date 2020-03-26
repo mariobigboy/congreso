@@ -29,12 +29,17 @@ Route::get('/', ['as' =>'landing',  'uses' => 'LandingController@index']);
 Route::post('/inscripcion', ['as' => 'inscripcion.store', 'uses' => 'InscripcionController@store']);
 Route::get('/inscripcion', ['as' => 'inscripcion.index', 'uses' => 'InscripcionController@index']);
 
+//Rutas de organización:
+Route::get('/organizacion', function(){
+	return view('organizacion');
+})->name('organizacion.index');
+
 //Rutas de capitulo:
 Route::get('/capitulo', function(){
 	return view('capitulo');
 })->name('capitulo.index');
 
-//Rutas de capitulo:
+//Rutas de encuentro:
 Route::get('/encuentro', function(){
 	return view('encuentro');
 })->name('encuentro.index');

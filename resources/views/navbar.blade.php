@@ -68,12 +68,13 @@
                                             <li><a href="{{route('cursos.todos')}}">- Workshops</a></li>
                                             <li><a href="{{route('programas.todos')}}">- Programa</a></li>
                                             <li><a href="{{route('salas.index')}}">- Salas</a></li>
-                                            <li><a href="#">Organización</a>
+                                            {{-- <li><a href="#">Organización</a>
                                                 <ul class="dropdown">
                                                    <li><a href="http://www.endodoncia-sae.com.ar/" target="_blank">- SAE</a></li>
                                                     <li><a href="http://aoa.org.ar/" target="_blank">- AOA</a></li>
                                                 </ul>
-                                            </li>
+                                            </li> --}}
+                                            <li><a href="{{route('organizacion.index')}}">- Organización</a></li>
                                             <li><a href="{{route('capitulo.index')}}">- Capítulo Estudiantil</a></li>
                                             <li><a href="{{route('encuentro.index')}}">- V Encuentro Posgrado</a></li>
                                         </ul>
