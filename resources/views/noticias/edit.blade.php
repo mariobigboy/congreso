@@ -10,7 +10,7 @@
                             <h4 class="card-title">{{ __('Editar Noticia') }}</h4>
                         </div>
                         <div class="col-4 text-right">
-                            <!--<a href="{{ route('noticias.create') }}" class="btn btn-sm btn-primary">{{ __('Nueva Noticia') }}</a>-->
+                            <a href="{{ route('noticias.index') }}" class="btn btn-sm btn-primary">{{ __('Ver Todas') }}</a>
                         </div>
                     </div>
                 </div>

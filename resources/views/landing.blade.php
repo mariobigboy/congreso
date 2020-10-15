@@ -636,7 +636,7 @@
                                 </div>
                                 <!-- Post Title -->
                                 <a href="post/{{$noticia->id}}" class="post-title">{{ $noticia->titulo }}</a>
-                                <p>{!!Str::words($noticia->cuerpo,30,'...')!!}</p>
+                                <p>{{Str::limit(strip_tags(html_entity_decode($noticia->cuerpo)),140,'...')}}</p>
                                 <a href="post/{{$noticia->id}}" class="btn continue-btn"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                             </div>
                         </div>

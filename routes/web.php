@@ -15,6 +15,11 @@
 //landingPage:
 Route::get('/', ['as' =>'landing',  'uses' => 'LandingController@index']);
 
+//testPage:
+Route::get('/test', function(){
+	return view('test');
+});
+
 //Rutas de inscripion:
 Route::post('/inscripcion', ['as' => 'inscripcion.store', 'uses' => 'InscripcionController@store']);
 Route::get('/inscripcion', ['as' => 'inscripcion.index', 'uses' => 'InscripcionController@index']);

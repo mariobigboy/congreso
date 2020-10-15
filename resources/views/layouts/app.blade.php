@@ -280,13 +280,14 @@
                         toolbar: [
                           ['style', ['style']],
                           ['font', ['bold', 'underline', 'clear']],
-                          ['color', ['color']],
+                          //['color', ['color']],
                           ['para', ['ul', 'ol', 'paragraph']],
                           ['table', ['table']],
                           //['insert', ['link', 'picture', 'video']],
                           ['view', ['fullscreen']]
                         ]
                     });
+                    $('.summernote').summernote('foreColor', 'black');
                 });
             });
         </script>

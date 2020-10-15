@@ -39,7 +39,7 @@
                                     <tr {{-- onclick="location.href='{{ route('disertantes.edit', $disertante->id)}}';" --}}>
                                         <td>{{ $i }}</td>
                                         <td style="width:20%;"><img style="width:100%;" src="{{asset('')}}images/noticias/thumbs/{{$noticia->foto_url}}" alt=""></td>
-                                        <td>{!!Str::limit($noticia->cuerpo,30,'...')!!}</td>
+                                        <td>{{ Str::limit(strip_tags($noticia->cuerpo),30,'...') }}</td>
                                         <td>{{$noticia->user->persona->nombre}} {{$noticia->user->persona->apellido}}</td>
                                         <td>{{ ($noticia->created_at->format('d/m/Y H:i')) }}</td>
                                         <td class="text-right">
@@ -48,10 +48,10 @@
                                                     <i class="fas fa-ellipsis-v"></i>
                                                 </a>
                                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                        <form action="{{'asd'}}" method="get">
+                                                        <form action="noticias/delete/{{$noticia->id}}" method="get">
                                                             @csrf
                                                             
-                                                            <a class="dropdown-item" href="{{ '' }}">{{ __('Editar') }}</a>
+                                                            <a class="dropdown-item" href="noticias/edit/{{ $noticia->id }}">{{ __('Editar') }}</a>
                                                             <button type="button" class="dropdown-item" onclick="confirm('{{ __("¿Está seguro de eliminar este disertante?") }}') ? this.parentElement.submit() : ''">
                                                                         {{ __('Eliminar') }}
                                                             </button>
