@@ -65,7 +65,7 @@
                         </tbody>
                     </table>
                     @else
-                        <p class="text-center">Aún no hay Disertantes</p>
+                        <p class="text-center">Aún no hay Noticias</p>
                     @endif
                 </div>
                 <div class="card-footer py-4">

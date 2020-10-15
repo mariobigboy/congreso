@@ -55,10 +55,10 @@ class NoticiasController extends Controller
             $img_name = $time_img.'.'.$request->foto_url->getClientOriginalExtension();
             //guardo las imagenes:
             $img_principal = Image::make($request->foto_url);
-            $img_principal->save(public_path('images/noticias/').$img_name);
+            $img_principal->save('images/noticias/'.$img_name);
 
             $img_thumb = $img_principal->resize(600, 400);
-            $img_thumb->save(public_path('images/noticias/thumbs/').$img_name);
+            $img_thumb->save('images/noticias/thumbs/'.$img_name);
             $request_params['foto_url'] = $img_name;
         }
 
@@ -85,7 +85,7 @@ class NoticiasController extends Controller
         $messages = [
             'required.titulo' => 'Título requerido',
             'required.cuerpo' => 'Cuerpo de la noticia requerida',
-            'required.foto_url' => 'required|image|mimes:jpeg,png,jpg|max:4096',
+            'required.foto_url' => 'Se requiere una foto',
         ];
         $rules = [
             'titulo' => 'required',
@@ -109,10 +109,10 @@ class NoticiasController extends Controller
         //creando las imagenes:
         //guardo las imagenes:
         $img_principal = Image::make($request->foto_url);
-        $img_principal->save(public_path('images/noticias/').$img_name);
+        $img_principal->save('images/noticias/'.$img_name);
 
         $img_thumb = $img_principal->resize(600, 400);
-        $img_thumb->save(public_path('images/noticias/thumbs/').$img_name);
+        $img_thumb->save('images/noticias/thumbs/'.$img_name);
         
         $noticia = new Noticia();
         $noticia->fill($request->all());

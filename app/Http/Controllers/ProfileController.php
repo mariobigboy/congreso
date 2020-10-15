@@ -61,10 +61,10 @@ class ProfileController extends Controller
 
         $img_name = time().'.'.$request->foto_url->getClientOriginalExtension();
         $img_principal = Image::make($request->foto_url);
-        $img_principal->save(public_path('images/avatar/').$img_name);
+        $img_principal->save('images/avatar/'.$img_name);
 
         $img_principal->resize(50,50);
-        $img_principal->save(public_path('images/avatar/thumbs/').$img_name);
+        $img_principal->save('images/avatar/thumbs/'.$img_name);
 
         $persona = Persona::where('email', auth()->user()->email)->first();
         $persona->foto_url = $img_name;

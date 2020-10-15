@@ -15,7 +15,7 @@ class AsistentesController extends Controller
     	$asistentes = $model_role_admin->users;*/
 
     	$asistentes = Asistente::select('asistente.*','persona.*')->join('persona', 'asistente.persona_id', '=', 'persona.id')->get();
-
+        //dd($asistentes->first()->pagos);
     	return view('asistentes.index')->with('asistentes', $asistentes);
     }
 

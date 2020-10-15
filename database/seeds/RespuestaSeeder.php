@@ -12,7 +12,7 @@ class RespuestaSeeder extends Seeder
      */
     public function run()
     {
-    	//respuesta 1:
+    	/*//respuesta 1:
         $respuesta = new Respuesta();
         $respuesta->comentario = 'esta es la primer respuesta al comentario 1';
         $respuesta->comentario_id = 1;
@@ -26,6 +26,6 @@ class RespuestaSeeder extends Seeder
         $respuesta->comentario_id = 1;
         $respuesta->likes = 0;
         $respuesta->user_id = 3; //user 3 es user
-        $respuesta->save();
+        $respuesta->save();*/
     }
 }

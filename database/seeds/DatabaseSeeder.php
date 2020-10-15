@@ -32,5 +32,8 @@ class DatabaseSeeder extends Seeder
 
         //seeders para respuestas:
         //$this->call([RespuestaSeeder::class]);
+
+        //seeders para configuraciones:
+        $this->call([ConfiguracionesSeeder::class]);
     }
 }

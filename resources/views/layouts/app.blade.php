@@ -34,10 +34,23 @@
             .note-dropdown-menu > ul > li{
                 color: #000000 !important;
             }
+            .capitalize{
+                text-transform: capitalize;
+            }
+            .fondo_bsas{
+                background: url({{asset('')}}img/bg-img/1.jpg) no-repeat center center fixed; 
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+            }
+            .shadow-text{
+                text-shadow: 1px 1px 10px rgba(255,255,255,.9) !important;
+            }
         </style>
         {{-- <link rel="stylesheet" href="{{ asset('pickadate')}}/css/default.css"> --}}
     </head>
-    <body class="{{ $class ?? '' }}">
+    <body class="{{ $class ?? '' }} fondo_bsas">
         @auth()
             <div class="wrapper">
                     @include('layouts.navbars.sidebar')
@@ -245,13 +258,16 @@
                         labelYearSelect: 'Seleccione un Año',
                         format: 'dd/mm/yyyy',
                         formatSubmit:'dd/mm/yyyy',
-                        min: new Date(),
+                        min: new Date(2020,7,26),
+                        max: new Date(2020,7,29)
                     });
 
                     $('.timepicker').pickatime({
                         format: 'HH:i',
                         formatSubmit: 'HH:i',
-                        dateInterval: 30,
+                        dateInterval: 15,
+                        min: [7,0],
+                        max: [21,0]
                     });
 
                     //function URL

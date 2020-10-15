@@ -34,7 +34,7 @@
                         </div>
                     @endif
                     @if($disertantes->count()>0)
-                        <form action="{{route('cursos.update')}}" method="POST" >
+                        <form action="{{route('cursos.update')}}" method="POST" enctype="multipart/form-data">
                             @csrf
 
                             <!-- disertante -->
@@ -81,6 +81,21 @@
                                 <label class="form-control-label" for="input-lugar">{{ __('Lugar') }}</label>
                                 <input type="text" name="lugar" id="input-lugar" class="form-control form-control-alternative{{ $errors->has('nombre') ? ' is-invalid' : '' }}" placeholder="{{ __('Lugar') }}" value="{{ $curso->lugar }}" required >
                                 @include('alerts.feedback', ['field' => 'lugar'])
+                            </div>
+                            <!-- foto -->
+                            <div class="form-group">
+                                <label for="" class="form-control-label">{{__('Foto')}}</label>
+                                <div class="input-group mb-3">
+                                  <div class="custom-file">
+                                    <input type="file" class="custom-file-input form-control" id="input-foto_url" aria-describedby="inputGroupFileAddon01" name="foto_url" >
+                                    <label class="custom-file-label" for="input-foto_url">Elegir Foto</label>
+                                  </div>
+                                  
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 text-center">
+                                <img style="" id="preview_foto" width="50%" src="{{asset('')}}images/cursos/{{$curso->foto_url}}" alt="">
                             </div>
 
                             <div class="text-left">

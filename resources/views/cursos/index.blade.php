@@ -1,6 +1,7 @@
 @extends('layouts.app', ['pageSlug' => 'cursos'])
 
 @section('content')
+@if(Auth::user()->hasRole('admin') || Auth::user()->hasRole('superadmin'))
     <div class="row">
         <div class="col-md-12">
             <div class="card ">
@@ -57,7 +58,7 @@
                                         <tr {{-- onclick="location.href='{{ route('disertantes.edit', $disertante->id)}}';" --}}>
                                             <td>{{ $i }}</td>
                                             <td>{{ Str::title($curso->tema) }}</td>
-                                            <td>{{ $curso->disertante->persona->nombre }}</td>
+                                            <td class="capitalize">{{ $curso->disertante->persona->nombre }} {{ $curso->disertante->persona->apellido}}</td>
                                             <td>{{ $curso->fecha_curso }} {{ $curso->hora_curso }}</td>
                                             <td class="text-right">
                                                 <div class="dropdown">
@@ -69,7 +70,6 @@
                                                                 @csrf
                                                                 
 
-                
                                                                 <a class="dropdown-item" href="{{ route('cursos.edit', $curso->id)}}">{{ __('Editar') }}</a>
                                                                 <button type="button" class="dropdown-item" onclick="confirm('{{ __("¿Está seguro de eliminar este curso?") }}') ? this.parentElement.submit() : ''">
                                                                             {{ __('Eliminar') }}
@@ -96,4 +96,5 @@
             </div>
         </div>
     </div>
+@endif
 @endsection

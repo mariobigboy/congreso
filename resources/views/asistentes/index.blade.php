@@ -16,7 +16,7 @@
                 </div>
                 <div class="card-body">
                     <div class="">
-                        @if(count($asistentes ) > 0)
+                        @if(count($asistentes) > 0)
                         <table class="table tablesorter " id="">
                             <thead class=" text-primary">
                                 <th scope="col"> </th>
@@ -25,7 +25,7 @@
                                 <th scope="col">{{ __('Dni') }}</th>
                                 <th scope="col">{{ __('telefono') }}</th>
                                 <th scope="col">{{ __('Registrado') }}</th>
-                                <th scope="col">{{ __('Matricula') }}</th>
+                                {{-- <th scope="col">{{ __('Matricula') }}</th> --}}
                                 {{-- <th scope="col"></th> --}}
                             </thead>
                             <tbody>
@@ -39,14 +39,14 @@
                                         @endphp
                                         <tr>
                                             <td>{{ $i }}</td>
-                                            <td>{{ $asistente->nombre }} {{ $asistente->apellido }}</td>
+                                            <td class="capitalize">{{ $asistente->nombre }} {{ $asistente->apellido }}</td>
                                             <td>
                                                 <a href="mailto:{{ $asistente->email }}">{{ $asistente->email }}</a>
                                             </td>
                                             <td>{{ $asistente->dni }}</td>
                                             <td>{{ $asistente->telefono }}</td>
-                                            <td>{{ ($asistente->created_at) }}</td>
-                                            <td>{{ $asistente->matricula_id == NULL? 'No pagada' : 'Pagada' }}</td>
+                                            <td>{{ ($asistente->created_at->format('d M Y, H:i')) }}</td>
+                                            {{-- <td><a href="#">Pagos</a></td> --}}
                                             
                                         </tr>
                                     @endforeach

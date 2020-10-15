@@ -51,7 +51,8 @@
                         @if(count($disertantes ) > 0)
                         <table class="table tablesorter table-hover table-click" id="">
                             <thead class=" text-primary">
-                                <th scope="col"></th>
+                                <th scope="col">#</th>
+                                <th scope="col">Avatar</th>
                                 <th scope="col">{{ __('Name') }}</th>
                                 <th scope="col">{{ __('Email') }}</th>
                                 <th scope="col">{{ __('Creation Date') }}</th>
@@ -70,6 +71,9 @@
                                         @endphp
                                         <tr {{-- onclick="location.href='{{ route('disertantes.edit', $disertante->id)}}';" --}}>
                                             <td>{{ $i }}</td>
+                                            <td>
+                                                <img class="rounded-circle" src="{{asset('')}}images/avatar/thumbs/{{$disertante->foto_url}}" alt="">
+                                            </td>
                                             <td>{{ Str::title($disertante->nombre) }} {{ Str::title($disertante->apellido) }}</td>
                                             <td>
                                                 <a href="mailto:{{ $disertante->email }}">{{ $disertante->email }}</a>
@@ -86,7 +90,7 @@
                                                                 
 
                 
-                                                                <a class="dropdown-item" href="{{ route('disertantes.edit', $disertante->id)}}">{{ __('Editar') }}</a>
+                                                                <a class="dropdown-item" href="{{ route('disertantes.edit', $disertante->disertante_id)}}">{{ __('Editar') }}</a>
                                                                 <button type="button" class="dropdown-item" onclick="confirm('{{ __("¿Está seguro de eliminar este disertante?") }}') ? this.parentElement.submit() : ''">
                                                                             {{ __('Eliminar') }}
                                                                 </button>

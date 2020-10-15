@@ -39,7 +39,7 @@
 
                             <!-- disertante -->
                             <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
-                                <label class="form-control-label" for="input-nombre">{{ __('Nombre') }}</label>
+                                <label class="form-control-label" for="input-nombre">{{ __('Disertantes') }}</label>
                                 <select name="disertante_id" id="idPersona" class="form-control" required>
                                     <option value="">Seleccione Disertante</option>
                                     @foreach($disertantes as $disertante)
@@ -50,6 +50,7 @@
                                 
                                 @include('alerts.feedback', ['field' => 'disertante_id'])
                             </div>
+                            
                             <!-- tema -->
                             <div class="form-group{{ $errors->has('tema') ? ' has-danger' : '' }}">
                                 <label class="form-control-label" for="input-tema">{{ __('Tema') }}</label>
@@ -79,6 +80,22 @@
                                 <label class="form-control-label" for="input-lugar">{{ __('Lugar') }}</label>
                                 <input type="text" name="lugar" id="input-lugar" class="form-control form-control-alternative{{ $errors->has('nombre') ? ' is-invalid' : '' }}" placeholder="{{ __('Lugar') }}" value="{{ old('lugar') }}" required >
                                 @include('alerts.feedback', ['field' => 'lugar'])
+                            </div>
+
+                            <!-- foto -->
+                            <div class="form-group">
+                                <label for="" class="form-control-label">{{__('Foto')}}</label>
+                                <div class="input-group mb-3">
+                                  <div class="custom-file">
+                                    <input type="file" class="custom-file-input form-control" id="input-foto_url" aria-describedby="inputGroupFileAddon01" name="foto_url" required>
+                                    <label class="custom-file-label" for="input-foto_url">Elegir Foto</label>
+                                  </div>
+                                  
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 text-center">
+                                <img style="display:none;" id="preview_foto" width="50%" src="http://placekitten.com/g/300/600" alt="">
                             </div>
 
                             <div class="text-left">
